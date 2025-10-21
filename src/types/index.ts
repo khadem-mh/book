@@ -1,15 +1,23 @@
-export interface Book {
+export type Book = {
   id: string;
   title: string;
-  author: string;
-  description?: string;
-  category: string;
+  titleEn: string;
+  subTitle: string;
+  authors: {
+    name: string;
+    cover: string;
+  }[];
+  description: string;
+  category: {
+    name: string;
+    slug: string;
+  };
   rating: number;
-  publishedYear?: number;
-}
-
-export interface BookFilters {
-  category?: string;
-  search?: string;
-  minRating?: number;
-}
+  cover: string;
+  publishedYear: number;
+  level: "beginner" | "intermediate" | "advanced";
+  pages: number;
+  aiSummary: string;
+  topics: string[];
+  quote: string;
+};

@@ -9,17 +9,15 @@
   --foreground: #171717;
 }
 
-/* 
- screens: {
-        phone: '360px',
-        xs: '420px',
-        sm: '576px',
-        md: '768px',
-        lg: '992px',
-        xl: '1200px',
-        '2xl': '1400px'
-      }
-*/
+@theme {
+  --breakpoint-phone: 360px;
+  --breakpoint-xs: 420px;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1400px;
+}
 
 body {
   background-color: var(--background);
