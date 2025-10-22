@@ -1,13 +1,7 @@
 "use client"
 
-import { Vazirmatn } from "next/font/google";
 import { HeroUIProvider } from "@heroui/react";
 import "../styles/globals.css";
-
-const vazirmatn = Vazirmatn({
-  subsets: ["arabic", "latin"],
-  variable: "--font-vazirmatn",
-});
 
 export default function RootLayout({
   children,
@@ -16,7 +10,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${vazirmatn.variable} font-sans antialiased`}>
+      <body>
         <HeroUIProvider>
           {children}
         </HeroUIProvider>

@@ -1,12 +1,19 @@
+@import "./book.css";
 @import "tailwindcss";
 @plugin './hero.ts';
 /* Note: You may need to change the path to fit your project structure */
 @source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: Vazir;
+  src: url("../../public/fonts/Vazirmatn/static/Vazirmatn-Regular.ttf");
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-primary: Vazir
 }
 
 @theme {
@@ -19,7 +26,13 @@
   --breakpoint-2xl: 1400px;
 }
 
-body {
-  background-color: var(--background);
-  font-family: var(--font-vazirmatn), sans-serif;
+@layer base {
+  * {
+    @apply leading-7;
+    font-family: var(--font-primary) !important;
+  }
+
+  body {
+    @apply max-w-[1400px] mx-auto bg-[var(--background)] min-h-screen;
+  }
 }

@@ -9,8 +9,8 @@ export const sampleBooks: Book[] = [
     titleEn: "Fundamentals of Software Architecture",
     subTitle: "رویکردی مهندسی برای الگوها، ویژگی‌ها و بهترین‌روش‌ها",
     authors: [
-      { name: "مارک ریچاردز (Mark Richards)", cover: `${base}/MarkRichards.jpg` },
-      { name: "نیل فورد (Neal Ford)", cover: `${base}/NealFord.jpg` },
+      { name: "مارک ریچاردز", enName: "Mark Richards", cover: `${base}/MarkRichards.jpg` },
+      { name: "نیل فورد", enName: "Neal Ford", cover: `${base}/NealFord.jpg` },
     ],
     description:
       "کتاب «مبانی معماری نرم‌افزار» یکی از منابع اصلی در درک عمیق نقش معمار نرم‌افزار است. نویسندگان با تکیه بر تجربه‌های واقعی، به بررسی ساختارهای معماری، تصمیم‌گیری‌های طراحی، ویژگی‌های کیفی (Quality Attributes) و مهارت‌های غیر فنی مانند رهبری و ارتباط مؤثر می‌پردازند. این کتاب با مثال‌های واقعی و نمودارهای دقیق، دیدی جامع و مهندسی نسبت به معماری نرم‌افزار ارائه می‌دهد.",
