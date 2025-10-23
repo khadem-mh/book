@@ -9,6 +9,16 @@
   src: url("../../public/fonts/Vazirmatn/static/Vazirmatn-Regular.ttf");
 }
 
+@font-face {
+  font-family: Lalezar;
+  src: url("../../public/fonts/Lalezar/Lalezar-Regular.ttf");
+}
+
+@font-face {
+  font-family: Exo_2;
+  src: url("../../public/fonts/Exo_2/static/Exo2-Regular.ttf");
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -26,7 +36,7 @@
 }
 
 .animated-gradient {
-  background: linear-gradient(270deg, rgb(173, 232, 255), #fff, rgb(173, 232, 255));
+  background: linear-gradient(270deg, #D0E4FA, #fff, #D0E4FA);
   background-size: 600% 600%;
   animation: gradientFlow 12s ease infinite;
 }
@@ -45,10 +55,20 @@
   }
 }
 
+@keyframes shine {
+  0% {
+    background-position: 100%;
+  }
+
+  100% {
+    background-position: -100%;
+  }
+}
+
 @layer base {
   * {
     @apply leading-7;
-    font-family: var(--font-primary) !important;
+    font-family: var(--font-primary);
   }
 
   body {

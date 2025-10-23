@@ -56,8 +56,20 @@ export default function BookCard({ book }: BookCardProps) {
 
       <div className="flex flex-col flex-1 text-right bg-slate-50 rounded-2xl p-4">
         {/* عنوان و نویسنده */}
-        <h3 className="w-ful flex flex-col items-center gap-2">
-          <p className='text-xl font-bold'>کتاب {book.title}</p>
+        <h3 className="w-ful flex flex-col items-center gap-2 rounded-xl">
+          <p className='text-2xl font-[Lalezar] text-gray-600'>کتاب {book.title}</p>
+          <p
+            style={{
+              background: "linear-gradient(to right, gray 50%, black 50%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundSize: "200% 100%",
+              animation: "shine 8s linear infinite",
+              fontFamily: "Exo_2"
+            }}
+          >
+            {book.titleEn}
+          </p>
         </h3>
 
         {/* توضیحات کوتاه */}
@@ -66,7 +78,7 @@ export default function BookCard({ book }: BookCardProps) {
         )}
 
         <div className='flex items-center justify-between mt-4'>
-          <p className='text-slate-600 text-sm'>امتیاز</p>
+          <p className='text-slate-600 text-sm font-[Lalezar]'>امتیاز</p>
           <div className="w-fit flex items-center gap-1">
             {[...Array(5)].map((_, i) => (
               <FaStar className='text-yellow-500' />
@@ -76,7 +88,7 @@ export default function BookCard({ book }: BookCardProps) {
 
         {/* نویسنده‌ها */}
         <div className='flex items-center justify-between mt-4'>
-          <p className='text-slate-600 text-sm'>نویسندگان</p>
+          <p className='text-slate-600 text-sm font-[Lalezar]'>نویسندگان</p>
           <div className="flex items-center gap-4">
             {book.authors.map((author) => (
               <div key={author.name} className="flex items-center gap-1.5">
@@ -94,7 +106,8 @@ export default function BookCard({ book }: BookCardProps) {
         {/* دکمه مشاهده جزئیات */}
         <div className="mt-6 flex justify-end">
         </div>
-        <Button color='primary' fullWidth className='animated-gradient text-md' variant='flat' endContent={<HiArrowLeft />}>بزن بریم</Button>
+
+        <Button color='primary' fullWidth className='animated-gradient text-md border border-dashed border-[#D0E4FA]' variant='flat' endContent={<HiArrowLeft />}>بزن بریم</Button>
       </div>
     </div>
   );
