@@ -94,7 +94,7 @@ export default function BookCard({ book }: BookCardProps) {
         {/* دکمه مشاهده جزئیات */}
         <div className="mt-6 flex justify-end">
         </div>
-          <Button color='primary' fullWidth variant='flat' endContent={<HiArrowLeft />}>بزن بریم</Button>
+        <Button color='primary' fullWidth className='animated-gradient text-md' variant='flat' endContent={<HiArrowLeft />}>بزن بریم</Button>
       </div>
     </div>
   );
