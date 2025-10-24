@@ -1,0 +1,27 @@
+{
+  "title": "Preface",
+  "titleFa": "مقدمه",
+  "blocks": [
+    {
+      "id": "pref-1",
+      "title": "چشم‌انداز کلی",
+      "description": "خلاصهٔ مقدمه به زبان ساده...",
+      "examples": [
+        "مثال 1: تفاوت معماری و طراحی سطح پایین",
+        "مثال 2: یک اتفاق واقعی از پروژه"
+      ],
+      "conclusion": "نکتهٔ کلیدی: معماری تصمیم‌گیری‌ست در سطح کلان.",
+      "tags": ["preface", "overview"],
+      "reviewed": false
+    },
+    {
+      "id": "pref-2",
+      "title": "هدف کتاب",
+      "description": "هدف این کتاب آشنا کردن معمار با trade-off ها است...",
+      "examples": [],
+      "conclusion": "",
+      "tags": ["preface"],
+      "reviewed": false
+    }
+  ]
+}

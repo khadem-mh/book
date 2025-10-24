@@ -1,0 +1,21 @@
+{
+  "slug": "fundamentals-of-software-architecture",
+  "title": "Fundamentals of Software Architecture",
+  "titleFa": "مبانی معماری نرم‌افزار",
+  "subTitle": "رویکردی مهندسی برای الگوها، ویژگی‌ها و بهترین‌روش‌ها",
+  "authors": [
+    { "name": "مارک ریچاردز", "enName": "Mark Richards", "cover": "/images/book-Fundamentals_of_Software_Architecture/MarkRichards.jpg" },
+    { "name": "نیل فورد", "enName": "Neal Ford", "cover": "/images/book-Fundamentals_of_Software_Architecture/NealFord.jpg" }
+  ],
+  "cover": "/images/book-Fundamentals_of_Software_Architecture/software.jpg",
+  "pages": 432,
+  "language": "en",
+  "languageFa": "fa",
+  "publishedYear": 2020,
+  "publishedYearAi": 2025,
+  "level": "hard",
+  "tags": ["architecture", "software design", "patterns", "scalability", "quality attributes"],
+  "description": "این کتاب یکی از منابع کلیدی برای درک معماری نرم‌افزار است و با بررسی الگوها، تصمیمات طراحی و ویژگی‌های کیفی، دید مهندسی و کاربردی نسبت به معماری ارائه می‌دهد.",
+  "publishedPages": 3,
+  "createdAt": "2025-10-24T00:00:00.000Z"
+}
