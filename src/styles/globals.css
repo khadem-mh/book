@@ -36,7 +36,7 @@
 }
 
 .animated-gradient {
-  background: linear-gradient(270deg, #D0E4FA, #fff, #D0E4FA);
+  background: linear-gradient(270deg, #223, gray, #223);
   background-size: 600% 600%;
   animation: gradientFlow 12s ease infinite;
 }
@@ -70,7 +70,7 @@
     @apply leading-7;
     font-family: var(--font-primary);
   }
-  
+
   body {
     @apply max-w-[1400px] mx-auto min-h-screen;
   }

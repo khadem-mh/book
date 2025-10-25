@@ -1,27 +1,18 @@
 "use client"
 
-import { Book } from '@/types';
-import { Button, Divider } from '@heroui/react';
-import { FaStar } from 'react-icons/fa';
+import { Button } from '@heroui/react';
 import { HiArrowLeft } from 'react-icons/hi';
-import { LuBookOpenText, LuBrain, LuCalendarRange } from 'react-icons/lu';
-import { MdSignalCellularAlt } from 'react-icons/md';
+import { LuBrain } from 'react-icons/lu';
 import { TbBrandOpenai, TbFileTextAi } from 'react-icons/tb';
 
 interface BookCardProps {
-  book: Book;
+  book: any;
 }
 
 export default function BookCard({ book }: BookCardProps) {
 
-  const levelMap: Record<string, string> = {
-    beginner: "مبتدی",
-    intermediate: "متوسط",
-    advanced: "پیشرفته",
-  };
-
   return (
-    <div className="bg-white shadow-lg rounded-2xl p-4 flex flex-col gap-4 items-center">
+    <div className="bg-white shadow-[0_0_10px_#e5e5e5] rounded-2xl p-4 flex flex-col gap-4 items-center">
 
       <img src={book.cover} alt="cover" className='w-60 rounded-xl' />
 
@@ -77,12 +68,28 @@ export default function BookCard({ book }: BookCardProps) {
           <p className="text-sm text-gray-500 mt-1 line-clamp-3">{book.description}</p>
         )}
 
-        <div className='flex items-center justify-between mt-2'>
+       {/*  <div className='flex items-center justify-between mt-2'>
           <p className='text-slate-600 text-sm font-[Lalezar]'>امتیاز</p>
           <div className="w-fit flex items-center gap-1">
             {[...Array(5)].map((_, i) => (
               <FaStar className='text-yellow-500' />
             ))}
+          </div>
+        </div> */}
+
+        <div className='flex items-center justify-between mt-2'>
+          <p className='text-slate-600 text-sm font-[Lalezar]'>بازنویسی</p>
+          <div className="rounded-xl flex items-center gap-1">
+            <p
+              style={{
+                background: "linear-gradient(to right, gray 50%, black 50%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundSize: "200% 100%",
+                animation: "shine 8s linear infinite",
+                fontFamily: "Exo_2"
+              }}>Chatgpt</p>
+            <TbBrandOpenai size={22} className='animate-spin text-black/80' style={{ animationDuration: "5500ms" }} />
           </div>
         </div>
 
@@ -90,7 +97,7 @@ export default function BookCard({ book }: BookCardProps) {
         <div className='flex items-center justify-between mt-4'>
           <p className='text-slate-600 text-sm font-[Lalezar]'>نویسندگان</p>
           <div className="flex items-center gap-4">
-            {book.authors.map((author) => (
+            {book.authors.map((author: any) => (
               <div key={author.name} className="flex items-center gap-1.5">
                 <img
                   src={author.cover}
@@ -104,7 +111,7 @@ export default function BookCard({ book }: BookCardProps) {
         </div>
       </div>
 
-      <Button color='primary' fullWidth className='animated-gradient text-md border border-dashed border-[#D0E4FA]' variant='flat' endContent={<HiArrowLeft />}>بزن بریم</Button>
+      <Button color='warning' fullWidth className='text-md' variant='flat' endContent={<HiArrowLeft />}>بزن بریم</Button>
     </div>
   );
 }
