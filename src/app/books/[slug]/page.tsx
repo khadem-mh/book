@@ -275,7 +275,6 @@ export default function SpecificOfBook({ params }: Props) {
             </div>
 
             <TagsBlock tags={book.tags ?? []} />
-
         </div>
     );
 }
