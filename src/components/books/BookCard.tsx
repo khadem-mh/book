@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from '@heroui/react';
+import Link from 'next/link';
 import { HiArrowLeft } from 'react-icons/hi';
 import { LuBrain } from 'react-icons/lu';
 import { TbBrandOpenai, TbFileTextAi } from 'react-icons/tb';
@@ -111,7 +112,7 @@ export default function BookCard({ book }: BookCardProps) {
         </div>
       </div>
 
-      <Button color='warning' fullWidth className='text-md' variant='flat' endContent={<HiArrowLeft />}>بزن بریم</Button>
+      <Button as={Link} href={`/books/${book.slug}`} color='warning' fullWidth className='text-md' variant='flat' endContent={<HiArrowLeft />}>بزن بریم</Button>
     </div>
   );
 }
