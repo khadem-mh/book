@@ -216,7 +216,7 @@ export default function SpecificOfBook({ params }: Props) {
                         <div className="relative rounded-3xl overflow-hidden">
                             <div className="absolute inset-0 ai-gradient" style={{ zIndex: 0 }} />
 
-                            <div className="relative p-6 text-white z-20">
+                            <div className="relative p-4 text-white z-20">
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-4">
                                         <div className="bg-white/10 rounded-full p-3"><LuZap size={24} className="text-white" /></div>
