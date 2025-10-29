@@ -1,0 +1,32 @@
+{
+  "slug": "building-microservices_2nd-edition",
+  "title": "Building Microservices",
+  "titleFa": "ساخت میکروسرویس‌ها",
+  "subTitle": "ویرایش دوم",
+  "authors": [
+    {
+      "name": "سام نیومن",
+      "enName": "Sam Newman",
+      "cover": "/images/books/building-microservices_2nd-edition/author/sam-newman.jpg",
+      "image": "./author/sam-newman.jpg"
+    }
+  ],
+  "cover": "/images/books/building-microservices_2nd-edition/cover/building-microservices_2nd-edition.jpg",
+  "pages": 480,
+  "language": "en",
+  "languageFa": "fa",
+  "publishedYear": 2021,
+  "publishedYearAi": 2025,
+  "chapters": 14,
+  "level": "medium",
+  "tags": [
+    "microservices",
+    "distributed systems",
+    "software architecture",
+    "devops",
+    "cloud"
+  ],
+  "description": "این کتاب راهنمای جامعی برای طراحی، پیاده‌سازی و مدیریت معماری میکروسرویس است و به توسعه‌دهندگان کمک می‌کند تا سیستم‌های توزیع‌شده مقیاس‌پذیر و قابل نگهداری بسازند.",
+  "publishedPages": 0,
+  "createdAt": "2025-10-24T00:00:00.000Z"
+}

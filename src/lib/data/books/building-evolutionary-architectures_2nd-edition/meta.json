@@ -1,0 +1,38 @@
+{
+  "slug": "building-evolutionary-architectures_2nd-edition",
+  "title": "Building Evolutionary Architectures",
+  "titleFa": "ساخت معماری‌های تکاملی",
+  "subTitle": "ویرایش دوم",
+  "authors": [
+    {
+      "name": "نیل فورد",
+      "enName": "Neal Ford",
+      "cover": "/images/books/building-evolutionary-architectures_2nd-edition/author/neal-ford.jpg",
+      "image": "./author/neal-ford.jpg"
+    },
+    {
+      "name": "ربکا پارسونز",
+      "enName": "Rebecca Parsons",
+      "cover": "/images/books/building-evolutionary-architectures_2nd-edition/author/rebecca-parsons.jpg",
+      "image": "./author/rebecca-parsons.jpg"
+    }
+  ],
+  "cover": "/images/books/building-evolutionary-architectures_2nd-edition/cover/building-evolutionary-architectures_2nd-edition.jpg",
+  "pages": 325,
+  "language": "en",
+  "languageFa": "fa",
+  "publishedYear": 2022,
+  "publishedYearAi": 2025,
+  "chapters": 10,
+  "level": "medium",
+  "tags": [
+    "software architecture",
+    "evolutionary design",
+    "agile",
+    "continuous delivery",
+    "technical debt"
+  ],
+  "description": "این کتاب روش‌های ایجاد معماری‌های نرم‌افزاری که قابلیت تکامل و تغییر در طول زمان را دارند معرفی می‌کند و به مهندسان کمک می‌کند تا سیستم‌هایی با قابلیت انطباق بالا طراحی کنند.",
+  "publishedPages": 0,
+  "createdAt": "2025-10-24T00:00:00.000Z"
+}

@@ -1,0 +1,32 @@
+{
+  "slug": "monolith-to-microservices",
+  "title": "Monolith to Microservices",
+  "titleFa": "از مونولیت به میکروسرویس",
+  "subTitle": "راهنمای تکامل معماری",
+  "authors": [
+    {
+      "name": "سام نیومن",
+      "enName": "Sam Newman",
+      "cover": "/images/books/monolith-to-microservices/author/sam-newman.jpg",
+      "image": "./author/sam-newman.jpg"
+    }
+  ],
+  "cover": "/images/books/monolith-to-microservices/cover/monolith-to-microservices.jpg",
+  "pages": 272,
+  "language": "en",
+  "languageFa": "fa",
+  "publishedYear": 2019,
+  "publishedYearAi": 2025,
+  "chapters": 9,
+  "level": "medium",
+  "tags": [
+    "microservices",
+    "monolith",
+    "refactoring",
+    "architecture",
+    "migration"
+  ],
+  "description": "این کتاب راهنمای عملی برای تبدیل سیستم‌های مونولیتیک به میکروسرویس است و استراتژی‌های مختلف برای این مهاجرت را با تمرکز بر کاهش ریسک و افزایش موفقیت ارائه می‌دهد.",
+  "publishedPages": 0,
+  "createdAt": "2025-10-24T00:00:00.000Z"
+}

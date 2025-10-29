@@ -1,0 +1,32 @@
+{
+  "slug": "practical-lakehouse-architecture",
+  "title": "Practical Lakehouse Architecture",
+  "titleFa": "معماری لیک‌هاوس عملی",
+  "subTitle": "ترکیب دیتا لیک و دیتا وِیرهاوس برای تحلیل داده",
+  "authors": [
+    {
+      "name": "جو هلرستاین",
+      "enName": "Joe Hellerstein",
+      "cover": "/images/books/practical-lakehouse-architecture/author/joe-hellerstein.jpg",
+      "image": "./author/joe-hellerstein.jpg"
+    }
+  ],
+  "cover": "/images/books/practical-lakehouse-architecture/cover/practical-lakehouse-architecture.jpg",
+  "pages": 320,
+  "language": "en",
+  "languageFa": "fa",
+  "publishedYear": 2023,
+  "publishedYearAi": 2025,
+  "chapters": 10,
+  "level": "hard",
+  "tags": [
+    "data architecture",
+    "lakehouse",
+    "data lake",
+    "data warehouse",
+    "big data"
+  ],
+  "description": "این کتاب به معرفی معماری لیک‌هاوس و روش‌های پیاده‌سازی آن می‌پردازد و نشان می‌دهد چگونه می‌توان مزایای دیتا لیک و دیتا وِیرهاوس را در یک معماری واحد ترکیب کرد.",
+  "publishedPages": 0,
+  "createdAt": "2025-10-24T00:00:00.000Z"
+}

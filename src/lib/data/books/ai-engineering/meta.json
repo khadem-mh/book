@@ -1,0 +1,38 @@
+{
+  "slug": "ai-engineering",
+  "title": "AI Engineering",
+  "titleFa": "مهندسی هوش مصنوعی",
+  "subTitle": "اصول و روش‌های توسعه سیستم‌های هوشمند",
+  "authors": [
+    {
+      "name": "آدام گیبسون",
+      "enName": "Adam Gibson",
+      "cover": "/images/books/ai-engineering/author/adam-gibson.jpg",
+      "image": "./author/adam-gibson.jpg"
+    },
+    {
+      "name": "جاش پترسون",
+      "enName": "Josh Patterson",
+      "cover": "/images/books/ai-engineering/author/josh-patterson.jpg",
+      "image": "./author/josh-patterson.jpg"
+    }
+  ],
+  "cover": "/images/books/ai-engineering/cover/ai-engineering.jpg",
+  "pages": 450,
+  "language": "en",
+  "languageFa": "fa",
+  "publishedYear": 2023,
+  "publishedYearAi": 2025,
+  "chapters": 15,
+  "level": "hard",
+  "tags": [
+    "artificial intelligence",
+    "machine learning",
+    "deep learning",
+    "software engineering",
+    "MLOps"
+  ],
+  "description": "این کتاب به بررسی اصول مهندسی هوش مصنوعی و روش‌های عملی برای طراحی، توسعه و استقرار سیستم‌های هوشمند در مقیاس بزرگ می‌پردازد.",
+  "publishedPages": 0,
+  "createdAt": "2025-10-24T00:00:00.000Z"
+}

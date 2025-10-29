@@ -101,7 +101,7 @@ export default function BookCard({ book }: BookCardProps) {
             {book.authors.map((author: any) => (
               <div key={author.name} className="flex items-center gap-1.5">
                 <img
-                  src={author.cover}
+                  src={author.image}
                   alt={author.name}
                   className="w-6.5 h-6.5 rounded-lg object-cover border border-gray-200"
                 />

@@ -1,0 +1,32 @@
+{
+  "slug": "building-applications-with-ai-agents",
+  "title": "Building Applications with AI Agents",
+  "titleFa": "ساخت برنامه‌ها با عامل‌های هوش مصنوعی",
+  "subTitle": "طراحی و پیاده‌سازی سیستم‌های چندعاملی هوشمند",
+  "authors": [
+    {
+      "name": "مایکل وولریج",
+      "enName": "Michael Wooldridge",
+      "cover": "/images/books/building-applications-with-ai-agents/author/michael-wooldridge.jpg",
+      "image": "./author/michael-wooldridge.jpg"
+    }
+  ],
+  "cover": "/images/books/building-applications-with-ai-agents/cover/building-applications-with-ai-agents.jpg",
+  "pages": 380,
+  "language": "en",
+  "languageFa": "fa",
+  "publishedYear": 2023,
+  "publishedYearAi": 2025,
+  "chapters": 14,
+  "level": "medium",
+  "tags": [
+    "artificial intelligence",
+    "agents",
+    "multi-agent systems",
+    "software development",
+    "LLM"
+  ],
+  "description": "این کتاب روش‌های طراحی و پیاده‌سازی برنامه‌های کاربردی با استفاده از عامل‌های هوش مصنوعی را آموزش می‌دهد و به توسعه‌دهندگان کمک می‌کند تا سیستم‌های چندعاملی هوشمند بسازند.",
+  "publishedPages": 0,
+  "createdAt": "2025-10-24T00:00:00.000Z"
+}
