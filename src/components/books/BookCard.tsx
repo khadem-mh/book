@@ -97,7 +97,7 @@ export default function BookCard({ book }: BookCardProps) {
         </div>
       </div>
 
-      <Button as={Link} href={`/books/${book.slug}`} color='default' fullWidth className='text-md' variant='bordered' startContent={<FiArrowUpRight className='text-xl animate-bounce' />}>
+      <Button as={Link} href={`/books/${book.slug}`} fullWidth className='border-slate-300 text-md rounded-xl hover:animate-appearance-in' variant='bordered' startContent={<FiArrowUpRight className='text-xl animate-bounce' />}>
         <p className='text-center animated-text'>
           {book.title}
         </p>
