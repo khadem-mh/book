@@ -7,14 +7,12 @@
     {
       "name": "جو هلرستاین",
       "enName": "Joe Hellerstein",
-      "cover": "/images/books/practical-lakehouse-architecture/author/joe-hellerstein.jpg",
-      "image": "./author/joe-hellerstein.jpg"
+      "cover": "images/books/authors/Gaurav-Ashok-ThalpatiGaur.jpg"
     }
   ],
-  "cover": "/images/books/practical-lakehouse-architecture/cover/practical-lakehouse-architecture.jpg",
+  "cover": "images/books/covers/practical-lakehouse-architecture.jpg",
   "pages": 320,
   "language": "en",
-  "languageFa": "fa",
   "publishedYear": 2023,
   "publishedYearAi": 2025,
   "chapters": 10,
