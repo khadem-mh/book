@@ -35,26 +35,6 @@
   --breakpoint-2xl: 1400px;
 }
 
-.animated-gradient {
-  background: linear-gradient(270deg, #223, gray, #223);
-  background-size: 600% 600%;
-  animation: gradientFlow 12s ease infinite;
-}
-
-@keyframes gradientFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 @keyframes shine {
   0% {
     background-position: 100%;

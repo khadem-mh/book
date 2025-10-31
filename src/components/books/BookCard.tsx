@@ -2,7 +2,7 @@
 
 import { Button } from '@heroui/react';
 import Link from 'next/link';
-import { HiArrowLeft } from 'react-icons/hi';
+import { FiArrowUpRight } from 'react-icons/fi';
 import { LuBrain } from 'react-icons/lu';
 import { TbBrandOpenai, TbFileTextAi } from 'react-icons/tb';
 
@@ -47,21 +47,6 @@ export default function BookCard({ book }: BookCardProps) {
         {/* عنوان و نویسنده */}
         <h3 className="w-ful flex flex-col items-center gap-2 rounded-xl">
           <p className='text-2xl font-[Lalezar] text-gray-600'>کتاب {book.titleFa}</p>
-          <p
-            style={{
-              background: "linear-gradient(to right, gray 50%, black 50%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundSize: "200% 100%",
-              animation: "shine 8s linear infinite",
-              fontFamily: "Exo_2"
-            }}
-            className='text-center'
-          >
-            {book.title}
-            <br />
-            <span>With Ai</span>
-          </p>
         </h3>
 
         {/* توضیحات کوتاه */}
@@ -69,7 +54,7 @@ export default function BookCard({ book }: BookCardProps) {
           <p className="text-sm text-gray-500 mt-1 line-clamp-3">{book.description}</p>
         )}
 
-       {/*  <div className='flex items-center justify-between mt-2'>
+        {/*  <div className='flex items-center justify-between mt-2'>
           <p className='text-slate-600 text-sm font-[Lalezar]'>امتیاز</p>
           <div className="w-fit flex items-center gap-1">
             {[...Array(5)].map((_, i) => (
@@ -112,7 +97,21 @@ export default function BookCard({ book }: BookCardProps) {
         </div>
       </div>
 
-      <Button as={Link} href={`/books/${book.slug}`} color='warning' fullWidth className='text-md' variant='flat' endContent={<HiArrowLeft />}>بزن بریم</Button>
+      <Button as={Link} href={`/books/${book.slug}`} color='primary' fullWidth className='text-md' variant='flat' startContent={<FiArrowUpRight className='text-xl'/>}>
+        <p
+          style={{
+            background: "linear-gradient(to right, gray 50%, black 50%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundSize: "200% 100%",
+            animation: "shine 8s linear infinite",
+            fontFamily: "Exo_2"
+          }}
+          className='text-center'
+        >
+          {book.title}
+        </p>
+      </Button>
     </div>
   );
 }
