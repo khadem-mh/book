@@ -35,6 +35,15 @@
   --breakpoint-2xl: 1400px;
 }
 
+.animated-text {
+  background: linear-gradient(to right, #222831 50%, #0069a8 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  animation: shine 8s linear infinite;
+  font-family: Exo_2
+}
+
 @keyframes shine {
   0% {
     background-position: 100%;
