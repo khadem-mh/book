@@ -7,11 +7,10 @@
     {
       "name": "لوکا مزالیرا",
       "enName": "Luca Mezzalira",
-      "cover": "/images/books/building-micro-frontends_2nd-edition/author/luca-mezzalira.jpg",
-      "image": "./author/luca-mezzalira.jpg"
+      "cover": "images/books/authors/luca-mezzalira.jpg"
     }
   ],
-  "cover": "/images/books/building-micro-frontends_2nd-edition/cover/building-micro-frontends_2nd-edition.jpg",
+  "cover": "images/books/covers/building-micro-frontends_2nd-edition.jpg",
   "pages": 320,
   "language": "en",
   "languageFa": "fa",
