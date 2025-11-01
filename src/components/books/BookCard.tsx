@@ -2,9 +2,11 @@
 
 import { Button } from '@heroui/react';
 import Link from 'next/link';
+import { FaStar } from 'react-icons/fa';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { LuBrain } from 'react-icons/lu';
 import { TbBrandOpenai, TbFileTextAi } from 'react-icons/tb';
+import RatingStars from './RatingStars';
 
 interface BookCardProps {
   book: any;
@@ -54,30 +56,7 @@ export default function BookCard({ book }: BookCardProps) {
           <p className="text-sm text-gray-500 mt-1 line-clamp-3">{book.description}</p>
         )}
 
-        {/*  <div className='flex items-center justify-between mt-2'>
-          <p className='text-slate-600 text-sm font-[Lalezar]'>امتیاز</p>
-          <div className="w-fit flex items-center gap-1">
-            {[...Array(5)].map((_, i) => (
-              <FaStar className='text-yellow-500' />
-            ))}
-          </div>
-        </div> */}
-
-        <div className='flex items-center justify-between mt-2'>
-          <p className='text-slate-600 text-sm font-[Lalezar]'>بازنویسی</p>
-          <div className="rounded-xl flex items-center gap-1">
-            <p
-              style={{
-                background: "linear-gradient(to right, gray 50%, black 50%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundSize: "200% 100%",
-                animation: "shine 8s linear infinite",
-                fontFamily: "Exo_2"
-              }}>Chatgpt</p>
-            <TbBrandOpenai size={22} className='animate-spin text-black/80' style={{ animationDuration: "5500ms" }} />
-          </div>
-        </div>
+        <RatingStars rating={book.rating ?? 0} />
 
         {/* نویسنده‌ها */}
         <div className='flex items-center justify-between mt-4'>
@@ -97,11 +76,13 @@ export default function BookCard({ book }: BookCardProps) {
         </div>
       </div>
 
-      <Button as={Link} href={`/books/${book.slug}`} fullWidth className='border-slate-300 text-md rounded-xl hover:animate-appearance-in' variant='bordered' startContent={<FiArrowUpRight className='text-xl animate-bounce' />}>
-        <p className='text-center animated-text'>
-          {book.title}
-        </p>
-      </Button>
+      <div className='w-full px-6'>
+        <Button as={Link} href={`/books/${book.slug}`} fullWidth className='border-slate-300 text-md rounded-xl hover:animate-appearance-in' variant='bordered' startContent={<FiArrowUpRight className='text-xl animate-bounce' />}>
+          <p className='text-center animated-text'>
+            {book.title}
+          </p>
+        </Button>
+      </div>
     </div>
   );
 }
