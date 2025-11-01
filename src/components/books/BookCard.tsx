@@ -2,11 +2,9 @@
 
 import { Button } from '@heroui/react';
 import Link from 'next/link';
-import { FaStar } from 'react-icons/fa';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { LuBrain } from 'react-icons/lu';
 import { TbBrandOpenai, TbFileTextAi } from 'react-icons/tb';
-import RatingStars from './RatingStars';
 
 interface BookCardProps {
   book: any;
@@ -18,9 +16,9 @@ export default function BookCard({ book }: BookCardProps) {
     <Link href={`/books/${book.slug}`}>
       <div className="bg-white shadow-[0_0_10px_#e5e5e5] hover:shadow-none border border-slate-200 transition-shadow duration-500 hover:animate-appearance-in rounded-2xl p-4 flex flex-col gap-4 items-center">
         <div className='w-full flex items-center justify-center'>
-          <img src={book.cover} alt="cover" className='w-60 rounded-2xl border border-slate-200' />
+          <img src={book.cover} alt="cover" className='w-60 floating-image rounded-2xl border border-slate-200' />
 
-          <div className="flex flex-col gap-4 border border-r-0 border-slate-200 rounded-l-2xl rounded-r-0 py-4 text-sm">
+          <div className="flex floating-box flex-col gap-4 border border-r-0 border-slate-200 rounded-l-2xl rounded-r-0 py-4 text-sm">
             {/** سال انتشار */}
             <div className="flex-1 min-w-28 w-fit h-fit flex flex-col items-center">
               <div className="bg-sky-500/6 border border-slate-200 rounded-xl p-2 flex items-center text-gray-500">
@@ -47,8 +45,8 @@ export default function BookCard({ book }: BookCardProps) {
           </div>
         </div>
 
-        <div className="flex flex-col flex-1 text-right bg-slate-50 rounded-2xl p-4">
-          <p className='text-2xl w-full text-center font-[Lalezar] text-gray-600 mb-2'>{book.titleFa}</p>
+        <div className="flex floating-box-left flex-col flex-1 text-right bg-slate-100 rounded-2xl p-4">
+          <p className='text-2xl w-full text-center font-[Lalezar] text-gray-700 mb-2'>{book.titleFa}</p>
           <p className="text-sm text-gray-500 mt-1 line-clamp-3">{book.description}</p>
 
           {/* <RatingStars rating={book.rating ?? 0} /> */}
@@ -72,7 +70,7 @@ export default function BookCard({ book }: BookCardProps) {
         </div>
 
         <div className='w-full px-6'>
-          <Button as={Link} href={`/books/${book.slug}`} fullWidth className='border-slate-100 text-md rounded-xl' variant='bordered' startContent={<FiArrowUpRight className='text-xl animate-bounce' />}>
+          <Button fullWidth className='border-slate-100 text-md rounded-xl' variant='bordered' startContent={<FiArrowUpRight className='text-xl animate-bounce' />}>
             <p className='text-center animated-text'>
               {book.title}
             </p>

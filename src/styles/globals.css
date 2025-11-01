@@ -64,3 +64,37 @@
     @apply max-w-[1400px] mx-auto min-h-screen;
   }
 }
+
+@layer utilities {
+  /* BOOK FLOAT */
+  @keyframes floatImg {
+    0%   { transform: translateY(0) scale(1); }
+    50%  { transform: translateY(8px) scale(0.97); }
+    100% { transform: translateY(0) scale(1); }
+  }
+
+  .floating-image {
+    animation: floatImg 4s ease-in-out infinite;
+  }
+
+  /* SIDE FLOAT */
+  @keyframes floatBox {
+    0%   { transform: translateX(0); }
+    50%  { transform: translateX(6px); }
+    100% { transform: translateX(0); }
+  }
+
+  .floating-box {
+    animation: floatBox 4s ease-in-out infinite;
+  }
+
+    @keyframes floatBoxLeft {
+    0%   { transform: translateX(0); }
+    50%  { transform: translateX(-6px); }
+    100% { transform: translateX(0); }
+  }
+
+  .floating-box-left {
+    animation: floatBoxLeft 4s ease-in-out infinite;
+  }
+}
