@@ -18,6 +18,11 @@
   "publishedYearAi": 2025,
   "chapters": 11,
   "level": "medium",
+  "categories": [
+    "software-architecture",
+    "frontend",
+    "web-development"
+  ],
   "tags": [
     "frontend",
     "micro frontends",

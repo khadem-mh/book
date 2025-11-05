@@ -1,0 +1,15 @@
+[
+  { "id": 1,  "slug": "software-engineering",   "name": "Software Engineering", "nameFa": "مهندسی نرم‌افزار" },
+  { "id": 2,  "slug": "software-architecture",  "name": "Software Architecture", "nameFa": "معماری نرم‌افزار" },
+  { "id": 3,  "slug": "web-development",        "name": "Web Development", "nameFa": "توسعه وب" },
+  { "id": 4,  "slug": "frontend",               "name": "Frontend", "nameFa": "فرانت‌اند" },
+  { "id": 5,  "slug": "backend",                "name": "Backend", "nameFa": "بک‌اند" },
+  { "id": 6,  "slug": "devops",                 "name": "DevOps", "nameFa": "دِواپس" },
+  { "id": 7,  "slug": "cloud-computing",        "name": "Cloud Computing", "nameFa": "رایانش ابری" },
+  { "id": 8,  "slug": "ai-ml",                  "name": "AI / Machine Learning", "nameFa": "هوش مصنوعی / یادگیری ماشین" },
+  { "id": 9,  "slug": "data-science",           "name": "Data Science", "nameFa": "علم داده" },
+  { "id": 10, "slug": "security",               "name": "Security", "nameFa": "امنیت" },
+  { "id": 11, "slug": "algorithms",             "name": "Algorithms", "nameFa": "الگوریتم‌ها" },
+  { "id": 12, "slug": "testing",                "name": "Testing", "nameFa": "تست" },
+  { "id": 13, "slug": "architecture-patterns",  "name": "Architecture Patterns", "nameFa": "الگوهای معماری" }
+]

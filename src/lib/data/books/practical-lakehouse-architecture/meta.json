@@ -17,6 +17,11 @@
   "publishedYearAi": 2025,
   "chapters": 10,
   "level": "hard",
+  "categories": [
+    "data-science",
+    "cloud-computing",
+    "software-architecture"
+  ],
   "tags": [
     "data architecture",
     "lakehouse",

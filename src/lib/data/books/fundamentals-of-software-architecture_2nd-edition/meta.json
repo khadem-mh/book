@@ -23,6 +23,11 @@
   "publishedYearAi": 2025,
   "chapters": 14,
   "level": "hard",
+  "categories": [
+    "software-architecture",
+    "software-engineering",
+    "architecture-patterns"
+  ],
   "tags": [
     "architecture",
     "software design",

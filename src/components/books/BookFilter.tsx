@@ -158,7 +158,7 @@ const BookFilter: React.FC<Props> = ({ books, onChange }) => {
                         <input
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
-                            placeholder="عنوان، نویسنده یا تگ..."
+                            placeholder="عنوان یا نویسنده..."
                             className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300"
                         />
                     </label>
