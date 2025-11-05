@@ -4,6 +4,8 @@ import { books } from "@/lib/books";
 import BookCard from "@/components/books/BookCard";
 import BookFilter from "@/components/books/BookFilter";
 import { useSearchParams } from "next/navigation";
+import { useMemo } from "react";
+import BookSort from "@/components/books/BookSort";
 
 const Books = () => {
   const searchParams = useSearchParams();
@@ -14,6 +16,7 @@ const Books = () => {
   const author = searchParams.get("author") ?? "";
   const minYear = searchParams.get("minYear") ?? "";
   const maxYear = searchParams.get("maxYear") ?? "";
+  const sort = searchParams.get("sort") ?? ""; // ex: "publishedYear:desc"
 
   const filteredBooks = books.filter((book) => {
     const matchesQuery =
@@ -37,7 +40,7 @@ const Books = () => {
 
     const matchesMinYear = !minYear || book.publishedYear >= Number(minYear);
     const matchesMaxYear = !maxYear || book.publishedYear <= Number(maxYear);
-    
+
     return (
       matchesQuery &&
       matchesLang &&
@@ -48,12 +51,47 @@ const Books = () => {
     );
   });
 
+  // apply sorting based on sort param
+  const sortedBooks = useMemo(() => {
+    if (!sort) return filteredBooks;
+
+    const [field, dir] = sort.split(":");
+    const direction = dir === "asc" ? 1 : -1;
+
+    const copy = [...filteredBooks];
+
+    copy.sort((a, b) => {
+      const av: any = (a as any)[field];
+      const bv: any = (b as any)[field];
+
+      // handle empty/undefined
+      if (av === undefined && bv === undefined) return 0;
+      if (av === undefined) return -1 * direction;
+      if (bv === undefined) return 1 * direction;
+
+      // number compare
+      if (typeof av === "number" || typeof bv === "number") {
+        return (Number(av) - Number(bv)) * direction;
+      }
+
+      // fallback to string compare
+      return String(av).localeCompare(String(bv)) * direction;
+    });
+
+    return copy;
+  }, [filteredBooks, sort]);
+
   return (
     <div className="px-6">
-      <BookFilter books={books} />
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <BookFilter books={books} />
+        <div className="md:ml-4">
+          <BookSort />
+        </div>
+      </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-6 py-10">
-        {filteredBooks.map((book, index) => (
+        {sortedBooks.map((book, index) => (
           <BookCard key={index} book={book} />
         ))}
       </div>
