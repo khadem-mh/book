@@ -12,7 +12,9 @@ export default function RootLayout({
     <html lang="fa" dir="rtl">
       <body>
         <HeroUIProvider>
-          {children}
+          <div className="mt-44">
+            {children}
+          </div>
         </HeroUIProvider>
       </body>
     </html>

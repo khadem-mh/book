@@ -83,18 +83,16 @@ const Books = () => {
   }, [filteredBooks, sort]);
 
   return (
-    <div className="px-6">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <BookFilter books={books} />
-        <div className="md:ml-4">
-          <BookSort />
+    <div className="px-6 flex gap-6">
+      <BookFilter books={books} />
+      
+      <div>
+        <BookSort />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-6 py-10">
+          {sortedBooks.map((book, index) => (
+            <BookCard key={index} book={book} />
+          ))}
         </div>
-      </div>
-
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-6 py-10">
-        {sortedBooks.map((book, index) => (
-          <BookCard key={index} book={book} />
-        ))}
       </div>
     </div>
   );
