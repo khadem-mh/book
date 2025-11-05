@@ -33,7 +33,7 @@ export default function BookCard({ book }: BookCardProps) {
               <div className="bg-black/5 border border-slate-200 rounded-xl p-2 flex items-center text-gray-500">
                 <TbBrandOpenai size={22} className='animate-spin text-black/80' style={{ animationDuration: "5500ms" }} />
               </div>
-              <span className="mt-1 font-medium text-gray-700">{book.publishedPages} صفحه</span>
+              <span className="mt-1 font-medium text-gray-700">{book.publishedPages === 0 ? "درحال تولید" : book.publishedPages + " صفحه"}</span> 
             </div>
 
             {/** سطح */}
@@ -70,8 +70,8 @@ export default function BookCard({ book }: BookCardProps) {
           </div>
         </div>
 
-        <div className='w-full xl:px-6'>
-          <Button fullWidth className='border-slate-100 text-md rounded-xl' variant='bordered' startContent={<FiArrowUpRight className='text-xl animate-bounce' />}>
+        <div className='w-full'>
+          <Button fullWidth className='border-slate-100 min-h-[41px] h-full text-md rounded-xl' variant='bordered' startContent={<FiArrowUpRight className='text-xl animate-bounce' />}>
             <p className='text-center animated-text truncate'>
               {book.title}
             </p>
