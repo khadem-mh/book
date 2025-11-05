@@ -10,13 +10,14 @@ import BookSort from "@/components/books/BookSort";
 const Books = () => {
   const searchParams = useSearchParams();
 
+  const categories = searchParams.get("categories") ? searchParams.get("categories")!.split(",") : [];
   const q = searchParams.get("q")?.toLowerCase() ?? "";
-  const language = searchParams.get("language") ?? "";
   const level = searchParams.get("level") ?? "";
   const author = searchParams.get("author") ?? "";
   const minYear = searchParams.get("minYear") ?? "";
   const maxYear = searchParams.get("maxYear") ?? "";
   const sort = searchParams.get("sort") ?? ""; // ex: "publishedYear:desc"
+
 
   const filteredBooks = books.filter((book) => {
     const matchesQuery =
@@ -28,7 +29,7 @@ const Books = () => {
         a.enName.toLowerCase().includes(q)
       );
 
-    const matchesLang = !language || book.language === language;
+    const matchesCategory = categories.length === 0 || (book.categories || []).some(c => categories.includes(c));
     const matchesLevel = !level || book.level === level;
     const matchesAuthor =
       !author ||
@@ -43,11 +44,11 @@ const Books = () => {
 
     return (
       matchesQuery &&
-      matchesLang &&
       matchesLevel &&
       matchesAuthor &&
       matchesMinYear &&
-      matchesMaxYear
+      matchesMaxYear &&
+      matchesCategory
     );
   });
 
