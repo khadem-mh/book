@@ -3,6 +3,7 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { TbArrowsSort } from "react-icons/tb";
 
 type SortOption = {
   label: string;
@@ -18,38 +19,40 @@ const OPTIONS: SortOption[] = [
   { label: "کمترین صفحات", field: "pages", dir: "asc" },
 ];
 
+// پیش‌فرض همیشه گزینه اول
+const DEFAULT = `${OPTIONS[0].field}:${OPTIONS[0].dir}`;
+
 export default function BookSort() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  // read initial sort from URL
-  const initialSort = useMemo(() => searchParams?.get("sort") ?? "", [searchParams?.toString()]);
-  const [value, setValue] = useState<string>(initialSort);
+  const initial = useMemo(() => searchParams?.get("sort") ?? DEFAULT, [searchParams?.toString()]);
+  const [value, setValue] = useState(initial);
 
-  // keep local state in sync if URL changes from outside
   useEffect(() => {
-    const s = searchParams?.get("sort") ?? "";
+    const s = searchParams?.get("sort") ?? DEFAULT;
     if (s !== value) setValue(s);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams?.toString()]);
 
   function applySort(v: string) {
-    // toggle behavior: if same value clicked again -> clear
-    const next = v === value ? "" : v;
-    setValue(next);
+    if (v === value) return;  // تکرار = نادیده
+    setValue(v);
 
     const params = new URLSearchParams(searchParams?.toString() ?? "");
-    if (!next) params.delete("sort");
-    else params.set("sort", next);
+    params.set("sort", v);
 
-    const newUrl = pathname + (params.toString() ? `?${params.toString()}` : "");
+    const newUrl = pathname + `?${params.toString()}`;
     router.replace(newUrl);
   }
 
   return (
-    <div className="flex items-center gap-3">
-      <span className="text-xs text-gray-500">مرتب‌سازی</span>
+    <div className="bg-white border rounded-xl border-slate-200 shadow-md px-4 flex items-center gap-3">
+     <div className="text-gray-600 flex items-center gap-2">
+       <TbArrowsSort className="text-xl"/>
+       <span className="text-sm">مرتب‌سازی بر اساس :</span>
+     </div>
 
       <div className="flex gap-2 overflow-auto">
         {OPTIONS.map((o) => {
@@ -61,23 +64,15 @@ export default function BookSort() {
               type="button"
               aria-pressed={active}
               onClick={() => applySort(key)}
-              className={`whitespace-nowrap text-sm px-3 py-1.5 rounded-lg border transition
-                ${active ? "bg-indigo-600 text-white border-indigo-600" : "bg-white text-gray-700 border-gray-200 hover:bg-gray-50"}`}
+              className={`whitespace-nowrap text-sm px-3 cursor-pointer border-transparent py-3 border-b-1.5 border-t-1.5 transition
+                ${active ? "text-sky-600 !border-sky-500"
+                 : "bg-white text-gray-700 border-gray-200 hover:bg-gray-50"}`}
             >
               {o.label}
             </button>
           );
         })}
       </div>
-
-      <button
-        type="button"
-        onClick={() => applySort("")}
-        className="ml-2 text-sm px-2 py-1 rounded-md bg-gray-100 hover:bg-gray-200"
-        title="پاک‌کردن مرتب‌سازی"
-      >
-        پاک‌کردن
-      </button>
     </div>
   );
 }
