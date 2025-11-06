@@ -1,7 +1,7 @@
 // components/books/SortControl.tsx
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 type SortOption = {
@@ -11,12 +11,9 @@ type SortOption = {
 };
 
 const OPTIONS: SortOption[] = [
-  { label: "جدیدترین (سال نزولی)", field: "publishedYear", dir: "desc" },
-  { label: "قدیمی‌ترین (سال صعودی)", field: "publishedYear", dir: "asc" },
+  { label: "جدیدترین", field: "publishedYear", dir: "desc" },
+  { label: "قدیمی‌ترین", field: "publishedYear", dir: "asc" },
   { label: "بالاترین امتیاز", field: "rating", dir: "desc" },
-  { label: "کمترین امتیاز", field: "rating", dir: "asc" },
-  { label: "عنوان A → Z", field: "title", dir: "asc" },
-  { label: "عنوان Z → A", field: "title", dir: "desc" },
   { label: "بیشترین صفحات", field: "pages", dir: "desc" },
   { label: "کمترین صفحات", field: "pages", dir: "asc" },
 ];
@@ -27,7 +24,7 @@ export default function BookSort() {
   const searchParams = useSearchParams();
 
   // read initial sort from URL
-  const initialSort = searchParams?.get("sort") ?? "";
+  const initialSort = useMemo(() => searchParams?.get("sort") ?? "", [searchParams?.toString()]);
   const [value, setValue] = useState<string>(initialSort);
 
   // keep local state in sync if URL changes from outside
@@ -38,44 +35,46 @@ export default function BookSort() {
   }, [searchParams?.toString()]);
 
   function applySort(v: string) {
-    setValue(v);
+    // toggle behavior: if same value clicked again -> clear
+    const next = v === value ? "" : v;
+    setValue(next);
 
-    const params = new URLSearchParams(searchParams as any || undefined);
-    if (!v) {
-      params.delete("sort");
-    } else {
-      params.set("sort", v);
-    }
+    const params = new URLSearchParams(searchParams?.toString() ?? "");
+    if (!next) params.delete("sort");
+    else params.set("sort", next);
 
     const newUrl = pathname + (params.toString() ? `?${params.toString()}` : "");
-    // replace so we don't fill history on each change
     router.replace(newUrl);
   }
 
   return (
     <div className="flex items-center gap-3">
-      <label className="text-xs text-gray-500">مرتب‌سازی</label>
+      <span className="text-xs text-gray-500">مرتب‌سازی</span>
 
-      <select
-        value={value}
-        onChange={(e) => applySort(e.target.value)}
-        className="rounded-lg border border-gray-200 px-3 py-2 text-sm"
-      >
-        <option value="">پیش‌فرض</option>
+      <div className="flex gap-2 overflow-auto">
         {OPTIONS.map((o) => {
           const key = `${o.field}:${o.dir}`;
+          const active = key === value;
           return (
-            <option key={key} value={key}>
+            <button
+              key={key}
+              type="button"
+              aria-pressed={active}
+              onClick={() => applySort(key)}
+              className={`whitespace-nowrap text-sm px-3 py-1.5 rounded-lg border transition
+                ${active ? "bg-indigo-600 text-white border-indigo-600" : "bg-white text-gray-700 border-gray-200 hover:bg-gray-50"}`}
+            >
               {o.label}
-            </option>
+            </button>
           );
         })}
-      </select>
+      </div>
 
-      {/* دکمه‌ی پاک‌کردن سریع */}
       <button
+        type="button"
         onClick={() => applySort("")}
-        className="text-sm px-2 py-1 rounded-md bg-gray-100 hover:bg-gray-200"
+        className="ml-2 text-sm px-2 py-1 rounded-md bg-gray-100 hover:bg-gray-200"
+        title="پاک‌کردن مرتب‌سازی"
       >
         پاک‌کردن
       </button>

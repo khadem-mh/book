@@ -1,230 +1,319 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React from "react";
+import { useMemo, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import categoriesData from "@/data/categories.json";
-import { Input } from "@heroui/react";
+
+import {
+  Input,
+  Select,
+  SelectItem,
+  DateRangePicker,
+  Accordion,
+  AccordionItem,
+  Checkbox,
+} from "@heroui/react";
+
+import { parseDate } from "@internationalized/date";
 import { FiSearch } from "react-icons/fi";
 
 type Author = { name: string; enName?: string; cover?: string };
 
 export type Book = {
-    slug: string;
-    title: string;
-    titleFa?: string;
-    subTitle?: string;
-    authors: Author[];
-    cover?: string;
-    pages?: number;
-    language?: string; // e.g. 'en'
-    languageFa?: string;
-    publishedYear?: number;
-    publishedYearAi?: number;
-    chapters?: number;
-    level?: string; // e.g. 'beginner' | 'medium' | 'advanced'
-    tags?: string[];
-    rating?: number;
-    description?: string;
-    createdAt?: string;
-    categories?: string[]; // <-- array of category slugs
+  slug: string;
+  title: string;
+  titleFa?: string;
+  subTitle?: string;
+  authors: Author[];
+  cover?: string;
+  pages?: number;
+  language?: string;
+  languageFa?: string;
+  publishedYear?: number;
+  publishedYearAi?: number;
+  chapters?: number;
+  level?: string;
+  tags?: string[];
+  rating?: number;
+  description?: string;
+  createdAt?: string;
+  categories?: string[]; // array of category slugs
 };
 
 type Category = { id: number; slug: string; name: string; nameFa?: string };
 
 type Props = {
-    books: Book[];
-    onChange?: (filtered: Book[]) => void; // optional callback
+  books: Book[];
+  onChange?: (filtered: Book[]) => void;
 };
 
 /**
- * BookFilter with categories support
- * - URL param for categories: `categories=frontend,software-architecture`
- * - category selector displayed as chips (nameFa if available)
+ * BookFilter (Hero UI)
+ * - Input (Hero) for search
+ * - Select (Hero) for level (single-select controlled)
+ * - SelectItem for author (single-select controlled)
+ * - Accordion + Checkbox list for categories (multi-select controlled)
+ * - DateRangePicker (Hero) for published range (full date)
+ * - Syncs to URL query params: q, level, author, categories, minYear, maxYear
  */
 const BookFilter: React.FC<Props> = ({ books, onChange }) => {
-    const router = useRouter();
-    const pathname = usePathname();
-    const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
-    // read initial values from URL search params
-    const initialQ = searchParams?.get("q") ?? "";
-    const initialLevel = searchParams?.get("level") ?? "";
-    const initialAuthor = searchParams?.get("author") ?? "";
-    const initialMinYear = searchParams?.get("minYear") ?? "";
-    const initialMaxYear = searchParams?.get("maxYear") ?? "";
-    const initialCategories = searchParams?.get("categories")
-        ? (searchParams.get("categories")!.split(",").filter(Boolean) as string[])
-        : [];
+  // --- read initial values from URL ---
+  const initialQ = searchParams?.get("q") ?? "";
+  const initialLevel = searchParams?.get("level") ?? "";
+  const initialAuthor = searchParams?.get("author") ?? "";
+  const initialCategories = searchParams?.get("categories")
+    ? searchParams.get("categories")!.split(",").filter(Boolean)
+    : [];
+  const initialMinYear = searchParams?.get("minYear") ?? "";
+  const initialMaxYear = searchParams?.get("maxYear") ?? "";
 
-    const [query, setQuery] = useState(initialQ);
-    const [level, setLevel] = useState<string | "">(initialLevel);
-    const [author, setAuthor] = useState<string | "">(initialAuthor);
-    const [minYear, setMinYear] = useState<number | "">(initialMinYear === "" ? "" : Number(initialMinYear));
-    const [maxYear, setMaxYear] = useState<number | "">(initialMaxYear === "" ? "" : Number(initialMaxYear));
-    const [selectedCategories, setSelectedCategories] = useState<string[]>(initialCategories);
+  // --- local state (controlled) ---
+  const [query, setQuery] = useState<string>(initialQ);
+  // level stored as Set for HeroUI Select selectedKeys API (single select => set with 0|1 entries)
+  const [levelKeys, setLevelKeys] = useState<Set<string>>(
+    () => (initialLevel ? new Set([initialLevel]) : new Set())
+  );
+  const [authorKeys, setAuthorKeys] = useState<Set<string>>(
+    () => (initialAuthor ? new Set([initialAuthor]) : new Set())
+  );
 
-    // categories list (from json)
-    const allCategories = useMemo(() => {
-        return (categoriesData as Category[]).slice();
-    }, []);
+  // categories as Set for multi-select via checkboxes
+  const [categoryKeys, setCategoryKeys] = useState<Set<string>>(() => new Set(initialCategories));
 
-    // derive filter options from data
-    const minPublishedYear = useMemo(() => {
-        const years = books.map((b) => b.publishedYear || 0).filter(Boolean);
-        return years.length ? Math.min(...(years as number[])) : undefined;
-    }, [books]);
+  // published range (DateRangePicker controlled)
+  const initialPublishedRange = useMemo(() => {
+    return {
+      start: initialMinYear ? parseDate(`${initialMinYear}-01-01`) : null,
+      end: initialMaxYear ? parseDate(`${initialMaxYear}-12-31`) : null,
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const [publishedRange, setPublishedRange] = useState<any>(initialPublishedRange);
 
-    const maxPublishedYear = useMemo(() => {
-        const years = books.map((b) => b.publishedYear || 0).filter(Boolean);
-        return years.length ? Math.max(...(years as number[])) : undefined;
-    }, [books]);
+  // --- utility derived values ---
+  const selectedLevel = React.useMemo(() => Array.from(levelKeys)[0] ?? "", [levelKeys]);
+  const selectedAuthor = React.useMemo(() => Array.from(authorKeys)[0] ?? "", [authorKeys]);
+  const selectedCategories = React.useMemo(() => Array.from(categoryKeys), [categoryKeys]);
 
-    const allLevels = useMemo(() => {
-        const s = new Set<string>();
-        books.forEach((b) => b.level && s.add(b.level));
-        return Array.from(s);
-    }, [books]);
+  // categories list (from json)
+  const allCategories = useMemo(() => (categoriesData as Category[]).slice(), []);
 
-    const allAuthors = useMemo(() => {
-        const s = new Set<string>();
-        books.forEach((b) => b.authors?.forEach((a) => s.add(a.name)));
-        return Array.from(s);
-    }, [books]);
+  // derive filter options from books
+  const allLevels = useMemo(() => {
+    const s = new Set<string>();
+    books.forEach((b) => b.level && s.add(b.level));
+    return Array.from(s);
+  }, [books]);
 
-    // filtering logic (including categories)
-    const filtered = useMemo(() => {
-        const q = query.trim().toLowerCase();
-        return books.filter((b) => {
-            if (q) {
-                const inTitle = ((b.title || "") + " " + (b.titleFa || "") + " " + (b.subTitle || ""))
-                    .toLowerCase()
-                    .includes(q);
-                const inAuthors = (b.authors || []).map((a) => (a.name + " " + (a.enName || "")).toLowerCase()).some((s) => s.includes(q));
-                const inTags = (b.tags || []).some((t) => t.toLowerCase().includes(q));
-                if (!(inTitle || inAuthors || inTags)) return false;
-            }
+  const allAuthors = useMemo(() => {
+    const s = new Set<string>();
+    books.forEach((b) => b.authors?.forEach((a) => s.add(a.name)));
+    return Array.from(s);
+  }, [books]);
 
-            if (level && b.level !== level) return false;
-            if (author && !(b.authors || []).some((a) => a.name === author)) return false;
-            if (minYear !== "" && b.publishedYear !== undefined) {
-                if (b.publishedYear < Number(minYear)) return false;
-            }
-            if (maxYear !== "" && b.publishedYear !== undefined) {
-                if (b.publishedYear > Number(maxYear)) return false;
-            }
+  const minPublishedYear = useMemo(() => {
+    const years = books.map((b) => b.publishedYear || 0).filter(Boolean);
+    return years.length ? Math.min(...(years as number[])) : undefined;
+  }, [books]);
 
-            // categories: if user selected categories, require that book has at least one of them
-            if (selectedCategories.length > 0) {
-                const bookCats = (b.categories || []).map((c) => String(c));
-                const hasAny = selectedCategories.some((sc) => bookCats.includes(sc));
-                if (!hasAny) return false;
-            }
+  const maxPublishedYear = useMemo(() => {
+    const years = books.map((b) => b.publishedYear || 0).filter(Boolean);
+    return years.length ? Math.max(...(years as number[])) : undefined;
+  }, [books]);
 
-            return true;
-        });
-    }, [books, query, level, author, minYear, maxYear, selectedCategories]);
+  // --- when DateRangePicker changes, also keep min/max year values in sync (so URL effect uses years) ---
+  React.useEffect(() => {
+    // when publishedRange updates, we want URL sync to pick up minYear/maxYear derived from it
+    // handled in the URL-sync effect below which reads publishedRange -> minYear/maxYear
+  }, [publishedRange]);
 
-    // push filter state into URL whenever any filter changes
-    React.useEffect(() => {
-        const params = new URLSearchParams();
+  // --- filter logic using latest state ---
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    const minYearVal = publishedRange?.start ? Number(publishedRange.start.year) : "";
+    const maxYearVal = publishedRange?.end ? Number(publishedRange.end.year) : "";
 
-        if (query) params.set("q", query);
-        if (level) params.set("level", level);
-        if (author) params.set("author", author);
-        if (minYear !== "") params.set("minYear", String(minYear));
-        if (maxYear !== "") params.set("maxYear", String(maxYear));
-        if (selectedCategories.length) params.set("categories", selectedCategories.join(","));
+    return books.filter((b) => {
+      if (q) {
+        const inTitle = ((b.title || "") + " " + (b.titleFa || "") + " " + (b.subTitle || "")).toLowerCase().includes(q);
+        const inAuthors = (b.authors || []).map((a) => (a.name + " " + (a.enName || "")).toLowerCase()).some((s) => s.includes(q));
+        const inTags = (b.tags || []).some((t) => t.toLowerCase().includes(q));
+        if (!(inTitle || inAuthors || inTags)) return false;
+      }
 
-        const newUrl = pathname + (params.toString() ? `?${params.toString()}` : "");
-        // replace so browser history doesn't fill up on every keystroke
-        router.replace(newUrl);
-    }, [query, level, author, minYear, maxYear, selectedCategories, pathname, router]);
+      if (selectedLevel && b.level !== selectedLevel) return false;
+      if (selectedAuthor && !(b.authors || []).some((a) => a.name === selectedAuthor)) return false;
 
-    // call back to parent when filtered changes
-    React.useEffect(() => {
-        onChange?.(filtered);
-    }, [filtered, onChange]);
+      if (minYearVal !== "" && b.publishedYear !== undefined) {
+        if (b.publishedYear < Number(minYearVal)) return false;
+      }
+      if (maxYearVal !== "" && b.publishedYear !== undefined) {
+        if (b.publishedYear > Number(maxYearVal)) return false;
+      }
 
-    function clearFilters() {
-        setQuery("");
-        setLevel("");
-        setAuthor("");
-        setMinYear("");
-        setMaxYear("");
-        setSelectedCategories([]);
-    }
+      if (categoryKeys.size > 0) {
+        const bookCats = (b.categories || []).map((c) => String(c));
+        const hasAny = Array.from(categoryKeys).some((sc) => bookCats.includes(sc));
+        if (!hasAny) return false;
+      }
 
-    function toggleCategory(slug: string) {
-        setSelectedCategories((prev) => (prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug]));
-    }
+      return true;
+    });
+  }, [books, query, selectedLevel, selectedAuthor, publishedRange, categoryKeys]);
 
-    return (
-        <div className="w-full max-w-[294px]">
-            <div className="bg-white border border-slate-100 p-4 rounded-2xl shadow">
+  // --- sync filter state into URL (replace so history isn't flooded) ---
+  React.useEffect(() => {
+    const params = new URLSearchParams();
 
-                <Input
-                    label="جستجو"
-                    endContent={<FiSearch className="text-xl" />}
-                    labelPlacement="outside"
-                    placeholder="عنوان یا نویسنده..."
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                />
+    if (query) params.set("q", query);
+    if (selectedLevel) params.set("level", selectedLevel);
+    if (selectedAuthor) params.set("author", selectedAuthor);
 
-                {/* Filters grid */}
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div>
-                        <div className="text-xs text-gray-500 mb-1">دسته‌بندی</div>
-                        <div className="flex flex-wrap gap-2">
-                            {allCategories.map((cat) => {
-                                const active = selectedCategories.includes(cat.slug);
-                                return (
-                                    <button
-                                        key={cat.slug}
-                                        onClick={() => toggleCategory(cat.slug)}
-                                        className={`text-sm px-3 py-1 rounded-full border ${active ? "bg-indigo-600 text-white" : "bg-gray-100 text-gray-800"}`}
-                                        title={cat.name}
-                                    >
-                                        {cat.nameFa ?? cat.name}
-                                    </button>
-                                );
-                            })}
-                        </div>
-                    </div>
+    // published range -> minYear/maxYear
+    if (publishedRange?.start) params.set("minYear", String(publishedRange.start.year));
+    if (publishedRange?.end) params.set("maxYear", String(publishedRange.end.year));
 
-                    <div>
-                        <div className="text-xs text-gray-500 mb-1">سطح</div>
-                        <select value={level} onChange={(e) => setLevel(e.target.value)} className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm">
-                            <option value="">همه</option>
-                            {allLevels.map((lv) => (<option key={lv} value={lv}>{lv}</option>))}
-                        </select>
-                    </div>
+    if (categoryKeys.size) params.set("categories", Array.from(categoryKeys).join(","));
 
-                    <div>
-                        <div className="text-xs text-gray-500 mb-1">نویسنده</div>
-                        <select value={author} onChange={(e) => setAuthor(e.target.value)} className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm">
-                            <option value="">همه</option>
-                            {allAuthors.map((a) => (<option key={a} value={a}>{a}</option>))}
-                        </select>
-                    </div>
+    const newUrl = pathname + (params.toString() ? `?${params.toString()}` : "");
+    router.replace(newUrl);
+  }, [query, selectedLevel, selectedAuthor, publishedRange, categoryKeys, pathname, router]);
 
-                    <div className="sm:col-span-2 lg:col-span-1">
-                        <div className="text-xs text-gray-500 mb-1">سال نشر</div>
-                        <div className="flex gap-2">
-                            <input type="number" placeholder={String(minPublishedYear ?? "از")} value={minYear as any} onChange={(e) => setMinYear(e.target.value === "" ? "" : Number(e.target.value))} className="w-1/2 rounded-lg border border-gray-200 px-3 py-2 text-sm" />
-                            <input type="number" placeholder={String(maxPublishedYear ?? "تا")} value={maxYear as any} onChange={(e) => setMaxYear(e.target.value === "" ? "" : Number(e.target.value))} className="w-1/2 rounded-lg border border-gray-200 px-3 py-2 text-sm" />
-                        </div>
-                    </div>
-                </div>
-                <div className="flex items-center gap-2">
-                    <button onClick={clearFilters} className="px-3 py-2 rounded-lg bg-gray-100 text-sm hover:bg-gray-200">
-                        پاک‌سازی
-                    </button>
-                    <div className="text-sm text-gray-600">نتایج: <span className="font-semibold">{filtered.length}</span></div>
-                </div>
-            </div>
+  // call back to parent
+  React.useEffect(() => {
+    onChange?.(filtered);
+  }, [filtered, onChange]);
+
+  // --- handlers ---
+  function onLevelChange(keys: Set<string> | string | any) {
+    // Hero's onSelectionChange gives a Selection value (Set-like). Ensure Set<string>.
+    const set = keys instanceof Set ? keys : new Set(Array.from(keys || []));
+    setLevelKeys(set);
+  }
+
+  function onAuthorChange(keys: Set<string> | string | any) {
+    const set = keys instanceof Set ? keys : new Set(Array.from(keys || []));
+    setAuthorKeys(set);
+  }
+
+  function onCategoryToggle(slug: string) {
+    setCategoryKeys((prev) => {
+      const next = new Set(prev);
+      if (next.has(slug)) next.delete(slug);
+      else next.add(slug);
+      return next;
+    });
+  }
+
+  function clearFilters() {
+    setQuery("");
+    setLevelKeys(new Set());
+    setAuthorKeys(new Set());
+    setCategoryKeys(new Set());
+    setPublishedRange({ start: null, end: null });
+    // URL will update from effect
+  }
+
+  // --- render ---
+  return (
+    <div className="w-full max-w-[320px]">
+      <div className="bg-white border border-slate-100 p-4 rounded-2xl shadow-sm">
+        {/* Search (Hero Input) */}
+        <div className="mb-4">
+          <Input
+            label="جستجو"
+            labelPlacement="outside"
+            placeholder="عنوان یا نویسنده..."
+            value={query}
+            onValueChange={(val: string) => setQuery(val)}
+            size="sm"
+            endContent={<FiSearch className="text-lg" />}
+            variant="bordered"
+            className="w-full"
+          />
         </div>
-    );
+
+        {/* Accordion for categories */}
+        <Accordion type="single" defaultValue="" collapsible className="mb-3">
+          <AccordionItem value="categories" title="دسته‌بندی">
+            <div className="flex flex-col gap-2 py-2">
+              {allCategories.map((cat) => {
+                const checked = categoryKeys.has(cat.slug);
+                return (
+                  <label key={cat.slug} className="flex items-center gap-2">
+                    <Checkbox isSelected={checked} onChange={() => onCategoryToggle(cat.slug)} />
+                    <span className="text-sm">{cat.nameFa ?? cat.name}</span>
+                  </label>
+                );
+              })}
+            </div>
+          </AccordionItem>
+        </Accordion>
+
+        {/* Level (Hero Select - single) */}
+        <div className="mb-3">
+          <Select
+            label="سطح"
+            placeholder="همه"
+            selectedKeys={levelKeys}
+            onSelectionChange={onLevelChange}
+            variant="bordered"
+            className="w-full"
+          >
+            <SelectItem key="">همه</SelectItem>
+            {allLevels.map((lv) => (
+              <SelectItem key={lv}>{lv}</SelectItem>
+            ))}
+          </Select>
+        </div>
+
+        {/* Author (Hero Select - single) */}
+        <div className="mb-3">
+          <Select
+            label="نویسنده"
+            placeholder="همه"
+            selectedKeys={authorKeys}
+            onSelectionChange={onAuthorChange}
+            variant="bordered"
+            className="w-full"
+          >
+            <SelectItem key="">همه</SelectItem>
+            {allAuthors.map((a) => (
+              <SelectItem key={a}>{a}</SelectItem>
+            ))}
+          </Select>
+        </div>
+
+        {/* Published range */}
+        <div className="mb-3">
+          <DateRangePicker
+            label="سال نشر (بازهٔ تاریخی)"
+            value={publishedRange}
+            onChange={setPublishedRange}
+            variant="bordered"
+            className="w-full"
+            minValue={minPublishedYear ? parseDate(`${minPublishedYear}-01-01`) : undefined}
+            maxValue={maxPublishedYear ? parseDate(`${maxPublishedYear}-12-31`) : undefined}
+          />
+        </div>
+
+        {/* actions */}
+        <div className="flex items-center justify-between gap-2 mt-2">
+          <button onClick={clearFilters} className="px-3 py-2 rounded-lg bg-gray-100 text-sm hover:bg-gray-200">
+            پاک‌سازی
+          </button>
+          <div className="text-sm text-gray-600">
+            نمایش: <span className="font-semibold">{filtered.length}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default BookFilter;
