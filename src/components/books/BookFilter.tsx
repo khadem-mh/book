@@ -273,10 +273,9 @@ const BookFilter: React.FC<Props> = ({ books, onChange }) => {
                     label="سال نشر (بازهٔ تاریخی)"
                     labelPlacement="outside"
                     value={publishedRange}
+                    showMonthAndYearPickers
                     onChange={setPublishedRange}
                     variant="bordered"
-                    minValue={minPublishedYear ? parseDate(`${minPublishedYear}-01-01`) : undefined}
-                    maxValue={maxPublishedYear ? parseDate(`${maxPublishedYear}-12-31`) : undefined}
                 />
 
                 <Accordion

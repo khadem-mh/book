@@ -2,6 +2,8 @@
 
 import { HeroUIProvider } from "@heroui/react";
 import "../styles/globals.css";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
 
 export default function RootLayout({
   children,
@@ -11,10 +13,12 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body>
-        <HeroUIProvider>
+        <HeroUIProvider locale="fa">
+          <Header />
           <div className="mt-44">
             {children}
           </div>
+          <Footer />
         </HeroUIProvider>
       </body>
     </html>
