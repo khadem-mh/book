@@ -6,7 +6,7 @@
   { "id": 5,  "slug": "backend",                "name": "Backend", "nameFa": "بک‌اند" },
   { "id": 6,  "slug": "devops",                 "name": "DevOps", "nameFa": "دِواپس" },
   { "id": 7,  "slug": "cloud-computing",        "name": "Cloud Computing", "nameFa": "رایانش ابری" },
-  { "id": 8,  "slug": "ai-ml",                  "name": "AI / Machine Learning", "nameFa": "هوش مصنوعی / یادگیری ماشین" },
+  { "id": 8,  "slug": "ai",                  "name": "AI", "nameFa": "هوش مصنوعی" },
   { "id": 9,  "slug": "data-science",           "name": "Data Science", "nameFa": "علم داده" },
   { "id": 10, "slug": "security",               "name": "Security", "nameFa": "امنیت" },
   { "id": 11, "slug": "algorithms",             "name": "Algorithms", "nameFa": "الگوریتم‌ها" },

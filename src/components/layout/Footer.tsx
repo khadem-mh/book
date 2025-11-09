@@ -5,51 +5,44 @@ import Link from "next/link";
 import categoriesData from "@/data/categories.json";
 import { Input, Button } from "@heroui/react";
 import { FiMail, FiArrowUp, FiInstagram, FiTwitter, FiGithub, FiLinkedin } from "react-icons/fi";
+import { LuBrainCircuit } from "react-icons/lu";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<null | "idle" | "sending" | "ok" | "error">(null);
 
-  const categories = (categoriesData as any[]).slice(0, 8); // show a few, or map all
-
-  function handleSubscribe(e: React.FormEvent) {
-    e.preventDefault();
-    if (!email || !/\S+@\S+\.\S+/.test(email)) {
-      setStatus("error");
-      return;
-    }
-    setStatus("sending");
-    // demo: fake submit -> in real app call your API
-    setTimeout(() => {
-      setStatus("ok");
-      setEmail("");
-      setTimeout(() => setStatus(null), 2500);
-    }, 900);
-  }
+  const categories = (categoriesData as any[]).slice(0, 10); // show a few, or map all
 
   return (
-    <footer className="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 mt-12">
+    <footer className="bg-slate-50 border-2 border-b-0 border-dashed mt-16 border-sky-400 rounded-t-[70px]">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* ABOUT */}
           <div className="space-y-3">
-            <Link href="/" className="inline-block">
-              <h3 className="text-xl font-bold">ChannelFinder</h3>
+            <Link href="/" className="flex items-center gap-2 mb-8">
+              <LuBrainCircuit className="text-[52px] text-sky-400 animate-pulse"/>
+              <div>
+                <div className="text-3xl text-gray-600 mb-1 flex items-center gap-1">
+                  <p className="font-[Lalezar]">بابا</p>
+                  <span className="font-[Lalezar] animate-bounce text-sky-400">هوش</span>
+                </div>
+                <p className="text-slate-600">یادگیری سریع با فلش‌کارت</p>
+              </div>
             </Link>
             <p className="text-sm text-slate-600 dark:text-slate-400">
               مجموعه‌ای از کتاب‌ها و منابع آموزشی حول معماری نرم‌افزار، فرانت‌اند، داده و هوش‌مصنوعی. مطالب مرتب و دسته‌بندی‌شده برای توسعه‌دهندگان.
             </p>
             <div className="flex items-center gap-3 pt-2">
-              <a aria-label="Instagram" href="#" className="p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800">
+              <a aria-label="Instagram" href="https://www.instagram.com/mohamadhoseinkhademal" className="p-2 rounded-md hover:bg-slate-100 bg-sky-50 border-dashed border-2 border-sky-200 text-sky-600">
                 <FiInstagram size={18} />
               </a>
-              <a aria-label="Twitter" href="#" className="p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800">
+              <a aria-label="Twitter" href="https://x.com/khadem_mh" className="p-2 rounded-md hover:bg-slate-100 bg-sky-50 border-dashed border-2 border-sky-200 text-sky-600">
                 <FiTwitter size={18} />
               </a>
-              <a aria-label="GitHub" href="#" className="p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800">
+              <a aria-label="GitHub" href="https://github.com/khadem-mh" className="p-2 rounded-md hover:bg-slate-100 bg-sky-50 border-dashed border-2 border-sky-200 text-sky-600">
                 <FiGithub size={18} />
               </a>
-              <a aria-label="LinkedIn" href="#" className="p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800">
+              <a aria-label="LinkedIn" href="https://www.linkedin.com/in/khadem-mh" className="p-2 rounded-md hover:bg-slate-100 bg-sky-50 border-dashed border-2 border-sky-200 text-sky-600">
                 <FiLinkedin size={18} />
               </a>
             </div>
@@ -67,9 +60,6 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <div className="mt-3">
-              <Link href="/categories" className="text-sm text-indigo-600 hover:underline">نمایش همه دسته‌ها</Link>
-            </div>
           </div>
 
           {/* QUICK LINKS */}
@@ -78,9 +68,9 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
               <li><Link href="/" className="hover:underline">خانه</Link></li>
               <li><Link href="/books" className="hover:underline">کتاب‌ها</Link></li>
-              <li><Link href="/about" className="hover:underline">درباره ما</Link></li>
-              <li><Link href="/contact" className="hover:underline">تماس با ما</Link></li>
-              <li><Link href="/terms" className="hover:underline">قوانین و سیاست‌ها</Link></li>
+              <li><Link href="#" className="hover:underline">درباره ما</Link></li>
+              <li><Link href="#" className="hover:underline">تماس با ما</Link></li>
+              <li><Link href="#" className="hover:underline">قوانین و سیاست‌ها</Link></li>
             </ul>
           </div>
 
@@ -89,7 +79,7 @@ export default function Footer() {
             <h4 className="text-sm font-semibold mb-3">خبرنامه</h4>
             <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">برای دریافت جدیدترین کتاب‌ها و مطالب آموزشی ایمیل‌تان را وارد کنید.</p>
 
-            <form onSubmit={handleSubscribe} className="flex gap-2">
+            <form className="flex gap-2">
               <Input
                 value={email}
                 onValueChange={(v: string) => { setEmail(v); setStatus("idle"); }}
@@ -100,8 +90,9 @@ export default function Footer() {
                 className="flex-1"
                 startContent={<FiMail className="text-slate-400" />}
                 aria-label="ایمیل برای خبرنامه"
+                dir="ltr"
               />
-              <Button type="submit" className="whitespace-nowrap" size="sm">عضویت</Button>
+              <Button type="submit" className="whitespace-nowrap" size="sm" radius="full" variant="flat">عضویت</Button>
             </form>
 
             {status === "error" && <p className="mt-2 text-sm text-rose-500">ایمیل معتبر وارد کنید.</p>}
@@ -110,14 +101,14 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-slate-100 dark:border-slate-800 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <div className="mt-8 border-t-2 border-sky-200 border-dashed dark:border-slate-800 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
           <div className="text-sm text-slate-500 dark:text-slate-400">
-            © {new Date().getFullYear()} ChannelFinder — همه حقوق محفوظ است.
+            © {new Date().getFullYear()} PapaMind — همه حقوق محفوظ است.
           </div>
 
           <div className="flex items-center gap-4">
-            <Link href="/privacy" className="text-sm text-slate-500 dark:text-slate-400 hover:underline">حریم خصوصی</Link>
-            <Link href="/terms" className="text-sm text-slate-500 dark:text-slate-400 hover:underline">قوانین</Link>
+            <Link href="#" className="text-sm text-slate-500 dark:text-slate-400 hover:underline">حریم خصوصی</Link>
+            <Link href="#" className="text-sm text-slate-500 dark:text-slate-400 hover:underline">قوانین</Link>
             <a href="#top" className="inline-flex items-center gap-1 text-sm text-slate-500 dark:text-slate-400 hover:underline">
               بالای صفحه <FiArrowUp />
             </a>
