@@ -5,7 +5,7 @@ import React, { useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import categoriesData from "@/data/categories.json";
-import { Input, Popover, PopoverTrigger, PopoverContent } from "@heroui/react";
+import { Input, Popover, PopoverTrigger, PopoverContent, Button } from "@heroui/react";
 import {
   FiMenu,
   FiX,
@@ -20,7 +20,11 @@ import {
   FiCpu,
   FiBook,
 } from "react-icons/fi";
-import { LuBrainCircuit } from "react-icons/lu";
+import { LuBrainCircuit, LuScrollText, LuUserRound } from "react-icons/lu";
+import { HiOutlineUser } from "react-icons/hi2";
+import { BsBookmarks } from "react-icons/bs";
+import { PiBooks } from "react-icons/pi";
+import { TbCategory2 } from "react-icons/tb";
 
 /**
  * Clean & minimal Header
@@ -81,15 +85,15 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 py-2 mb-16 rounded-sm">
+    <header className="sticky top-0 z-50 mb-16 rounded-sm bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center h-14 gap-8 justify-between">
 
           {/* right: nav + categories + logo */}
           <div className="flex items-center gap-4">
-            <nav className="hidden sm:flex items-center gap-6">
+            <nav className="hidden sm:flex items-center">
 
-              <Link href="/" className="flex items-center gap-2">
+              <Link href="/" className="flex items-center gap-2 ml-3">
                 <LuBrainCircuit className="text-[32px] text-sky-400" />
                 <div className="text-xl text-gray-600 flex items-center gap-0.5">
                   <p className="font-[Lalezar]">بابا</p>
@@ -99,7 +103,8 @@ export default function Header() {
 
               <Popover>
                 <PopoverTrigger asChild>
-                  <button className="inline-flex items-center gap-1 text-sm text-slate-700 hover:underline">
+                  <button className="text-sm text-slate-700 flex items-center gap-1 hover:bg-slate-100 rounded-xl py-1.5 px-3 transition-all duration-300 cursor-pointer">
+                    <TbCategory2 className="text-xl" />
                     دسته‌ها <FiChevronDown className="text-sm" />
                   </button>
                 </PopoverTrigger>
@@ -126,11 +131,15 @@ export default function Header() {
                 </PopoverContent>
               </Popover>
 
-              <Link href="/books" className="text-sm text-slate-700 hover:underline">همه کتاب‌ها</Link>
-              
-              <Link href="/blog" className="text-sm text-slate-700 hover:underline">مقالات</Link>
+              <Link href="/books" className="flex items-center gap-1 hover:bg-slate-100 rounded-xl py-1.5 px-3 transition-all duration-300">
+                <PiBooks className="text-2xl" />
+                <p className="text-sm text-slate-700">همه کتاب‌ها</p>
+              </Link>
 
-              <Link href="/about" className="text-sm text-slate-700 hover:underline">درباره</Link>
+              <Link href="/blog" className="flex items-center gap-1 hover:bg-slate-100 rounded-xl py-1.5 px-3 transition-all duration-300">
+                <LuScrollText className="text-xl" />
+                <p className="text-sm text-slate-700">مقالات</p>
+              </Link>
             </nav>
 
             {/* mobile menu toggle */}
@@ -141,20 +150,24 @@ export default function Header() {
             </div>
           </div>
 
-          <div className="flex items-center">
+          <div className="flex items-center gap-6">
             <form onSubmit={submitSearch}>
               <div className="flex items-center gap-2">
                 <Input
                   placeholder="دنبال چه کتابی میگردی؟"
                   value={q}
                   onValueChange={(v: string) => setQ(v)}
-                  variant="bordered"
-                  className="w-56"
+                  variant="flat"
+                  className="w-64"
                   endContent={<FiSearch className="text-slate-500" />}
                   aria-label="جستجو در سایت"
                 />
               </div>
             </form>
+            <div className="bg-slate-100 p-2.5 rounded-xl cursor-pointer">
+              <BsBookmarks className="text-xl" />
+            </div>
+            <Button color="primary" className="text-white" startContent={<HiOutlineUser className="text-2xl" />}>ورود | عضویت</Button>
           </div>
 
         </div>
