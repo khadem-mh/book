@@ -14,7 +14,7 @@ export default function Footer() {
   const categories = (categoriesData as any[]).slice(0, 10); // show a few, or map all
 
   return (
-    <footer className="bg-slate-50 border-2 border-b-0 border-dashed mt-16 border-sky-400 rounded-t-[70px]">
+    <footer className="mt-16 bg-gradient-to-r from-white via-sky-100 to-white rounded-sm">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* ABOUT */}

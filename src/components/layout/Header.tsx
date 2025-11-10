@@ -20,6 +20,7 @@ import {
   FiCpu,
   FiBook,
 } from "react-icons/fi";
+import { LuBrainCircuit } from "react-icons/lu";
 
 /**
  * Clean & minimal Header
@@ -80,36 +81,22 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-slate-100 dark:bg-slate-900 dark:border-slate-800">
+    <header className="sticky top-0 z-50 py-2 mb-16 rounded-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center h-14 gap-4">
-          {/* left: small search */}
-          <div className="flex items-center">
-            <form onSubmit={submitSearch}>
-              <div className="flex items-center gap-2">
-                <Input
-                  placeholder="جستجو..."
-                  value={q}
-                  onValueChange={(v: string) => setQ(v)}
-                  size="sm"
-                  variant="bordered"
-                  className="w-56"
-                  endContent={<FiSearch className="text-slate-500" />}
-                  aria-label="جستجو در سایت"
-                />
-              </div>
-            </form>
-          </div>
-
-          {/* center: empty spacer */}
-          <div className="flex-1" />
+        <div className="flex items-center h-14 gap-8 justify-between">
 
           {/* right: nav + categories + logo */}
           <div className="flex items-center gap-4">
-            <nav className="hidden sm:flex items-center gap-3">
-              <Link href="/books" className="text-sm text-slate-700 hover:underline">کتاب‌ها</Link>
+            <nav className="hidden sm:flex items-center gap-6">
 
-              {/* categories popover */}
+              <Link href="/" className="flex items-center gap-2">
+                <LuBrainCircuit className="text-[32px] text-sky-400" />
+                <div className="text-xl text-gray-600 flex items-center gap-0.5">
+                  <p className="font-[Lalezar]">بابا</p>
+                  <span className="font-[Lalezar] text-sky-400">هوش</span>
+                </div>
+              </Link>
+
               <Popover>
                 <PopoverTrigger asChild>
                   <button className="inline-flex items-center gap-1 text-sm text-slate-700 hover:underline">
@@ -139,39 +126,12 @@ export default function Header() {
                 </PopoverContent>
               </Popover>
 
+              <Link href="/books" className="text-sm text-slate-700 hover:underline">همه کتاب‌ها</Link>
+              
+              <Link href="/blog" className="text-sm text-slate-700 hover:underline">مقالات</Link>
+
               <Link href="/about" className="text-sm text-slate-700 hover:underline">درباره</Link>
             </nav>
-
-            {/* small icons */}
-            <button
-              aria-label="Bookmarks"
-              className="p-2 rounded-md hover:bg-slate-50"
-              onClick={() => router.push("/bookmarks")}
-            >
-              <FiBookmark />
-            </button>
-
-            <div className="hidden sm:inline-flex">
-              <Popover>
-                <PopoverTrigger asChild>
-                  <button className="ml-2 rounded-full w-9 h-9 flex items-center justify-center bg-slate-100">
-                    <FiUser />
-                  </button>
-                </PopoverTrigger>
-                <PopoverContent className="w-40 p-2">
-                  <div className="flex flex-col gap-1">
-                    <Link href="/auth" className="text-sm px-2 py-1 rounded hover:bg-slate-50">ورود / ثبت‌نام</Link>
-                    <Link href="/profile" className="text-sm px-2 py-1 rounded hover:bg-slate-50">پروفایل</Link>
-                    <Link href="/bookmarks" className="text-sm px-2 py-1 rounded hover:bg-slate-50">ذخیره‌ها</Link>
-                  </div>
-                </PopoverContent>
-              </Popover>
-            </div>
-
-            {/* logo on the far right */}
-            <Link href="/" className="flex items-center gap-3 ml-3">
-              <div className="w-10 h-10 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold">C</div>
-            </Link>
 
             {/* mobile menu toggle */}
             <div className="sm:hidden">
@@ -180,6 +140,23 @@ export default function Header() {
               </button>
             </div>
           </div>
+
+          <div className="flex items-center">
+            <form onSubmit={submitSearch}>
+              <div className="flex items-center gap-2">
+                <Input
+                  placeholder="دنبال چه کتابی میگردی؟"
+                  value={q}
+                  onValueChange={(v: string) => setQ(v)}
+                  variant="bordered"
+                  className="w-56"
+                  endContent={<FiSearch className="text-slate-500" />}
+                  aria-label="جستجو در سایت"
+                />
+              </div>
+            </form>
+          </div>
+
         </div>
       </div>
 
