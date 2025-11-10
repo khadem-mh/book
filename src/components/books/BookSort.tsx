@@ -48,7 +48,7 @@ export default function BookSort() {
   }
 
   return (
-    <div className="bg-white border rounded-xl border-slate-200 shadow-md px-4 flex items-center gap-3">
+    <div className="bg-white rounded-xl shadow px-4 flex items-center gap-3">
      <div className="text-gray-600 flex items-center gap-2">
        <TbArrowsSort className="text-xl"/>
        <span className="text-sm">مرتب‌سازی بر اساس :</span>

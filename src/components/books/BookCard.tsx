@@ -15,7 +15,7 @@ export default function BookCard({ book }: BookCardProps) {
 
   return (
     <Link href={`/books/${book.slug}`}>
-      <div className="bg-white shadow-[0_0_10px_#e5e5e5] hover:shadow-none border border-slate-200 transition-shadow duration-500 hover:animate-appearance-in rounded-2xl px-2 py-4 xl:p-4 flex flex-col gap-4 items-center">
+      <div className="bg-white shadow-md transition-shadow duration-500 hover:animate-appearance-in rounded-2xl px-2 py-4 xl:p-4 flex flex-col gap-4 items-center">
         <div className='w-full flex flex-col items-center justify-center'>
           <img src={book.cover} alt="cover" className='w-52 floating-image rounded-2xl border border-slate-200' />
 

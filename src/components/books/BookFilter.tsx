@@ -229,8 +229,8 @@ const BookFilter: React.FC<Props> = ({ books, onChange }) => {
     };
 
     return (
-        <div className="w-full max-w-[320px]">
-            <div className="bg-white border border-slate-100 p-4 rounded-2xl shadow-md flex flex-col gap-4">
+        <div className="w-full max-w-[313px] sticky top-1">
+            <div className="bg-white p-4 rounded-2xl shadow flex flex-col gap-4">
                 <Input
                     label="جستجو"
                     labelPlacement="outside"
