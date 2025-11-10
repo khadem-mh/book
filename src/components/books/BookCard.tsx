@@ -16,10 +16,10 @@ export default function BookCard({ book }: BookCardProps) {
   return (
     <Link href={`/books/${book.slug}`}>
       <div className="bg-white shadow-[0_0_10px_#e5e5e5] hover:shadow-none border border-slate-200 transition-shadow duration-500 hover:animate-appearance-in rounded-2xl px-2 py-4 xl:p-4 flex flex-col gap-4 items-center">
-        <div className='w-full flex flex-row lg:flex-col xl:flex-row items-center justify-center'>
-          <img src={book.cover} alt="cover" className='w-60 floating-image rounded-2xl border border-slate-200' />
+        <div className='w-full flex flex-col items-center justify-center'>
+          <img src={book.cover} alt="cover" className='w-52 floating-image rounded-2xl border border-slate-200' />
 
-          <div className="flex md:flex-col border lg:border-0 xl:border border-r-0 lg:flex-row xl:flex-col floating-box gap-4 lg:gap-0 xl:gap-4 mt-4 xl:mt-0 border-slate-200 rounded-l-2xl rounded-r-0 py-4 text-sm">
+          <div className="flex floating-box py-4 text-sm mt-4">
             {/** سال انتشار */}
             <div className="flex-1 min-w-28 w-fit h-fit flex flex-col items-center">
               <div className="bg-sky-500/6 border border-slate-200 rounded-xl p-2 flex items-center text-gray-500">
@@ -29,7 +29,7 @@ export default function BookCard({ book }: BookCardProps) {
             </div>
 
             {/** تعداد صفحات */}
-            <div className="flex-1 lg:border-x xl:border-0 border-slate-200 min-w-28 w-fit h-fit flex flex-col items-center">
+            <div className="flex-1 border-x border-slate-200 min-w-28 w-fit h-fit flex flex-col items-center">
               <div className="bg-black/5 border border-slate-200 rounded-xl p-2 flex items-center text-gray-500">
                 <TbBrandOpenai size={22} className='animate-spin text-black/80' style={{ animationDuration: "5500ms" }} />
               </div>
@@ -46,7 +46,7 @@ export default function BookCard({ book }: BookCardProps) {
           </div>
         </div>
 
-        <div className="flex flex-col flex-1 lg:-mt-6 xl:mt-0 text-right rounded-2xl p-4">
+        <div className="flex flex-col flex-1 -mt-2 text-right rounded-2xl">
           <p className='text-2xl w-full text-center font-[Lalezar] text-gray-700 mb-2'>{book.titleFa}</p>
           <p className="text-sm text-gray-500 mt-1 line-clamp-3">{book.description}</p>
 

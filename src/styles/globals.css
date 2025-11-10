@@ -90,23 +90,6 @@
     animation: floatImg 4s ease-in-out infinite;
   }
 
-  /*  */
-
-  /* Horizontal float — right/left */
-  @keyframes floatBoxHorizontal {
-    0% {
-      transform: translateX(0);
-    }
-
-    50% {
-      transform: translateX(6px);
-    }
-
-    100% {
-      transform: translateX(0);
-    }
-  }
-
   /* Vertical float — up/down */
   @keyframes floatBoxVertical {
     0% {
@@ -122,30 +105,7 @@
     }
   }
 
-  /* Default — horizontal for ≥1200px */
   .floating-box {
-    animation: floatBoxHorizontal 4s ease-in-out infinite;
+    animation: floatBoxVertical 4s ease-in-out infinite;
   }
-
-  /* 992px ≤ width < 1200px → vertical float */
-  @media (max-width: 1199px) and (min-width: 992px) {
-    .floating-box {
-      animation: floatBoxVertical 4s ease-in-out infinite;
-    }
-  }
-
-  /* 768px ≤ width < 992px → horizontal float again */
-  @media (max-width: 991px) and (min-width: 768px) {
-    .floating-box {
-      animation: floatBoxHorizontal 4s ease-in-out infinite;
-    }
-  }
-
-  /* Optional: <768px → ثابت یا افقی */
-  @media (max-width: 767px) {
-    .floating-box {
-      animation: floatBoxVertical 4s ease-in-out infinite;
-    }
-  }
-
 }
