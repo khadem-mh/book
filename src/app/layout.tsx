@@ -15,7 +15,7 @@ export default function RootLayout({
       <body>
         <HeroUIProvider locale="fa">
           <Header />
-          <div className="mt-44">
+          <div className="mt-32">
             {children}
           </div>
           <Footer />
