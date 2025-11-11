@@ -13,26 +13,54 @@ export default function HeroToggle() {
     return () => clearInterval(interval);
   }, []);
 
-  // حالا فقط همون section جهت و زبان داره — نه کل داکیومنت
+  // فقط همین section جهت و زبان دارد — نه کل داکیومنت
   const sectionDir = isEnglish ? "ltr" : "rtl";
   const sectionLang = isEnglish ? "en" : "fa";
 
   return (
     <section dir={sectionDir} lang={sectionLang} className="px-4 md:px-12">
       <div
-        className={`flex flex-col md:flex-row gap-6 transition-all duration-700 ${isEnglish ? "md:flex-row" : "md:flex-row-reverse"
+        className={`relative overflow-visible flex flex-col md:flex-row gap-6 transition-all duration-700 ${isEnglish ? "md:flex-row" : "md:flex-row-reverse"
           }`}
       >
-        <img
-          src="/images/global/effective.png"
-          alt="header"
-          className="w-full md:w-[440px] object-contain"
-        />
+        {/* ---------- تصویر (دو کپی) ---------- */}
+        {/* هر دو داخل یک wrapper قرار دارن؛ یکی برای حالت LTR و دیگری برای RTL */}
+        <div className="relative w-full md:w-[440px] min-h-[220px] md:min-h-[360px]">
+          {/* تصویر برای حالت انگلیسی — وقتی isEnglish=true نمایش می‌یابد */}
+          <img
+            src="/images/global/effective.png"
+            alt="Illustration"
+            loading="lazy"
+            aria-hidden={!isEnglish}
+            // این تصویر در سمتِ پیش‌فرض قرار می‌گیره (در md viewport سمت راست وقتی md:flex-row هست)
+            className={`absolute top-0 md:top-0 md:right-0 w-full h-full object-contain transition-all duration-700 ease-out transform pointer-events-none
+              ${isEnglish ? "opacity-100 translate-y-0 z-0" : "opacity-0 -translate-y-3 z-0 pointer-events-none"}`}
+            // اگر خواستی این مورد رو mirror کنی، اینجا می‌تونی style اضافه کنی؛ الان برای انگلیسی عادیه
+            style={{ transformOrigin: "center" }}
+          />
 
-        <div className={`flex flex-col gap-6 w-full ${isEnglish ? "text-left" : "text-right"}`}>
+          {/* تصویر برای حالت فارسی (کپی) — وقتی isEnglish=false نمایش می‌یابد */}
+          <img
+            src="/images/global/effective.png"
+            alt="تصویر آموزشی"
+            loading="lazy"
+            aria-hidden={isEnglish}
+            // این نسخه طوری قرار می‌گیره که در حالت RTL سمت چپ صفحه باشه — برای جلوه بهتر افقی آینه شده
+            className={`absolute top-0 md:top-0 md:left-0 w-full h-full object-contain transition-all duration-700 ease-out transform pointer-events-none
+              ${!isEnglish ? "opacity-100 translate-y-0 z-0" : "opacity-0 -translate-y-3 z-0 pointer-events-none"}`}
+            style={{
+              transformOrigin: "center",
+              // افقی آینه برای اینکه جهت تصویر برای RTL حس‌پذیر باشه
+              transform: !isEnglish ? "scaleX(-1)" : "none",
+            }}
+          />
+        </div>
+
+        {/* ---------- محتوای متنی (بالای تصویر: z-index بالاتر) ---------- */}
+        <div className={`flex flex-col gap-6 w-full z-10 ${isEnglish ? "text-left" : "text-right"}`}>
           {/* ====== TITLE ====== */}
           <div className="relative min-h-[120px] leading-relaxed">
-            <h1 className="font-[Exo_2] text-5xl font-bold text-gray-800 leading-tight">
+            <h1 className="font-[Exo_2] text-5xl font-bold text-gray-800 leading-tight relative z-20">
               {/* English */}
               <span
                 aria-hidden={!isEnglish}
@@ -68,7 +96,7 @@ export default function HeroToggle() {
           </div>
 
           {/* ====== PARAGRAPH ====== */}
-          <div className="relative min-h-[110px] leading-relaxed">
+          <div className="relative min-h-[110px] leading-relaxed z-20">
             <p
               aria-hidden={!isEnglish}
               className={`absolute left-0 right-0 top-0 w-full transition-all duration-700 ease-out text-gray-600 ${isEnglish
@@ -96,7 +124,7 @@ export default function HeroToggle() {
           </div>
 
           {/* ====== ACTIONS ====== */}
-          <div className="flex items-center gap-4 flex-wrap">
+          <div className="flex items-center gap-4 flex-wrap z-20">
             <Button
               color="primary"
               endContent={
@@ -169,7 +197,6 @@ export default function HeroToggle() {
       </div>
 
       <div className="my-20" />
-
     </section>
   );
 }
