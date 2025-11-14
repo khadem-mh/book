@@ -11,15 +11,18 @@ import {
   MdFlashOn,
   MdArrowForwardIos,
   MdOutlineSearch,
+  MdHelpOutline,
+  MdOutlineCheckCircle,
 } from "react-icons/md";
 
 export default function HomePage() {
   return (
-    <main dir="rtl" lang="fa" className="px-4 md:px-12 py-12 bg-gray-50 text-gray-800">
+    <main dir="rtl" lang="fa" className="px-4 md:px-12 py-12 text-gray-800">
       <Hero />
       <HowItWorks />
       <Features />
       <SampleFlashcard />
+      <FAQ />
       <CTA />
       <Footer />
     </main>
@@ -30,13 +33,18 @@ function Hero() {
   return (
     <section className="max-w-6xl mx-auto flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12">
       <div className="flex-1 md:w-1/2 text-right">
+        <div className="inline-flex items-center gap-3 mb-4">
+          <span className="text-xs bg-white/80 px-3 py-1 rounded-full shadow-sm">منبع: O'Reilly</span>
+          <span className="text-xs text-gray-500">خلاصه‌سازی فصل‌به‌فصل • فلش‌کارت • تست</span>
+        </div>
+
         <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-          یادگیری سریع از کتاب‌های معتبرِ <span className="text-sky-600">O'Reilly</span>
-          <br /> با فلش‌کارت‌های فصل‌به‌فصل و خلاصه‌شده — به فارسی
+          یادگیری عمیق از کتاب‌های فنی معتبر
+          <br /> با <span className="text-sky-600">فلش‌کارت‌های فصل‌به‌فصل</span> و خلاصه‌های عملی — به فارسی
         </h1>
 
         <p className="mt-4 text-gray-600 leading-relaxed">
-          ما با کمک هوش‌مصنوعی تمام فصل‌ها و بخش‌های کتاب‌های فنی (منبع: O'Reilly) را تبدیل به فلش‌کارت‌های آموزشیِ عملی، پرسش‌سنجی و خلاصه‌‌های قابل فهم می‌کنیم — طوری که فارسی‌زبان‌ها سریع‌تر یاد بگیرند و عمقِ مفاهیم را از دست ندهند.
+          ما با کمک هوش‌مصنوعی مهم‌ترین ایده‌ها و مثال‌های کتاب‌های O'Reilly را به زبانِ ساده استخراج می‌کنیم؛ خلاصه‌ها، کارت‌های مرور، و سوال‌های تمرینی — طوری که هم سریع یاد بگیرید و هم عمیق.
         </p>
 
         <div className="flex flex-wrap gap-3 mt-6">
@@ -51,22 +59,23 @@ function Hero() {
           <Button variant="ghost" className="ml-auto">ورود / ثبت‌نام</Button>
         </div>
 
-        <div className="mt-6 text-sm text-gray-500">
-          <span className="inline-block bg-white px-3 py-1 rounded-full shadow-sm">منبع: O'Reilly</span>
-          <span className="mx-3">•</span>
-          <span>خلاصه‌سازی فصل‌به‌فصل</span>
-          <span className="mx-3">•</span>
-          <span>فلش‌کارت، تست و تمرین</span>
+        <div className="mt-6 flex gap-3 text-sm">
+          <div className="flex items-center gap-2 text-gray-600">
+            <MdOutlineCheckCircle />
+            <span>خلاصه‌های قابل استناد و لینک به منبع</span>
+          </div>
         </div>
       </div>
 
       <div className="md:w-96 w-full">
-        <img
-          src="/images/global/effective.png"
-          alt="تصویر آموزشی"
-          loading="lazy"
-          className="w-full h-full object-contain scale-x-[-1] rounded-xl shadow-md"
-        />
+        <div className="rounded-xl overflow-hidden shadow-lg">
+          <img
+            src="/images/global/effective.png"
+            alt="تصویر آموزشی"
+            loading="lazy"
+            className="w-full h-64 object-cover scale-x-[-1]"
+          />
+        </div>
       </div>
     </section>
   );
@@ -76,29 +85,34 @@ function HowItWorks() {
   const steps = [
     {
       title: "فصل‌بندی و استخراج",
-      desc: "هر فصل از کتاب خوانده و بخش‌های کلیدی استخراج می‌شود (عنوان‌ها، نکات، مثال‌ها).",
+      desc: "هر فصل ورودی خوانده می‌شود و عناصری مثل تیترها، مثال‌ها و نکات کلیدی جدا می‌شوند.",
       Icon: MdMenuBook,
     },
     {
-      title: "خلاصه‌سازی هوشمند",
-      desc: "مدل‌های زبانی چندمرحله‌ای متن را به خلاصه‌های قابل فهم و کوتاه تبدیل می‌کنند.",
+      title: "خلاصه‌سازیِ چندمرحله‌ای",
+      desc: "مدل زبانی متن را به خلاصه‌های مرتّب، توضیحی و قابل فهم برای فارسی‌زبانان تبدیل می‌کند.",
       Icon: MdOutlineAutoAwesome,
     },
     {
-      title: "فلش‌کارت و سوال‌سازی",
-      desc: "برای هر بخش فلش‌کارت، تست و نکته عملی تولید می‌شود تا یادگیری فعال رخ دهد.",
+      title: "تولید فلش‌کارت و سوال",
+      desc: "برای هر بخش کارت مرور، سوالِ درکِ مطلب و نکتهٔ عملی تولید می‌شود تا یادگیری فعال شود.",
       Icon: MdFlashOn,
     },
   ];
 
   return (
     <section className="max-w-6xl mx-auto mt-12">
-      <h3 className="text-2xl font-semibold text-right">چطور کار می‌کند</h3>
-      <p className="text-gray-600 mt-2 text-right">سه مرحله ساده تا فهم عمیق — همه چیز اتوماتیک و قابل بررسی توسط انسان.</p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h3 className="text-2xl font-semibold text-right">چطور کار می‌کند</h3>
+          <p className="text-gray-600 mt-2 text-right">سه مرحلهٔ شفاف تا یادگیری عمیق — قابل بررسی و ویرایش توسط تیم محتوا.</p>
+        </div>
+        <div className="text-sm text-gray-500">قابل اتوماسیون، قابلِ اعتبارسنجی، و مخصوصِ فارسی‌زبانان</div>
+      </div>
 
       <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
         {steps.map((s) => (
-          <div key={s.title} className="p-5 bg-white rounded-2xl shadow-sm text-right">
+          <div key={s.title} className="p-6 bg-white rounded-2xl shadow-sm text-right hover:scale-[1.02] transition-transform">
             <div className="w-12 h-12 rounded-lg bg-slate-100 grid place-items-center text-2xl">
               <s.Icon />
             </div>
@@ -115,22 +129,22 @@ function Features() {
   const features = [
     {
       title: "فلش‌کارت‌های فصل‌به‌فصل",
-      desc: "خلاصه‌ای از هر فصل با نکات کلیدی و کارت‌های مرور سریع.",
+      desc: "نکات کلیدی، تعاریف و مثال‌ها برای مرورِ سریعِ هر فصل.",
       Icon: MdMenuBook,
     },
     {
       title: "پرسش‌های تستی و تمرین",
-      desc: "سوال‌های در سطوح مختلف برای محک زدن درک شما و مرور فعال.",
+      desc: "سوالات چندسطحی برای سنجش و تثبیت یادگیری.",
       Icon: MdSchool,
     },
     {
-      title: "پشتیبانی تیمی و گروهی",
-      desc: "مسیرهای یادگیری گروهی و گزارش‌گیریِ پیشرفت برای تیم‌ها.",
+      title: "مسیرِ تیمی و گزارش پیشرفت",
+      desc: "داشبورد تیمی برای رهبران تا پیشرفت اعضا را ببینند.",
       Icon: MdGroup,
     },
     {
-      title: "استفاده کارآمد از زمان",
-      desc: "درس‌های کوتاه و قابل‌اجرا برای یادگیری در زمان‌های آزاد.",
+      title: "دروس کوتاه و کاربردی",
+      desc: "هر کارت طوری طراحی شده که در ۵ تا ۱۰ دقیقه قابل مرور باشد.",
       Icon: MdAccessTime,
     },
   ];
@@ -138,11 +152,11 @@ function Features() {
   return (
     <section className="max-w-6xl mx-auto mt-12">
       <h3 className="text-2xl font-semibold text-right">ویژگی‌ها</h3>
-      <p className="text-gray-600 mt-2 text-right">یکباره از محتوای کتاب به آموزشِ کاربردی برسید — نه ترجمه خشک.</p>
+      <p className="text-gray-600 mt-2 text-right">رویکردی عملی، قابلِ اجرا و زمان‌پسند برای مطالعهٔ کتاب‌های فنی.</p>
 
       <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {features.map((f) => (
-          <div key={f.title} className="flex gap-4 items-start p-5 rounded-2xl shadow-sm bg-white text-right">
+          <div key={f.title} className="flex gap-4 items-start p-5 rounded-2xl shadow-sm bg-white text-right hover:shadow-md transition-shadow">
             <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-slate-100 grid place-items-center text-2xl">
               <f.Icon />
             </div>
@@ -160,34 +174,48 @@ function Features() {
 function SampleFlashcard() {
   const [flipped, setFlipped] = useState(false);
 
+  const cardStyle = {
+    width: '100%',
+    transformStyle: 'preserve-3d',
+    transition: 'transform 0.7s',
+    transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)'
+  };
+
+  const sideStyle = {
+    backfaceVisibility: 'hidden'
+  };
+
   return (
     <section className="max-w-4xl mx-auto mt-12 text-right">
       <h3 className="text-2xl font-semibold">نمونه فلش‌کارت</h3>
-      <p className="text-gray-600 mt-2">روی کارت کلیک کن تا جواب رو ببینی — این سبک یادگیری باعث میشه اطلاعات زودتر در حافظه بمانند.</p>
+      <p className="text-gray-600 mt-2">روی کارت کلیک کن تا جواب رو ببینی — این سبک یادگیری باعث میشه اطلاعات بهتر تثبیت بشن.</p>
 
       <div className="mt-6 flex flex-col md:flex-row items-center gap-6">
-        <div
-          onClick={() => setFlipped((p) => !p)}
-          role="button"
-          tabIndex={0}
-          className={`cursor-pointer w-full md:w-2/3 p-6 rounded-2xl shadow-lg bg-white transition-transform transform ${flipped ? "rotate-y-180" : ""}`}
-          style={{ perspective: 800 }}
-        >
-          {!flipped ? (
-            <div className="text-right">
+        <div className="w-full md:w-2/3 perspective" style={{ perspective: 1000 }}>
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => setFlipped((p) => !p)}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setFlipped(p => !p); }}
+            className="cursor-pointer"
+            style={cardStyle}
+          >
+            {/* front */}
+            <div className="p-6 rounded-2xl bg-white shadow-lg text-right" style={{ ...sideStyle }}>
               <h4 className="font-semibold text-lg">سوال: تفاوت بین Monolith و Microservices چیست؟</h4>
               <p className="mt-3 text-sm text-gray-600">کوتاه توضیح بده و یک مثال عملی بزن.</p>
             </div>
-          ) : (
-            <div className="text-right">
+
+            {/* back */}
+            <div className="p-6 rounded-2xl bg-white shadow-lg text-right absolute left-0 right-0" style={{ transform: 'rotateY(180deg)', ...sideStyle }}>
               <h4 className="font-semibold text-lg">پاسخ (خلاصه)</h4>
               <ul className="mt-2 text-sm text-gray-600 list-disc pr-5 space-y-1">
                 <li>مونو‌لیت: ساده، استقرار یکجا؛ مناسب پروژه‌های کوچک.</li>
                 <li>میکروسرویس: هر سرویس مستقل، مقیاس‌پذیری و انعطاف بیشتر اما پیچیدگی زیرساختی.</li>
-                <li>مثال: استارتاپی که سریع توسعه می‌دهد معمولاً با مونو‌لیت شروع می‌کند، سپس بخش‌هایی را سرویس‌بندی می‌کند.</li>
+                <li>مثال: استارتاپی که سریع توسعه می‌دهد معمولاً با مونو‌لیت شروع می‌کند و سپس بخش‌هایی را سرویس‌بندی می‌کند.</li>
               </ul>
             </div>
-          )}
+          </div>
         </div>
 
         <div className="w-full md:w-1/3">
@@ -210,7 +238,40 @@ function SampleFlashcard() {
         </div>
       </div>
 
-      <p className="mt-4 text-xs text-gray-500">(برای دیدنِ جواب روی کارت کلیک کنید)</p>
+      <p className="mt-4 text-xs text-gray-500">(برای دیدنِ جواب کارت را کلیک کنید)</p>
+    </section>
+  );
+}
+
+function FAQ() {
+  const faqs = [
+    {
+      q: 'آیا محتوای کامل کتاب‌ها در سایت قرار می‌گیرد؟',
+      a: 'خیر. ما خلاصه‌ها، فلش‌کارت‌ها و تحلیل‌های آموزشی تولید می‌کنیم و به منبع اصلی کتاب لینک می‌دهیم. برای استفادهٔ کامل از کتاب لطفاً نسخهٔ اصلی را از ناشر تهیه کنید.'
+    },
+    {
+      q: 'آیا این خلاصه‌ها قابل اعتماد هستند؟',
+      a: 'بله — خلاصه‌ها به صورت خودکار تولید می‌شوند و سپس توسط تیمِ محتوایی بررسی و در صورت نیاز ویرایش می‌شوند تا از دقت و کیفیت اطمینان حاصل شود.'
+    },
+    {
+      q: 'چطور می‌توانم کتابی را درخواست کنم؟',
+      a: 'در بخش جستجو یا صفحهٔ پیشنهاد کتاب، نام کتاب یا لینک O\'Reilly را وارد کنید. تیم ما بررسی و در صورت امکان به فهرست اضافه می‌کند.'
+    }
+  ];
+
+  return (
+    <section className="max-w-6xl mx-auto mt-12 text-right">
+      <h3 className="text-2xl font-semibold">سوالات متداول</h3>
+      <p className="text-gray-600 mt-2">پاسخِ سوالات رایج دربارهٔ نحوهٔ کار، حقوق نشر و استفاده.</p>
+
+      <div className="mt-6 space-y-3">
+        {faqs.map((f, i) => (
+          <details key={i} className="p-4 bg-white rounded-2xl shadow-sm">
+            <summary className="cursor-pointer font-semibold">{f.q}</summary>
+            <div className="mt-3 text-sm text-gray-600">{f.a}</div>
+          </details>
+        ))}
+      </div>
     </section>
   );
 }
@@ -218,7 +279,7 @@ function SampleFlashcard() {
 function CTA() {
   return (
     <section className="max-w-6xl mx-auto mt-12 text-right">
-      <div className="p-8 bg-gradient-to-r from-sky-600 to-orange-400 rounded-2xl text-white flex flex-col md:flex-row items-center gap-6">
+      <div className="p-8 rounded-2xl text-white flex flex-col md:flex-row items-center gap-6" style={{ background: 'linear-gradient(90deg,#0ea5e9,#fb923c)' }}>
         <div className="flex-1">
           <h4 className="text-2xl font-semibold">شروع کنید — اولین کتاب را انتخاب کنید</h4>
           <p className="mt-2 text-white/90">همین حالا ثبت‌نام کنید و ۷ روز دسترسی آزمایشی رایگان بگیرید.</p>
