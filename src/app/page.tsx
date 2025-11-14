@@ -11,24 +11,22 @@ import {
   MdFlashOn,
   MdArrowForwardIos,
   MdOutlineSearch,
-  MdHelpOutline,
   MdOutlineCheckCircle,
   MdHeadset,
   MdArticle,
   MdAutoAwesomeMosaic,
   MdOutlineAssignmentTurnedIn,
   MdOutlineAnalytics,
-  MdOutlinePerson,
-  MdOutlineAccessTimeFilled,
   MdOutlineLibraryBooks,
   MdOutlineSmartDisplay,
   MdOutlineQuestionAnswer,
-  MdOutlineAutoAwesomeMosaic,
+  MdOutlinePerson,
 } from "react-icons/md";
 
 export default function HomePage() {
   return (
-    <main dir="rtl" lang="fa" className="px-4 md:px-12 py-12 text-gray-800">
+    <main dir="rtl" lang="fa" className="relative px-4 md:px-12 py-12 text-gray-800">
+      <BackgroundBubbles />
       <Hero />
       <HighlightsBanner />
       <PlatformHighlights />
@@ -36,6 +34,7 @@ export default function HomePage() {
       <Features />
       <FullCoverage />
       <AudioAndPrompts />
+      <VisualBreak />
       <SampleFlashcard />
       <QuestionBox />
       <FAQ />
@@ -46,6 +45,20 @@ export default function HomePage() {
   );
 }
 
+/* ---------------- decorative subtle bubbles ---------------- */
+function BackgroundBubbles(){
+  // چند radial-gradient نرم و کم‌رنگ برای حس مدرن پس‌زمینه
+  const style = {
+    backgroundImage: `radial-gradient(circle at 10% 15%, rgba(14,165,233,0.06) 0, transparent 12%),
+                      radial-gradient(circle at 80% 30%, rgba(251,146,60,0.045) 0, transparent 16%),
+                      radial-gradient(circle at 50% 80%, rgba(99,102,241,0.03) 0, transparent 20%)`,
+    backgroundRepeat: 'no-repeat',
+  };
+
+  return <div className="absolute inset-0 -z-10" style={style} aria-hidden />;
+}
+
+/* ---------------- Hero ---------------- */
 function Hero() {
   return (
     <section className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -78,12 +91,12 @@ function Hero() {
           <Badge icon={<MdOutlineCheckCircle />} text="نسخه‌های به‌روز و رسمی" />
           <Badge icon={<MdOutlineAssignmentTurnedIn />} text="پوشش صفحه‌به‌صفحه و فصل‌به‌فصل" />
           <Badge icon={<MdHeadset />} text="صوت AI برای هر کارت" />
-          <Badge icon={<MdOutlineQuestionAnswer />} text="پرامپت کپی‌شونده برای هر کارت" />
+          <Badge icon={<MdOutlineQuestionAnswer />} text="پرامپت قابل کپی برای هر کارت" />
         </div>
       </div>
 
       <div className="relative">
-        <div className="rounded-2xl overflow-hidden shadow-2xl ring-1 ring-slate-100">
+        <div className="overflow-hidden">
           <img src="/images/global/effective.png" alt="illustration" className="w-full h-96 object-cover" />
         </div>
 
@@ -92,7 +105,7 @@ function Hero() {
             <MdOutlineLibraryBooks className="text-2xl text-sky-500" />
             <div>
               <div className="text-sm font-semibold">کتاب برجسته امروز</div>
-              <div className="text-xs text-gray-500">Fundamentals of Software Architecture — 2025 Edition</div>
+              <div className="text-xs text-gray-500">Fundamentals of Software Architecture — ویرایش 2025</div>
             </div>
           </div>
         </div>
@@ -112,37 +125,73 @@ function Badge({ icon, text }){
   );
 }
 
+/* ---------------- Highlights Banner (Persian) ---------------- */
 function HighlightsBanner(){
   return (
     <section className="max-w-7xl mx-auto mt-12">
       <div className="rounded-2xl overflow-hidden grid grid-cols-2 md:grid-cols-4 gap-0 text-sm">
-        <FeaturePill icon={<MdArticle />} title="Trusted content" desc="60k+ titles & partners" />
-        <FeaturePill icon={<MdOutlineSmartDisplay />} title="Live events" desc="Workshops & Q&A" />
-        <FeaturePill icon={<MdOutlineAutoAwesomeMosaic />} title="AI Academy" desc="Prompting & labs" />
-        <FeaturePill icon={<MdOutlineAnalytics />} title="Insights" desc="Team learning metrics" />
+        <FeaturePill
+          icon={<MdArticle />}
+          title="محتوای معتبر"
+          desc="بیش از ۶۰ هزار عنوان از O'Reilly و ناشران معتبر"
+          avatarInitials="J"
+          comment="منابع قابل اتکا برای تیم‌های حرفه‌ای"
+        />
+
+        <FeaturePill
+          icon={<MdOutlineSmartDisplay />}
+          title="رویدادهای زنده"
+          desc="کارگاه‌ها، وبینارها و پرسش و پاسخ با متخصصان"
+          avatarInitials="A"
+          comment="می‌تونید سوال بدید و پاسخ مستقیم بگیرید"
+        />
+
+        <FeaturePill
+          icon={<MdAutoAwesomeMosaic />}
+          title="آکادمی AI"
+          desc="آموزش‌های عملی، پرامپتینگ و لاب‌" 
+          avatarInitials="N"
+          comment="یادگیری مهارت‌های مربوط به AI"
+        />
+
+        <FeaturePill
+          icon={<MdOutlineAnalytics />}
+          title="بینش آموزشی"
+          desc="شاخص‌های یادگیری و تحلیل برای تیم‌ها"
+          avatarInitials="M"
+          comment="آمار و گزارش برای رهبران"
+        />
       </div>
     </section>
   );
 }
 
-function FeaturePill({ icon, title, desc }){
+function FeaturePill({ icon, title, desc, avatarInitials, comment }){
   return (
-    <div className="p-6 bg-white border-r last:border-r-0 flex items-start gap-4">
-      <div className="w-12 h-12 rounded-xl grid place-items-center text-2xl" style={{ background: 'linear-gradient(135deg,#eef2ff,#fff7ed)' }}>{icon}</div>
-      <div className="text-right">
-        <div className="font-semibold">{title}</div>
-        <div className="text-xs text-gray-500 mt-1">{desc}</div>
+    <div className="p-6 bg-white border-r last:border-r-0 flex flex-col gap-4">
+      <div className="flex items-start gap-4">
+        <div className="w-12 h-12 rounded-xl grid place-items-center text-2xl" style={{ background: 'linear-gradient(135deg,#eef2ff,#fff7ed)' }}>{icon}</div>
+        <div className="text-right">
+          <div className="font-semibold">{title}</div>
+          <div className="text-xs text-gray-500 mt-1">{desc}</div>
+        </div>
+      </div>
+
+      <div className="mt-auto flex items-center gap-3">
+        <div className="w-8 h-8 rounded-full bg-sky-100 grid place-items-center text-sm font-semibold text-sky-700">{avatarInitials}</div>
+        <div className="text-xs text-gray-600">{comment}</div>
       </div>
     </div>
   );
 }
 
+/* ---------------- PlatformHighlights (Persian) ---------------- */
 function PlatformHighlights() {
   const items = [
-    { title: 'Trusted content', desc: '60K+ titles from O\'Reilly & partners', Icon: MdMenuBook },
-    { title: 'Live online events', desc: 'Workshops and sessions with experts', Icon: MdOutlineSmartDisplay },
-    { title: 'Courses', desc: 'On-demand technical and business courses', Icon: MdSchool },
-    { title: 'Interactive labs', desc: 'Hands-on sandboxes in browser', Icon: MdAutoAwesomeMosaic },
+    { title: 'محتوای معتبر', desc: '۶۰ هزار+ عنوان از O\'Reilly و شرکا', Icon: MdMenuBook, avatar: 'J', comment: 'کتاب‌های مرجع برای مهارت‌سازی' },
+    { title: 'رویدادهای زنده', desc: 'کارگاه‌ها و جلسات تعاملی با متخصصان', Icon: MdOutlineSmartDisplay, avatar: 'A', comment: 'آموزش زنده با امکان پرسش' },
+    { title: 'دوره‌ها', desc: 'دوره‌های فنی و کسب‌وکار به‌صورت درخواست‌محور', Icon: MdSchool, avatar: 'N', comment: 'مسیرهای ساختارمند آموزشی' },
+    { title: 'لاب‌های تعاملی', desc: 'محیط‌های عملی و شبیه‌سازی در مرورگر', Icon: MdAutoAwesomeMosaic, avatar: 'M', comment: 'آموزش عملی بدون نیاز به راه‌اندازی' },
   ];
 
   return (
@@ -152,12 +201,21 @@ function PlatformHighlights() {
 
       <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {items.map((it) => (
-          <div key={it.title} className="p-6 rounded-2xl bg-white shadow-sm text-right hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 rounded-lg grid place-items-center text-2xl" style={{ background: 'linear-gradient(135deg,#f0f9ff,#fff6f0)' }}>
-              <it.Icon className="text-sky-600" />
+          <div key={it.title} className="p-6 rounded-2xl bg-white shadow-sm text-right hover:shadow-md transition-shadow flex flex-col gap-4">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-lg grid place-items-center text-2xl" style={{ background: 'linear-gradient(135deg,#f0f9ff,#fff6f0)' }}>
+                <it.Icon className="text-sky-600" />
+              </div>
+              <div>
+                <h4 className="mt-0 font-semibold">{it.title}</h4>
+                <p className="mt-1 text-sm text-gray-600 leading-relaxed">{it.desc}</p>
+              </div>
             </div>
-            <h4 className="mt-3 font-semibold">{it.title}</h4>
-            <p className="mt-2 text-sm text-gray-600 leading-relaxed">{it.desc}</p>
+
+            <div className="flex items-center gap-3 mt-auto">
+              <div className="w-8 h-8 rounded-full bg-sky-100 grid place-items-center text-sm font-semibold text-sky-700">{it.avatar}</div>
+              <div className="text-xs text-gray-600">{it.comment}</div>
+            </div>
           </div>
         ))}
       </div>
@@ -165,6 +223,7 @@ function PlatformHighlights() {
   );
 }
 
+/* ---------------- WhyDifferent & small utility cards (Persian) ---------------- */
 function WhyDifferent(){
   return (
     <section className="max-w-7xl mx-auto mt-12 text-right">
@@ -192,6 +251,7 @@ function CardWithIcon({ icon, title, desc }){
   );
 }
 
+/* ---------------- Features (Persian) ---------------- */
 function Features() {
   const features = [
     { title: 'فلش‌کارت‌های فصل‌به‌فصل', desc: 'نکات کلیدی، تعاریف و مثال‌ها برای مرورِ سریعِ هر فصل.', Icon: MdMenuBook },
@@ -220,6 +280,7 @@ function Features() {
   );
 }
 
+/* ---------------- FullCoverage ---------------- */
 function FullCoverage(){
   return (
     <section className="max-w-7xl mx-auto mt-12 text-right">
@@ -244,6 +305,7 @@ function StatCard({ num, label }){
   );
 }
 
+/* ---------------- Audio and Prompts ---------------- */
 function AudioAndPrompts(){
   return (
     <section className="max-w-7xl mx-auto mt-12 text-right">
@@ -285,6 +347,20 @@ function AudioAndPrompts(){
   );
 }
 
+/* ---------------- Visual break (big icon + callout) ---------------- */
+function VisualBreak(){
+  return (
+    <section className="max-w-7xl mx-auto mt-12 flex items-center justify-center">
+      <div className="w-full rounded-2xl p-12 bg-gradient-to-r from-sky-50 to-orange-50 shadow-lg text-center">
+        <div className="text-6xl text-sky-500 mb-4"><MdAutoAwesomeMosaic /></div>
+        <h4 className="text-xl font-semibold">یادگیری سازمانی که عقب نمی‌اندازد</h4>
+        <p className="mt-2 text-gray-600">با مسیرهای یادگیریِ ساختارمند، گزارشِ پیشرفت و تمرین‌های هدفمند، تیم‌ها سریع‌تر مهارت کسب می‌کنند و در رقابت جلو می‌افتند.</p>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Sample flashcard (no rotation) ---------------- */
 function SampleFlashcard() {
   const [flipped, setFlipped] = useState(false);
 
@@ -353,6 +429,7 @@ function SampleFlashcard() {
   );
 }
 
+/* ---------------- Question Box ---------------- */
 function QuestionBox(){
   const [q, setQ] = useState('');
   const [ans, setAns] = useState(null);
@@ -381,10 +458,11 @@ function QuestionBox(){
   );
 }
 
+/* ---------------- FAQ (Persian) ---------------- */
 function FAQ() {
   const faqs = [
     { q: 'آیا تمام محتوا کامل و قابل استفاده است؟', a: 'بله. این وبسایت نسخهٔ کامل کتاب‌ها را صفحه‌به‌صفحه پوشش می‌دهد؛ نیازی به خرید PDF یا نسخهٔ فیزیکی نیست.' },
-    { q: 'آیا خلاصه‌ها دقیق‌اند؟', a: 'بله — محتوا توسط مدل‌های پیشرفته و سپس تیمِ محتوایی بازبینی می‌شود تا دقت و کیفیت تضمین شود.' },
+    { q: 'آیا محتوا دقیق است؟', a: 'بله — محتوا توسط مدل‌های پیشرفته و سپس تیمِ محتوایی بازبینی می‌شود تا دقت و کیفیت تضمین شود.' },
     { q: 'نسخهٔ کتاب‌ها چگونه به‌روز می‌شود؟', a: 'ما آخرین نسخه‌های معتبر کتاب‌ها را منتشر می‌کنیم و محتوای سایت با ورژن‌های جدید به‌روز می‌شود.' },
   ];
 
@@ -403,6 +481,7 @@ function FAQ() {
   );
 }
 
+/* ---------------- Testimonials ---------------- */
 function Testimonials(){
   const items = [
     {name: 'Jose — Principal Engineer', text: 'این سرویس دقیقا همونی بود که تیم ما لازم داشت؛ مطالعهٔ هدفمند و سریع.'},
@@ -416,7 +495,10 @@ function Testimonials(){
       <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
         {items.map((t, i) => (
           <div key={i} className="p-6 bg-white rounded-2xl shadow-sm">
-            <div className="font-semibold">{t.name}</div>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 rounded-full bg-sky-100 grid place-items-center font-semibold text-sky-700">{t.name[0]}</div>
+              <div className="font-semibold">{t.name}</div>
+            </div>
             <div className="mt-2 text-sm text-gray-600">{t.text}</div>
           </div>
         ))}
@@ -425,6 +507,7 @@ function Testimonials(){
   );
 }
 
+/* ---------------- CTA & Footer ---------------- */
 function CTA() {
   return (
     <section className="max-w-7xl mx-auto mt-12 text-right">

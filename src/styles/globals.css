@@ -65,7 +65,7 @@
   }
 
   body {
-    @apply max-w-[1400px] mx-auto min-h-screen;
+    @apply mx-auto min-h-screen;
   }
 }
 
