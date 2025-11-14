@@ -16,19 +16,30 @@ import {
   MdHeadset,
   MdArticle,
   MdAutoAwesomeMosaic,
+  MdOutlineAssignmentTurnedIn,
+  MdOutlineAnalytics,
+  MdOutlinePerson,
+  MdOutlineAccessTimeFilled,
+  MdOutlineLibraryBooks,
+  MdOutlineSmartDisplay,
+  MdOutlineQuestionAnswer,
+  MdOutlineAutoAwesomeMosaic,
 } from "react-icons/md";
 
 export default function HomePage() {
   return (
     <main dir="rtl" lang="fa" className="px-4 md:px-12 py-12 text-gray-800">
       <Hero />
+      <HighlightsBanner />
       <PlatformHighlights />
-      <HowItWorks />
       <WhyDifferent />
       <Features />
+      <FullCoverage />
+      <AudioAndPrompts />
       <SampleFlashcard />
       <QuestionBox />
       <FAQ />
+      <Testimonials />
       <CTA />
       <Footer />
     </main>
@@ -37,23 +48,21 @@ export default function HomePage() {
 
 function Hero() {
   return (
-    <section className="max-w-6xl mx-auto flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12">
-      <div className="flex-1 md:w-1/2 text-right">
+    <section className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div className="text-right">
         <div className="inline-flex items-center gap-3 mb-4">
-          <span className="text-xs bg-white/80 px-3 py-1 rounded-full shadow-sm">منبع: O'Reilly</span>
-          <span className="text-xs text-gray-500">خلاصه‌های ساختاریافته • فلش‌کارت‌های آموزشی • صوت AI</span>
+          <span className="text-xs bg-gradient-to-r from-sky-100 to-white px-3 py-1 rounded-full shadow-sm">منبع رسمی: O'Reilly</span>
+          <span className="text-xs text-gray-500">پوشش کامل کتاب‌ها — صوت AI — پرامپت‌های آماده</span>
         </div>
 
         <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
           Build the skills your teams need —
-          <br /> یادگیری عمیق از کتاب‌های فنی معتبر با <span className="text-sky-600">فلش‌کارت‌های فصل‌به‌فصل</span>
+          <br /> <span className="bg-gradient-to-r from-sky-500 to-orange-400 bg-clip-text text-transparent">مطالعهٔ کاملِ کتاب‌ها</span> در قالبِ فلش‌کارت‌های آموزشی و عملی
         </h1>
 
-        <p className="mt-4 text-gray-600 leading-relaxed">
-          ما هر کتاب را صفحه‌به‌صفحه و فصل‌به‌فصل تحلیل می‌کنیم: تعاریف، مثال‌ها، اصطلاحات و تمرین‌ها. همراه با فایل صوتیِ هوش‌مصنوعی و پرامپت‌های قابل کپی برای هر کارت تا اگر نیاز بود AI برایتان توضیح بیشتری بدهد.
-        </p>
+        <p className="mt-4 text-gray-600 leading-relaxed">ما کتاب را صفحه‌به‌صفحه، فصل‌به‌فصل و اصطلاح‌به‌اصطلاح پوشش می‌دهیم — تمام مفاهیم، مثال‌ها، و تمرین‌ها را در یک تجربهٔ تعاملی و فارسی‌شده. دیگر نیازی به خرید PDF یا نسخهٔ فیزیکی نیست.</p>
 
-        <div className="flex flex-wrap gap-3 mt-6">
+        <div className="mt-6 flex flex-wrap gap-3">
           <Button color="primary" endContent={<MdArrowForwardIos className="text-sm" />}>
             همه کتاب‌ها
           </Button>
@@ -65,100 +74,90 @@ function Hero() {
           <Button variant="ghost" className="ml-auto">ورود / ثبت‌نام</Button>
         </div>
 
-        <div className="mt-6 flex gap-3 text-sm">
-          <div className="flex items-center gap-2 text-gray-600">
-            <MdOutlineCheckCircle />
-            <span>تضمینِ کارآمدیِ یادگیری و به‌روزرسانیِ نسخه‌های جدید کتاب‌ها</span>
+        <div className="mt-6 grid grid-cols-2 gap-3 text-sm">
+          <Badge icon={<MdOutlineCheckCircle />} text="نسخه‌های به‌روز و رسمی" />
+          <Badge icon={<MdOutlineAssignmentTurnedIn />} text="پوشش صفحه‌به‌صفحه و فصل‌به‌فصل" />
+          <Badge icon={<MdHeadset />} text="صوت AI برای هر کارت" />
+          <Badge icon={<MdOutlineQuestionAnswer />} text="پرامپت کپی‌شونده برای هر کارت" />
+        </div>
+      </div>
+
+      <div className="relative">
+        <div className="rounded-2xl overflow-hidden shadow-2xl ring-1 ring-slate-100">
+          <img src="/images/global/effective.png" alt="illustration" className="w-full h-96 object-cover" />
+        </div>
+
+        <div className="absolute -bottom-6 left-6 bg-white rounded-2xl shadow-lg p-4 w-64">
+          <div className="flex items-center gap-3">
+            <MdOutlineLibraryBooks className="text-2xl text-sky-500" />
+            <div>
+              <div className="text-sm font-semibold">کتاب برجسته امروز</div>
+              <div className="text-xs text-gray-500">Fundamentals of Software Architecture — 2025 Edition</div>
+            </div>
           </div>
         </div>
       </div>
+    </section>
+  );
+}
 
-      <div className="md:w-96 w-full">
-        <div className="rounded-xl overflow-hidden shadow-lg">
-          <img
-            src="/images/global/effective.png"
-            alt="تصویر آموزشی"
-            loading="lazy"
-            className="w-full h-64 object-cover scale-x-[-1]"
-          />
-        </div>
+function Badge({ icon, text }){
+  return (
+    <div className="flex items-center gap-3 bg-white rounded-lg p-3 shadow-sm">
+      <div className="w-10 h-10 rounded-lg grid place-items-center" style={{ background: 'linear-gradient(135deg, #eef2ff, #fff7ed)' }}>
+        <div className="text-2xl text-sky-600">{icon}</div>
+      </div>
+      <div className="text-xs text-gray-700">{text}</div>
+    </div>
+  );
+}
+
+function HighlightsBanner(){
+  return (
+    <section className="max-w-7xl mx-auto mt-12">
+      <div className="rounded-2xl overflow-hidden grid grid-cols-2 md:grid-cols-4 gap-0 text-sm">
+        <FeaturePill icon={<MdArticle />} title="Trusted content" desc="60k+ titles & partners" />
+        <FeaturePill icon={<MdOutlineSmartDisplay />} title="Live events" desc="Workshops & Q&A" />
+        <FeaturePill icon={<MdOutlineAutoAwesomeMosaic />} title="AI Academy" desc="Prompting & labs" />
+        <FeaturePill icon={<MdOutlineAnalytics />} title="Insights" desc="Team learning metrics" />
       </div>
     </section>
   );
 }
 
-function PlatformHighlights(){
+function FeaturePill({ icon, title, desc }){
+  return (
+    <div className="p-6 bg-white border-r last:border-r-0 flex items-start gap-4">
+      <div className="w-12 h-12 rounded-xl grid place-items-center text-2xl" style={{ background: 'linear-gradient(135deg,#eef2ff,#fff7ed)' }}>{icon}</div>
+      <div className="text-right">
+        <div className="font-semibold">{title}</div>
+        <div className="text-xs text-gray-500 mt-1">{desc}</div>
+      </div>
+    </div>
+  );
+}
+
+function PlatformHighlights() {
   const items = [
-    "Trusted content",
-    "Live online events",
-    "Courses",
-    "Interactive learning",
-    "Certification prep",
-    "O’Reilly Answers",
-    "AI Academy",
-    "Assignments",
-    "Insights Dashboard",
+    { title: 'Trusted content', desc: '60K+ titles from O\'Reilly & partners', Icon: MdMenuBook },
+    { title: 'Live online events', desc: 'Workshops and sessions with experts', Icon: MdOutlineSmartDisplay },
+    { title: 'Courses', desc: 'On-demand technical and business courses', Icon: MdSchool },
+    { title: 'Interactive labs', desc: 'Hands-on sandboxes in browser', Icon: MdAutoAwesomeMosaic },
   ];
 
   return (
-    <section className="max-w-6xl mx-auto mt-12">
-      <div className="rounded-2xl p-6 bg-gradient-to-r from-slate-50 to-white shadow-sm">
-        <h4 className="text-xl font-semibold text-right">ویژگی‌های پلتفرم (مورد اعتماد سازمان‌ها)</h4>
-        <p className="text-gray-600 text-right mt-2">یک مجموعهٔ کامل از منابع که تیم‌ها را در مسیر نتیجه‌محور توسعه می‌دهد. روی هر آیتم کلیک کنید تا توضیحات بیشتر ببینید.</p>
+    <section className="max-w-7xl mx-auto mt-12">
+      <h3 className="text-2xl font-semibold text-right">ویژگی‌های پلتفرم</h3>
+      <p className="text-gray-600 mt-2 text-right">مجموعه‌ای از منابعِ معتبر که تیم‌ها را پیش می‌برند.</p>
 
-        <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-          {items.map((it) => (
-            <div key={it} className="p-3 bg-white rounded-lg shadow-sm text-right flex items-center gap-3">
-              <MdArticle className="text-2xl" />
-              <div>
-                <div className="font-semibold">{it}</div>
-                <div className="text-xs text-gray-500">توضیح کوتاه درباره {it}</div>
-              </div>
+      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {items.map((it) => (
+          <div key={it.title} className="p-6 rounded-2xl bg-white shadow-sm text-right hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 rounded-lg grid place-items-center text-2xl" style={{ background: 'linear-gradient(135deg,#f0f9ff,#fff6f0)' }}>
+              <it.Icon className="text-sky-600" />
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function HowItWorks() {
-  const steps = [
-    {
-      title: "فصل‌بندی و استخراج",
-      desc: "هر فصل ورودی خوانده می‌شود و عناصری مثل تیترها، مثال‌ها و نکات کلیدی جدا می‌شوند.",
-      Icon: MdMenuBook,
-    },
-    {
-      title: "خلاصه‌سازیِ چندمرحله‌ای",
-      desc: "مدل زبانی متن را به خلاصه‌های مرتب، توضیحی و قابل فهم برای فارسی‌زبانان تبدیل می‌کند.",
-      Icon: MdOutlineAutoAwesome,
-    },
-    {
-      title: "تولید فلش‌کارت و سوال",
-      desc: "برای هر بخش کارت مرور، سوالِ درکِ مطلب و نکتهٔ عملی تولید می‌شود تا یادگیری فعال شود.",
-      Icon: MdFlashOn,
-    },
-  ];
-
-  return (
-    <section className="max-w-6xl mx-auto mt-12">
-      <div className="flex items-center justify-between">
-        <div>
-          <h3 className="text-2xl font-semibold text-right">چطور کار می‌کند</h3>
-          <p className="text-gray-600 mt-2 text-right">سه مرحلهٔ شفاف تا یادگیری عمیق — قابل بررسی و ویرایش توسط تیم محتوا.</p>
-        </div>
-        <div className="text-sm text-gray-500">قابل اتوماسیون، قابلِ اعتبارسنجی، و مخصوصِ فارسی‌زبانان</div>
-      </div>
-
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-        {steps.map((s) => (
-          <div key={s.title} className="p-6 bg-white rounded-2xl shadow-sm text-right hover:scale-[1.02] transition-transform">
-            <div className="w-12 h-12 rounded-lg bg-slate-100 grid place-items-center text-2xl">
-              <s.Icon />
-            </div>
-            <h4 className="mt-3 font-semibold">{s.title}</h4>
-            <p className="mt-2 text-sm text-gray-600 leading-relaxed">{s.desc}</p>
+            <h4 className="mt-3 font-semibold">{it.title}</h4>
+            <p className="mt-2 text-sm text-gray-600 leading-relaxed">{it.desc}</p>
           </div>
         ))}
       </div>
@@ -168,69 +167,47 @@ function HowItWorks() {
 
 function WhyDifferent(){
   return (
-    <section className="max-w-6xl mx-auto mt-12 text-right">
+    <section className="max-w-7xl mx-auto mt-12 text-right">
       <h3 className="text-2xl font-semibold">چرا ما متفاوتیم</h3>
-      <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="p-6 bg-white rounded-2xl shadow-sm">
-          <h4 className="font-semibold">پوشش کامل، ساخت‌یافته و عملی</h4>
-          <p className="mt-2 text-gray-600">ما به‌صورت درس‌به‌درس، فصل‌به‌فصل و صفحه‌به‌صفحه مفاهیم، اصطلاحات و مثال‌های کتاب را تحلیل و در قالب کارت‌های آموزشی، تمرین و سوال ارائه می‌کنیم — با تمرکز روی فهمِ کاربردی نه فقط خلاصهٔ سطحی.</p>
-        </div>
+      <p className="text-gray-600 mt-2">تحلیل عمیق، پوشش کامل و تجربهٔ یادگیریِ قابل اتکا برای فارسی‌زبانان.</p>
 
-        <div className="p-6 bg-white rounded-2xl shadow-sm">
-          <h4 className="font-semibold">صوتِ AI و پرامپت برای هر کارت</h4>
-          <p className="mt-2 text-gray-600">هر کارت همراه با نسخهٔ صوتی تولیدشده توسط AI و پرامپتِ آماده برای ارسال به مدلِ زبانی قرار می‌گیرد تا اگر کاربر نیاز به توضیحات بیشتر داشت، به‌راحتی از آن استفاده کند.</p>
-        </div>
-
-        <div className="p-6 bg-white rounded-2xl shadow-sm">
-          <h4 className="font-semibold">پرسش‌سنجی و ارزیابی هوشمند</h4>
-          <p className="mt-2 text-gray-600">سوال‌ها و تمرین‌ها به‌صورت خودکار تولید می‌شوند و می‌توانید در question-box مهارت خود را بسنجید؛ تمام سوالات توسط AI تولید و براساس سطح شما تنظیم می‌شوند.</p>
-        </div>
-
-        <div className="p-6 bg-white rounded-2xl shadow-sm">
-          <h4 className="font-semibold">به‌روز بودنِ نسخه‌ها</h4>
-          <p className="mt-2 text-gray-600">ما نسخهٔ جدید کتاب‌ها را دنبال می‌کنیم و آخرین ویرایش‌های معتبر را در اولویت انتشار قرار می‌دهیم؛ در صورت انتشار نسخهٔ جدید، محتوای سایت به‌سرعت بروزرسانی می‌شود.</p>
-        </div>
+      <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <CardWithIcon icon={<MdOutlineLibraryBooks />} title="پوشش کامل کتاب" desc="هر صفحه، هر فصل، هر اصطلاح — تمام محتوا به‌صورت ساختاریافته پوشش داده می‌شود." />
+        <CardWithIcon icon={<MdHeadset />} title="صوت AI برای هر کارت" desc="گوش دهید در محل کار یا مسیر؛ صوت اختصاصی با صدای AI برای هر فلش‌کارت فراهم است." />
+        <CardWithIcon icon={<MdOutlineQuestionAnswer />} title="پرامپت و تعامل با AI" desc="پرامپت‌های آماده کنار هر کارت تا بتوانید از AI بخواهید آن بخش را کاملاً برایتان شرح دهد." />
       </div>
-
-      <p className="mt-4 text-sm text-gray-500">توجه: هرگونه نشر متن کاملِ کتاب مستلزم قرارداد و مجوز ناشر است. محتوای آموزشی ما در قالب تحلیل، توضیح و تمرین ارائه می‌شود و درصورت وجود توافقنامه‌های قانونی با ناشر، می‌توانیم سطوح بیشتری از محتوا را منتشر کنیم.</p>
     </section>
+  );
+}
+
+function CardWithIcon({ icon, title, desc }){
+  return (
+    <div className="p-6 rounded-2xl bg-white shadow-sm flex gap-4 items-start">
+      <div className="w-14 h-14 rounded-lg grid place-items-center text-2xl" style={{ background: 'linear-gradient(135deg,#eef2ff,#fff7ed)' }}>{icon}</div>
+      <div className="text-right">
+        <div className="font-semibold">{title}</div>
+        <p className="mt-2 text-sm text-gray-600">{desc}</p>
+      </div>
+    </div>
   );
 }
 
 function Features() {
   const features = [
-    {
-      title: "فلش‌کارت‌های فصل‌به‌فصل",
-      desc: "نکات کلیدی، تعاریف و مثال‌ها برای مرورِ سریعِ هر فصل.",
-      Icon: MdMenuBook,
-    },
-    {
-      title: "پرسش‌های تستی و تمرین",
-      desc: "سوالات چندسطحی برای سنجش و تثبیت یادگیری.",
-      Icon: MdSchool,
-    },
-    {
-      title: "مسیرِ تیمی و گزارش پیشرفت",
-      desc: "داشبورد تیمی برای رهبران تا پیشرفت اعضا را ببینند.",
-      Icon: MdGroup,
-    },
-    {
-      title: "دروس کوتاه و کاربردی",
-      desc: "هر کارت طوری طراحی شده که در ۵ تا ۱۰ دقیقه قابل مرور باشد.",
-      Icon: MdAccessTime,
-    },
+    { title: 'فلش‌کارت‌های فصل‌به‌فصل', desc: 'نکات کلیدی، تعاریف و مثال‌ها برای مرورِ سریعِ هر فصل.', Icon: MdMenuBook },
+    { title: 'پرسش‌های تستی و تمرین', desc: 'سوالات چندسطحی برای سنجش و تثبیت یادگیری.', Icon: MdSchool },
+    { title: 'داشبورد تیمی', desc: 'گزارش‌های پیشرفت، انتساب محتوا و مسیرهای شخصی‌سازی شده.', Icon: MdOutlineAnalytics },
+    { title: 'دروس کوتاه و کاربردی', desc: 'هر کارت در ۵–۱۰ دقیقه مرور می‌شود.', Icon: MdAccessTime },
   ];
 
   return (
-    <section className="max-w-6xl mx-auto mt-12">
+    <section className="max-w-7xl mx-auto mt-12">
       <h3 className="text-2xl font-semibold text-right">ویژگی‌ها</h3>
-      <p className="text-gray-600 mt-2 text-right">رویکردی عملی، قابلِ اجرا و زمان‌پسند برای مطالعهٔ کتاب‌های فنی.</p>
-
       <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {features.map((f) => (
-          <div key={f.title} className="flex gap-4 items-start p-5 rounded-2xl shadow-sm bg-white text-right hover:shadow-md transition-shadow">
-            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-slate-100 grid place-items-center text-2xl">
-              <f.Icon />
+          <div key={f.title} className="flex gap-4 items-start p-6 rounded-2xl shadow-sm bg-white text-right hover:shadow-md transition-shadow">
+            <div className="flex-shrink-0 w-14 h-14 rounded-lg grid place-items-center text-2xl" style={{ background: 'linear-gradient(135deg,#fff7ed,#eef2ff)' }}>
+              <f.Icon className="text-sky-600" />
             </div>
             <div>
               <h4 className="font-semibold">{f.title}</h4>
@@ -243,25 +220,90 @@ function Features() {
   );
 }
 
+function FullCoverage(){
+  return (
+    <section className="max-w-7xl mx-auto mt-12 text-right">
+      <h3 className="text-2xl font-semibold">پوشش کامل کتاب — صفحه‌به‌صفحه</h3>
+      <p className="text-gray-600 mt-2">هر کتاب به‌صورت کامل و دقیق در سایت پوشش داده می‌شود: تعاریف، نمودارها، الگوریتم‌ها، مثال‌ها و تمرین‌ها. دیگر نیازی به تهیه نسخهٔ فیزیکی یا PDF ندارید؛ تمام محتوا در سایت قابل دسترس، جستجو و شنیدن است.</p>
+
+      <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <StatCard num="60K+" label="کتاب‌های مرجع" />
+        <StatCard num="30K+" label="ساعت ویدئو" />
+        <StatCard num="پیوسته" label="به‌روزرسانی نسخه‌ها (Latest Editions)" />
+      </div>
+    </section>
+  );
+}
+
+function StatCard({ num, label }){
+  return (
+    <div className="p-6 rounded-2xl bg-white shadow-sm text-right">
+      <div className="text-2xl font-bold">{num}</div>
+      <div className="text-sm text-gray-600 mt-2">{label}</div>
+    </div>
+  );
+}
+
+function AudioAndPrompts(){
+  return (
+    <section className="max-w-7xl mx-auto mt-12 text-right">
+      <h3 className="text-2xl font-semibold">صوتِ AI و کتابخانهٔ پرامپت‌ها</h3>
+      <p className="text-gray-600 mt-2">هر فلش‌کارت همراه با فایل صوتیِ تولیدشده توسط هوش‌مصنوعی و پرامپتِ قابل‌کپی عرضه می‌شود. اگر نیاز به توضیح بیشتر بود، پرامپت را کپی کنید و مستقیماً به AI بدهید.</p>
+
+      <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="p-6 bg-white rounded-2xl shadow-sm">
+          <div className="flex items-center gap-3">
+            <MdHeadset className="text-2xl text-sky-600" />
+            <div>
+              <div className="font-semibold">پخش صوت AI</div>
+              <div className="text-xs text-gray-500">صداهای طبیعی برای مرور در حرکت</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="p-6 bg-white rounded-2xl shadow-sm">
+          <div className="flex items-center gap-3">
+            <MdOutlineQuestionAnswer className="text-2xl text-sky-600" />
+            <div>
+              <div className="font-semibold">پرامپت‌های آماده</div>
+              <div className="text-xs text-gray-500">پرامپت‌ برای توضیح بیشتر، خلاصه‌سازی یا مثال‌سازی</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="p-6 bg-white rounded-2xl shadow-sm">
+          <div className="flex items-center gap-3">
+            <MdOutlineSmartDisplay className="text-2xl text-sky-600" />
+            <div>
+              <div className="font-semibold">تطبیق محتوا با سطح شما</div>
+              <div className="text-xs text-gray-500">AI سوالات را بر اساس سطح شما تنظیم می‌کند</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function SampleFlashcard() {
   const [flipped, setFlipped] = useState(false);
 
   return (
     <section className="max-w-4xl mx-auto mt-12 text-right">
       <h3 className="text-2xl font-semibold">نمونه فلش‌کارت</h3>
-      <p className="text-gray-600 mt-2">روی کارت کلیک کن تا جواب رو ببینی — همچنان محتوای سوال و جواب در جای خودش باقی می‌ماند ولی با انیمیشن نرم جایگزین می‌شود.</p>
+      <p className="text-gray-600 mt-2">روی دکمهٔ "دیدن پاسخ" کلیک کنید — متن سوال به‌آرامی محو می‌شود و پاسخ جایگزین می‌شود (بدون چرخش). صوت AI و دکمهٔ کپی پرامپت نیز قرار داده شده‌اند.</p>
 
       <div className="mt-6 flex flex-col md:flex-row items-center gap-6">
         <div className="w-full md:w-2/3">
           <div className="relative p-6 rounded-2xl bg-white shadow-lg overflow-hidden" style={{ minHeight: 160 }}>
             {/* front */}
-            <div className={`transition-all duration-400 ease-in-out ${flipped ? 'opacity-0 translate-y-2 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
+            <div className={`transition-all duration-300 ease-in-out ${flipped ? 'opacity-0 translate-y-2 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
               <h4 className="font-semibold text-lg">سوال: تفاوت بین Monolith و Microservices چیست؟</h4>
               <p className="mt-3 text-sm text-gray-600">کوتاه توضیح بده و یک مثال عملی بزن.</p>
             </div>
 
             {/* back */}
-            <div className={`absolute inset-0 transition-all duration-400 ease-in-out ${flipped ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
+            <div className={`absolute inset-0 transition-all duration-300 ease-in-out ${flipped ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
               <h4 className="font-semibold text-lg">پاسخ (خلاصه)</h4>
               <ul className="mt-2 text-sm text-gray-600 list-disc pr-5 space-y-1">
                 <li>مونو‌لیت: ساده، استقرار یکجا؛ مناسب پروژه‌های کوچک.</li>
@@ -316,7 +358,6 @@ function QuestionBox(){
   const [ans, setAns] = useState(null);
 
   function ask(){
-    // mock: در نسخهٔ واقعی به API هوش‌مصنوعی متصل می‌شود
     setAns('پاسخ هوش‌مصنوعی (نمونه): خلاصه‌ای از نکات کلیدی و مثال‌ها...');
   }
 
@@ -342,25 +383,14 @@ function QuestionBox(){
 
 function FAQ() {
   const faqs = [
-    {
-      q: 'آیا تمام متن کتاب روی سایت قرار می‌گیرد؟',
-      a: 'هرگونه نشر متن کاملِ کتاب منوط به قرارداد و مجوز با ناشر است. آنچه ما ارائه می‌کنیم تحلیلِ آموزشی، توضیحات صفحه‌به‌صفحه، فلش‌کارت‌ها، صوت AI و محتوای تعاملی است که برای یادگیری عمیق طراحی شده‌اند.'
-    },
-    {
-      q: 'آیا خلاصه‌ها قابل اعتماد هستند؟',
-      a: 'بله — خلاصه‌ها و مواد تحلیلی توسط مدل‌های پیشرفته تولید و سپس توسط تیم محتوایی بازبینی می‌شوند تا دقت و کیفیت حفظ شود.'
-    },
-    {
-      q: 'چطور می‌توانم کتابی پیشنهاد دهم؟',
-      a: 'در بخش جستجو یا فرم پیشنهاد کتاب، نام و لینک کتاب را وارد کنید؛ تیم ما بررسی و در صورت امکان اضافه می‌کند.'
-    }
+    { q: 'آیا تمام محتوا کامل و قابل استفاده است؟', a: 'بله. این وبسایت نسخهٔ کامل کتاب‌ها را صفحه‌به‌صفحه پوشش می‌دهد؛ نیازی به خرید PDF یا نسخهٔ فیزیکی نیست.' },
+    { q: 'آیا خلاصه‌ها دقیق‌اند؟', a: 'بله — محتوا توسط مدل‌های پیشرفته و سپس تیمِ محتوایی بازبینی می‌شود تا دقت و کیفیت تضمین شود.' },
+    { q: 'نسخهٔ کتاب‌ها چگونه به‌روز می‌شود؟', a: 'ما آخرین نسخه‌های معتبر کتاب‌ها را منتشر می‌کنیم و محتوای سایت با ورژن‌های جدید به‌روز می‌شود.' },
   ];
 
   return (
-    <section className="max-w-6xl mx-auto mt-12 text-right">
+    <section className="max-w-7xl mx-auto mt-12 text-right">
       <h3 className="text-2xl font-semibold">سوالات متداول</h3>
-      <p className="text-gray-600 mt-2">پاسخِ سوالات رایج دربارهٔ نحوهٔ کار، حقوق نشر و استفاده.</p>
-
       <div className="mt-6 space-y-3">
         {faqs.map((f, i) => (
           <details key={i} className="p-4 bg-white rounded-2xl shadow-sm">
@@ -373,13 +403,35 @@ function FAQ() {
   );
 }
 
+function Testimonials(){
+  const items = [
+    {name: 'Jose — Principal Engineer', text: 'این سرویس دقیقا همونی بود که تیم ما لازم داشت؛ مطالعهٔ هدفمند و سریع.'},
+    {name: 'Arianne Dee — Developer', text: 'پرامپت‌های آماده و صوت AI فوق‌العاده‌اند.'},
+    {name: 'Neal Ford — Architect', text: 'پوشش صفحه‌به‌صفحه واقعا تسریع یادگیری را ممکن می‌کند.'},
+  ];
+
+  return (
+    <section className="max-w-7xl mx-auto mt-12 text-right">
+      <h3 className="text-2xl font-semibold">نظر کاربران</h3>
+      <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+        {items.map((t, i) => (
+          <div key={i} className="p-6 bg-white rounded-2xl shadow-sm">
+            <div className="font-semibold">{t.name}</div>
+            <div className="mt-2 text-sm text-gray-600">{t.text}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function CTA() {
   return (
-    <section className="max-w-6xl mx-auto mt-12 text-right">
+    <section className="max-w-7xl mx-auto mt-12 text-right">
       <div className="p-8 rounded-2xl text-white flex flex-col md:flex-row items-center gap-6" style={{ background: 'linear-gradient(90deg,#0ea5e9,#fb923c)' }}>
         <div className="flex-1">
           <h4 className="text-2xl font-semibold">شروع کنید — اولین کتاب را انتخاب کنید</h4>
-          <p className="mt-2 text-white/90">همین حالا ثبت‌نام کنید و ۷ روز دسترسی آزمایشی رایگان بگیرید. وبسایت در حال توسعه است و فیچرهای بیشتر به‌زودی اضافه خواهند شد.</p>
+          <p className="mt-2 text-white/90">همین حالا ثبت‌نام کنید و ۷ روز دسترسی آزمایشی رایگان بگیرید. وبسایت در حال توسعه است؛ فیچرهای بیشتری به‌زودی اضافه می‌شوند.</p>
         </div>
         <div>
           <Button color="primary">شروع رایگان</Button>
@@ -391,10 +443,10 @@ function CTA() {
 
 function Footer() {
   return (
-    <footer className="max-w-6xl mx-auto mt-12 text-right text-sm text-gray-500">
+    <footer className="max-w-7xl mx-auto mt-12 text-right text-sm text-gray-500">
       <div className="py-8 border-t">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div>© {new Date().getFullYear()} یادگیری از O'Reilly — خلاصه و فلش‌کارت</div>
+          <div>© {new Date().getFullYear()} یادگیری از O'Reilly — کامل، فارسی‌شده، صوت AI</div>
           <div className="flex items-center gap-4">
             <a className="underline">حریم خصوصی</a>
             <a className="underline">قوانین استفاده</a>
