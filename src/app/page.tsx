@@ -25,7 +25,7 @@ import {
 } from "react-icons/md";
 import { LuScrollText } from "react-icons/lu";
 import { GrUpdate } from "react-icons/gr";
-import { TbBrandOpenai, TbPrompt } from "react-icons/tb";
+import { TbBrandAmongUs, TbBrandOpenai, TbMessageCode, TbPrompt } from "react-icons/tb";
 
 export default function HomePage() {
   return (
@@ -33,7 +33,6 @@ export default function HomePage() {
       <BackgroundBubbles />
       <Hero />
       <HighlightsBanner />
-      <PlatformHighlights />
       <WhyDifferent />
       <Features />
       <FullCoverage />
@@ -134,101 +133,90 @@ function Badge({ icon, text }) {
   );
 }
 
-/* ---------------- Highlights Banner (Persian) ---------------- */
+import {
+  MdSmartToy,
+  MdCode,
+  MdOutlineAssignment,
+  MdOutlineQuiz,
+} from "react-icons/md";
+import { FaCodeBranch } from "react-icons/fa6";
+import { SiOpenai } from "react-icons/si";
+
 function HighlightsBanner() {
   return (
-    <section className="max-w-7xl mx-auto mt-12">
-      <div className="rounded-2xl overflow-hidden grid grid-cols-2 md:grid-cols-4 gap-0 text-sm">
-        <FeaturePill
-          icon={<MdArticle />}
-          title="محتوای معتبر"
-          desc="بیش از ۶۰ هزار عنوان از O'Reilly و ناشران معتبر"
-          avatarInitials="J"
-          comment="منابع قابل اتکا برای تیم‌های حرفه‌ای"
-        />
-
-        <FeaturePill
-          icon={<MdOutlineSmartDisplay />}
-          title="رویدادهای زنده"
-          desc="کارگاه‌ها، وبینارها و پرسش و پاسخ با متخصصان"
-          avatarInitials="A"
-          comment="می‌تونید سوال بدید و پاسخ مستقیم بگیرید"
-        />
-
-        <FeaturePill
-          icon={<MdAutoAwesomeMosaic />}
-          title="آکادمی AI"
-          desc="آموزش‌های عملی، پرامپتینگ و لاب‌"
-          avatarInitials="N"
-          comment="یادگیری مهارت‌های مربوط به AI"
-        />
-
-        <FeaturePill
-          icon={<MdOutlineAnalytics />}
-          title="بینش آموزشی"
-          desc="شاخص‌های یادگیری و تحلیل برای تیم‌ها"
-          avatarInitials="M"
-          comment="آمار و گزارش برای رهبران"
-        />
-      </div>
-    </section>
-  );
-}
-
-function FeaturePill({ icon, title, desc, avatarInitials, comment }) {
-  return (
-    <div className="p-6 bg-white border-r last:border-r-0 flex flex-col gap-4">
-      <div className="flex items-start gap-4">
-        <div className="w-12 h-12 rounded-xl grid place-items-center text-2xl" style={{ background: 'linear-gradient(135deg,#eef2ff,#fff7ed)' }}>{icon}</div>
-        <div className="text-right">
-          <div className="font-semibold">{title}</div>
-          <div className="text-xs text-gray-500 mt-1">{desc}</div>
-        </div>
-      </div>
-
-      <div className="mt-auto flex items-center gap-3">
-        <div className="w-8 h-8 rounded-full bg-sky-100 grid place-items-center text-sm font-semibold text-sky-700">{avatarInitials}</div>
-        <div className="text-xs text-gray-600">{comment}</div>
-      </div>
-    </div>
-  );
-}
-
-/* ---------------- PlatformHighlights (Persian) ---------------- */
-function PlatformHighlights() {
-  const items = [
-    { title: 'محتوای معتبر', desc: '۶۰ هزار+ عنوان از O\'Reilly و شرکا', Icon: MdMenuBook, avatar: 'J', comment: 'کتاب‌های مرجع برای مهارت‌سازی' },
-    { title: 'رویدادهای زنده', desc: 'کارگاه‌ها و جلسات تعاملی با متخصصان', Icon: MdOutlineSmartDisplay, avatar: 'A', comment: 'آموزش زنده با امکان پرسش' },
-    { title: 'دوره‌ها', desc: 'دوره‌های فنی و کسب‌وکار به‌صورت درخواست‌محور', Icon: MdSchool, avatar: 'N', comment: 'مسیرهای ساختارمند آموزشی' },
-    { title: 'لاب‌های تعاملی', desc: 'محیط‌های عملی و شبیه‌سازی در مرورگر', Icon: MdAutoAwesomeMosaic, avatar: 'M', comment: 'آموزش عملی بدون نیاز به راه‌اندازی' },
-  ];
-
-  return (
-    <section className="max-w-7xl mx-auto mt-12">
-      <h3 className="text-2xl font-semibold text-right">ویژگی‌های پلتفرم</h3>
-      <p className="text-gray-600 mt-2 text-right">مجموعه‌ای از منابعِ معتبر که تیم‌ها را پیش می‌برند.</p>
-
-      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {items.map((it) => (
-          <div key={it.title} className="p-6 rounded-2xl bg-white shadow-sm text-right hover:shadow-md transition-shadow flex flex-col gap-4">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-lg grid place-items-center text-2xl" style={{ background: 'linear-gradient(135deg,#f0f9ff,#fff6f0)' }}>
-                <it.Icon className="text-sky-600" />
-              </div>
-              <div>
-                <h4 className="mt-0 font-semibold">{it.title}</h4>
-                <p className="mt-1 text-sm text-gray-600 leading-relaxed">{it.desc}</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3 mt-auto">
-              <div className="w-8 h-8 rounded-full bg-sky-100 grid place-items-center text-sm font-semibold text-sky-700">{it.avatar}</div>
-              <div className="text-xs text-gray-600">{it.comment}</div>
-            </div>
-          </div>
+    <section className="max-w-7xl mx-auto mt-12 relative">
+      {/* پس‌زمینه حباب‌های خیلی کم‌رنگ (اختیاری ـ می‌تونی حذف کنی) */}
+      <div className="absolute inset-0 overflow-hidden -z-10">
+        {[...Array(30)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full opacity-8"
+            style={{
+              width: `${Math.random() * 10 + 6}px`,
+              height: `${Math.random() * 10 + 6}px`,
+              backgroundColor: `hsl(${Math.random() * 360}, 70%, 88%)`,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+            }}
+          />
         ))}
       </div>
+
+      <h3 className="text-2xl font-bold text-right mb-3">ویژگی‌های متمایز پلتفرم</h3>
+      <p className="text-gray-600 text-right mb-8">
+        چهار قابلیت کلیدی که تجربهٔ یادگیریِ عمیق، تعاملی و سازمانی را ممکن می‌کنند.
+      </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <FeatureCard
+          icon={<TbBrandAmongUs />}
+          title="مربی هوش‌مصنوعی"
+          desc="پاسخِ آنی و توضیحِ گام‌به‌گام برای هر بخش از کتاب — سازگار با سطح اختصاصیِ کاربر."
+          note="تعامل‌محور — مثل یک مربی شخصی در دسترس"
+        />
+
+        <FeatureCard
+          icon={<TbMessageCode />}
+          title="لاب‌های سناریویی"
+          desc="تمرین‌های شبیه‌سازی‌شده برای مسائل واقعی: طراحی معماری، رفع باگ و پیاده‌سازی نمونه‌ها بدون نیاز به نصب."
+          note="عملی و کاربردی — «یادگیری با دست»"
+        />
+
+        <FeatureCard
+          icon={<FaCodeBranch />}
+          title="مسیرها و انتساب تیمی"
+          desc="ساخت و تخصیص مسیرهای آموزشی برای تیم، پیگیری پیشرفت و گزارش‌های دقیق برای رهبران."
+          note="مدیریت یادگیری سازمانی"
+        />
+
+        <FeatureCard
+          icon={<SiOpenai />}
+          title="کتابخانهٔ پرامپت‌های تخصصی"
+          desc="پرامپت‌های آماده و بهینه‌شده برای هر کارت — کپی کن، پرس و پاسخ بگیر، یا برای توضیح عمیق‌تر استفاده کن."
+          note="ابزارِ کمکی برای تعامل بهتر با AI"
+        />
+      </div>
     </section>
+  );
+}
+
+
+function FeatureCard({ icon, title, desc }) {
+  return (
+    <div className="flex flex-col p-8 rounded-3xl shadow-lg bg-white transition-transform hover:scale-105 relative overflow-hidden">
+      {/* هاله نورانی پشت آیکون */}
+      <div className="absolute -top-8 -right-8 w-24 h-24 rounded-full bg-gradient-to-tr from-sky-200 to-orange-200 opacity-20 animate-pulse pointer-events-none"></div>
+      
+      <div className="flex flex-col items-end z-10 relative">
+        <div className="w-16 h-16 rounded-xl grid place-items-center text-4xl bg-gradient-to-tr from-sky-100 to-white text-sky-600 shadow-inner mb-4">
+          {icon}
+        </div>
+        <div className="text-right">
+          <div className="font-bold text-lg text-gray-800">{title}</div>
+          <div className="text-sm text-gray-500 mt-1">{desc}</div>
+        </div>
+      </div>
+    </div>
   );
 }
 
