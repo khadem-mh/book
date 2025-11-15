@@ -73,13 +73,15 @@ function Hero() {
         </div>
 
         <h1 className="text-4xl md:text-4xl font-extrabold leading-tight">
-          <p className="!text-left leading-17 bg-gradient-to-r from-slate-200 via-gray-500 to-gray-200 bg-clip-text text-transparent text-[70px] mt-3">Build the skills your teams need</p>
+          <p className="!text-left leading-17 bg-gradient-to-r from-slate-100 via-gray-400 to-slate-100 bg-clip-text text-transparent text-[70px] mt-3">Build <span className="text-4xl">the skills your teams need</span></p>
           <p className="leading-15 mt-8">
-            <span className="bg-gradient-to-r from-sky-500 text-5xl to-orange-400 bg-clip-text text-transparent">مطالعهٔ کاملِ کتاب‌ها</span> در قالبِ فلش‌کارت‌ با هوش مصنوعی
+            <span className="bg-gradient-to-r from-sky-500 to-orange-400 bg-clip-text text-transparent">مطالعهٔ کاملِ کتاب‌های</span> حوزهٔ کامپیوتر با فلش‌کارت‌های مبتنی بر هوش مصنوعی
           </p>
         </h1>
 
-        <p className="mt-4 text-gray-600 leading-8">ما کتاب را صفحه‌به‌صفحه، فصل‌به‌فصل و اصطلاح‌به‌اصطلاح پوشش می‌دهیم — تمام مفاهیم، مثال‌ها، و تمرین‌ها را در یک تجربهٔ تعاملی و فارسی‌شده. دیگر نیازی به خرید PDF یا نسخهٔ فیزیکی نیست.</p>
+        <p className="mt-4 text-gray-600 leading-8">
+          ما کتاب‌ها را صفحه‌به‌صفحه، فصل‌به‌فصل و اصطلاح‌به‌اصطلاح پوشش می‌دهیم — تمام مفاهیم، مثال‌ها و تمرین‌ها را در یک تجربهٔ تعاملی و کاملاً فارسی‌شده ارائه می‌کنیم. دیگر نیازی به خرید PDF یا نسخهٔ فیزیکی نیست.
+        </p>
 
         <div className="mt-6 flex flex-wrap gap-3">
           <Button variant="bordered">ورود / ثبت‌نام</Button>
@@ -107,7 +109,7 @@ function Hero() {
             <div>
               <div className="text-xs text-gray-500 text-left leading-5">Fundamentals of Software Architecture — Edit in 2025</div>
               <div className="flex items-center justify-between w-full bg-slate-100 p-1 rounded-lg mt-1">
-                <div className="flex items-center gap-1 text-xs border rounded-lg px-2 border-slate-300">
+                <div className="flex items-center gap-1 cursor-pointer text-xs border rounded-lg px-2 border-slate-300">
                   <MdArrowOutward />
                   <span>مطاله</span>
                 </div>
