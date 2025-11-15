@@ -21,6 +21,7 @@ import {
   MdOutlineSmartDisplay,
   MdOutlineQuestionAnswer,
   MdOutlinePerson,
+  MdArrowOutward,
 } from "react-icons/md";
 import { LuScrollText } from "react-icons/lu";
 import { GrUpdate } from "react-icons/gr";
@@ -100,13 +101,17 @@ function Hero() {
 
         <img src="/images/global/effective.png" alt="illustration" className="w-full select-none animate-spin" style={{ animationDuration: "25000ms" }} />
 
-        <div className="absolute -bottom-6 left-6 bg-white rounded-2xl shadow-lg p-4 w-64">
+        <div className="absolute -bottom-6 left-6 bg-white/50 rounded-2xl shadow-lg p-4 w-64">
           <div className="flex flex-col items-center">
             <div className="text-sm font-semibold">کتاب برجسته امروز</div>
             <div>
               <div className="text-xs text-gray-500 text-left leading-5">Fundamentals of Software Architecture — Edit in 2025</div>
-              <div className="flex items-center justify-between w-full">
-                <MdOutlineLibraryBooks className="text-xl text-gray-600 cursor-pointer hover:text-gray-900 transition" />
+              <div className="flex items-center justify-between w-full bg-slate-100 p-1 rounded-lg mt-1">
+                <div className="flex items-center gap-1 text-xs border rounded-lg px-2 border-slate-300">
+                  <MdArrowOutward />
+                  <span>مطاله</span>
+                </div>
+                <MdOutlineLibraryBooks className="text-lg text-gray-600 cursor-pointer hover:text-gray-900 transition" />
               </div>
             </div>
           </div>
