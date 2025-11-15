@@ -37,10 +37,9 @@ export default function HomePage() {
       <Hero />
       <HighlightsBanner />
       <WhyDifferent />
-      <Features />
-      <FullCoverage />
-      <AudioAndPrompts />
       <VisualBreak />
+      <Features />
+      <AudioAndPrompts />
       <SampleFlashcard />
       <QuestionBox />
       <FAQ />
@@ -219,11 +218,11 @@ function FeatureCard({ icon, title, desc, note }) {
 
 function WhyDifferent() {
   return (
-    <section className="max-w-7xl mx-auto mt-12 text-right relative">
+    <section className="max-w-7xl mx-auto mt-24 text-right relative">
       {/* Title + background bubbles */}
       <div className="relative inline-block mb-6">
         {/* دایره‌های بزرگ و محو پشت عنوان */}
-        <div className="absolute -top-2 left-48 w-60 h-60 rounded-full bg-slate-300 blur-[55px] -z-10"></div>
+        <div className="absolute -top-2 left-24 w-96 h-96 rounded-full bg-slate-200 blur-[55px] -z-10"></div>
 
         <h3 className="text-2xl font-semibold relative z-10">چرا ما متفاوتیم</h3>
         <p className="mt-1 text-sm relative z-10 text-gray-950">
@@ -271,8 +270,6 @@ function CardWithIcon({ icon, title, desc }) {
   );
 }
 
-
-/* ---------------- Features (Persian) ---------------- */
 function Features() {
   const features = [
     { title: 'فلش‌کارت‌های فصل‌به‌فصل', desc: 'نکات کلیدی، تعاریف و مثال‌ها برای مرورِ سریعِ هر فصل.', Icon: MdMenuBook },
@@ -283,46 +280,31 @@ function Features() {
 
   return (
     <section className="max-w-7xl mx-auto mt-12">
-      <h3 className="text-2xl font-semibold text-right">ویژگی‌های فلش کارت ها</h3>
+      <h3 className="text-2xl font-semibold text-right">ویژگی‌های فلش کارت‌ها</h3>
       <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {features.map((f) => (
-          <div key={f.title} className="flex gap-4 items-start p-6 rounded-2xl shadow-sm bg-white text-right hover:shadow-md transition-shadow">
-            <div className="flex-shrink-0 w-14 h-14 rounded-lg grid place-items-center text-2xl" style={{ background: 'linear-gradient(135deg,#fff7ed,#eef2ff)' }}>
-              <f.Icon className="text-sky-600" />
+          <div
+            key={f.title}
+            className="relative flex gap-4 items-start p-6 rounded-3xl shadow-lg bg-white text-right hover:shadow-xl transition-all duration-300 overflow-hidden"
+          >
+            {/* subtle background bubble behind icon */}
+            <div
+              className="absolute -top-6 -right-6 w-28 h-28 rounded-full opacity-10 pointer-events-none blur-2xl"
+              style={{ background: 'radial-gradient(circle at 30% 30%, rgba(14,165,233,0.08), transparent 40%)' }}
+            ></div>
+
+            <div className="flex-shrink-0 w-16 h-16 rounded-xl grid place-items-center text-3xl bg-gradient-to-tr from-sky-100 to-white text-sky-600 shadow-inner">
+              <f.Icon />
             </div>
+
             <div>
-              <h4 className="font-semibold">{f.title}</h4>
-              <p className="mt-1 text-sm text-gray-600 leading-relaxed">{f.desc}</p>
+              <h4 className="font-bold text-gray-800 text-lg">{f.title}</h4>
+              <p className="mt-2 text-sm text-gray-500 leading-relaxed">{f.desc}</p>
             </div>
           </div>
         ))}
       </div>
     </section>
-  );
-}
-
-/* ---------------- FullCoverage ---------------- */
-function FullCoverage() {
-  return (
-    <section className="max-w-7xl mx-auto mt-12 text-right">
-      <h3 className="text-2xl font-semibold">پوشش کامل کتاب — صفحه‌به‌صفحه</h3>
-      <p className="text-gray-600 mt-2">هر کتاب به‌صورت کامل و دقیق در سایت پوشش داده می‌شود: تعاریف، نمودارها، الگوریتم‌ها، مثال‌ها و تمرین‌ها. دیگر نیازی به تهیه نسخهٔ فیزیکی یا PDF ندارید؛ تمام محتوا در سایت قابل دسترس، جستجو و شنیدن است.</p>
-
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <StatCard num="60K+" label="کتاب‌های مرجع" />
-        <StatCard num="30K+" label="ساعت ویدئو" />
-        <StatCard num="پیوسته" label="به‌روزرسانی نسخه‌ها (Latest Editions)" />
-      </div>
-    </section>
-  );
-}
-
-function StatCard({ num, label }) {
-  return (
-    <div className="p-6 rounded-2xl bg-white shadow-sm text-right">
-      <div className="text-2xl font-bold">{num}</div>
-      <div className="text-sm text-gray-600 mt-2">{label}</div>
-    </div>
   );
 }
 
@@ -371,12 +353,31 @@ function AudioAndPrompts() {
 /* ---------------- Visual break (big icon + callout) ---------------- */
 function VisualBreak() {
   return (
-    <section className="max-w-7xl mx-auto mt-12 flex items-center justify-center">
-      <div className="w-full rounded-2xl p-12 bg-gradient-to-r from-sky-50 to-orange-50 shadow-lg text-center">
-        <div className="text-6xl text-sky-500 mb-4"><MdAutoAwesomeMosaic /></div>
-        <h4 className="text-xl font-semibold">یادگیری سازمانی که عقب نمی‌اندازد</h4>
-        <p className="mt-2 text-gray-600">با مسیرهای یادگیریِ ساختارمند، گزارشِ پیشرفت و تمرین‌های هدفمند، تیم‌ها سریع‌تر مهارت کسب می‌کنند و در رقابت جلو می‌افتند.</p>
+    <section className="border-5 border-dashed border-black/30 rounded-4xl px-6 py-12 max-w-7xl mx-auto mt-12 flex flex-col md:flex-row items-center gap-6">
+
+      <div>
+        <h1 className="text-4xl md:text-4xl font-extrabold leading-tight">
+          <p className="!text-left leading-17 bg-gradient-to-r from-slate-100 via-gray-400 to-slate-100 bg-clip-text text-transparent text-[70px] mt-3">Organizations <span className="text-4xl">achieve great success</span></p>
+        </h1>
+        <h4 className="text-3xl md:text-4xl mt-6 font-bold text-gray-800 mb-4">
+          سازمان‌ها به موفقیت‌های بزرگ دست پیدا می‌کنند
+        </h4>
+        <p className="text-gray-600 mb-4 leading-8">
+          تیم‌های هوشمند با مسیرهای یادگیری ساختارمند و ابزارهای تعاملی ما، توانسته‌اند مهارت‌های خود را سریع‌تر توسعه دهند و در پروژه‌ها پیشرو باشند. شما هم می‌توانید با استفاده از فلش‌کارت‌ها و صوت AI، یادگیری سازمانی خود را متحول کنید.
+        </p>
+        <Button className="bg-black text-white" variant="flat" endContent={<MdArrowForwardIos className="text-sm scale-x-[-1]" />}>
+          مشاهده نمونه ها
+        </Button>
       </div>
+
+      <div>
+        <img
+          src="https://cdn.oreillystatic.com/oreilly/images/raven_awards_2024_443x442.png"
+          alt="O'Reilly Awards"
+          className="w-[443px] scale-x-[-1]"
+        />
+      </div>
+
     </section>
   );
 }
