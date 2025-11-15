@@ -104,7 +104,7 @@ export default function Header() {
               <Popover>
                 <PopoverTrigger asChild>
                   <button className="text-sm text-slate-700 flex items-center gap-1 hover:bg-slate-100 rounded-xl py-1.5 px-3 transition-all duration-300 cursor-pointer">
-                    <TbCategory2 className="text-xl" />
+                    {/* <TbCategory2 className="text-xl" /> */}
                     دسته‌ها <FiChevronDown className="text-sm" />
                   </button>
                 </PopoverTrigger>
@@ -132,12 +132,12 @@ export default function Header() {
               </Popover>
 
               <Link href="/books" className="flex items-center gap-1 hover:bg-slate-100 rounded-xl py-1.5 px-3 transition-all duration-300">
-                <PiBooks className="text-2xl" />
+                {/* <PiBooks className="text-2xl" /> */}
                 <p className="text-sm text-slate-700">همه کتاب‌ها</p>
               </Link>
 
               <Link href="/blog" className="flex items-center gap-1 hover:bg-slate-100 rounded-xl py-1.5 px-3 transition-all duration-300">
-                <LuScrollText className="text-xl" />
+                {/* <LuScrollText className="text-xl" /> */}
                 <p className="text-sm text-slate-700">مقالات</p>
               </Link>
             </nav>

@@ -22,6 +22,9 @@ import {
   MdOutlineQuestionAnswer,
   MdOutlinePerson,
 } from "react-icons/md";
+import { LuScrollText } from "react-icons/lu";
+import { GrUpdate } from "react-icons/gr";
+import { TbBrandOpenai, TbPrompt } from "react-icons/tb";
 
 export default function HomePage() {
   return (
@@ -46,7 +49,7 @@ export default function HomePage() {
 }
 
 /* ---------------- decorative subtle bubbles ---------------- */
-function BackgroundBubbles(){
+function BackgroundBubbles() {
   // چند radial-gradient نرم و کم‌رنگ برای حس مدرن پس‌زمینه
   const style = {
     backgroundImage: `radial-gradient(circle at 10% 15%, rgba(14,165,233,0.06) 0, transparent 12%),
@@ -63,49 +66,48 @@ function Hero() {
   return (
     <section className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
       <div className="text-right">
-        <div className="inline-flex items-center gap-3 mb-4">
-          <span className="text-xs bg-gradient-to-r from-sky-100 to-white px-3 py-1 rounded-full shadow-sm">منبع رسمی: O'Reilly</span>
+        <div className="inline-flex items-center justify-between w-full gap-3 mb-2">
+          <span className="text-xs bg-gradient-to-r from-sky-100 to-white px-3 py-0.5 rounded-full shadow-sm">منبع رسمی: O'Reilly</span>
           <span className="text-xs text-gray-500">پوشش کامل کتاب‌ها — صوت AI — پرامپت‌های آماده</span>
         </div>
 
-        <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-          Build the skills your teams need —
-          <br /> <span className="bg-gradient-to-r from-sky-500 to-orange-400 bg-clip-text text-transparent">مطالعهٔ کاملِ کتاب‌ها</span> در قالبِ فلش‌کارت‌های آموزشی و عملی
+        <h1 className="text-4xl md:text-4xl font-extrabold leading-tight">
+          <p className="!text-left leading-17 bg-gradient-to-r from-slate-200 via-gray-500 to-gray-200 bg-clip-text text-transparent text-[70px] mt-3">Build the skills your teams need</p>
+          <p className="leading-15 mt-8">
+            <span className="bg-gradient-to-r from-sky-500 text-5xl to-orange-400 bg-clip-text text-transparent">مطالعهٔ کاملِ کتاب‌ها</span> در قالبِ فلش‌کارت‌ با هوش مصنوعی
+          </p>
         </h1>
 
-        <p className="mt-4 text-gray-600 leading-relaxed">ما کتاب را صفحه‌به‌صفحه، فصل‌به‌فصل و اصطلاح‌به‌اصطلاح پوشش می‌دهیم — تمام مفاهیم، مثال‌ها، و تمرین‌ها را در یک تجربهٔ تعاملی و فارسی‌شده. دیگر نیازی به خرید PDF یا نسخهٔ فیزیکی نیست.</p>
+        <p className="mt-4 text-gray-600 leading-8">ما کتاب را صفحه‌به‌صفحه، فصل‌به‌فصل و اصطلاح‌به‌اصطلاح پوشش می‌دهیم — تمام مفاهیم، مثال‌ها، و تمرین‌ها را در یک تجربهٔ تعاملی و فارسی‌شده. دیگر نیازی به خرید PDF یا نسخهٔ فیزیکی نیست.</p>
 
         <div className="mt-6 flex flex-wrap gap-3">
-          <Button color="primary" endContent={<MdArrowForwardIos className="text-sm" />}>
+          <Button variant="bordered">ورود / ثبت‌نام</Button>
+
+          <Button color="primary" variant="light" endContent={<MdArrowForwardIos className="text-sm scale-x-[-1]" />}>
             همه کتاب‌ها
           </Button>
-
-          <Button variant="flat" className="border" endContent={<MdOutlineSearch className="text-sm" />}>
-            جستجوی کتاب
-          </Button>
-
-          <Button variant="ghost" className="ml-auto">ورود / ثبت‌نام</Button>
         </div>
 
         <div className="mt-6 grid grid-cols-2 gap-3 text-sm">
-          <Badge icon={<MdOutlineCheckCircle />} text="نسخه‌های به‌روز و رسمی" />
-          <Badge icon={<MdOutlineAssignmentTurnedIn />} text="پوشش صفحه‌به‌صفحه و فصل‌به‌فصل" />
-          <Badge icon={<MdHeadset />} text="صوت AI برای هر کارت" />
-          <Badge icon={<MdOutlineQuestionAnswer />} text="پرامپت قابل کپی برای هر کارت" />
+          <Badge icon={<GrUpdate />} text="نسخه‌های به‌روز و رسمی" />
+          <Badge icon={<LuScrollText />} text="پوشش صفحه‌به‌صفحه و فصل‌به‌فصل" />
+          <Badge icon={<TbBrandOpenai />} text="صوت AI برای هر کارت" />
+          <Badge icon={<TbPrompt />} text="پرامپت قابل کپی برای هر کارت" />
         </div>
       </div>
 
       <div className="relative">
-        <div className="overflow-hidden">
-          <img src="/images/global/effective.png" alt="illustration" className="w-full h-96 object-cover" />
-        </div>
+
+        <img src="/images/global/effective.png" alt="illustration" className="w-full select-none animate-spin" style={{ animationDuration: "25000ms" }} />
 
         <div className="absolute -bottom-6 left-6 bg-white rounded-2xl shadow-lg p-4 w-64">
-          <div className="flex items-center gap-3">
-            <MdOutlineLibraryBooks className="text-2xl text-sky-500" />
+          <div className="flex flex-col items-center">
+            <div className="text-sm font-semibold">کتاب برجسته امروز</div>
             <div>
-              <div className="text-sm font-semibold">کتاب برجسته امروز</div>
-              <div className="text-xs text-gray-500">Fundamentals of Software Architecture — ویرایش 2025</div>
+              <div className="text-xs text-gray-500 text-left leading-5">Fundamentals of Software Architecture — Edit in 2025</div>
+              <div className="flex items-center justify-between w-full">
+                <MdOutlineLibraryBooks className="text-xl text-gray-600 cursor-pointer hover:text-gray-900 transition" />
+              </div>
             </div>
           </div>
         </div>
@@ -114,7 +116,7 @@ function Hero() {
   );
 }
 
-function Badge({ icon, text }){
+function Badge({ icon, text }) {
   return (
     <div className="flex items-center gap-3 bg-white rounded-lg p-3 shadow-sm">
       <div className="w-10 h-10 rounded-lg grid place-items-center" style={{ background: 'linear-gradient(135deg, #eef2ff, #fff7ed)' }}>
@@ -126,7 +128,7 @@ function Badge({ icon, text }){
 }
 
 /* ---------------- Highlights Banner (Persian) ---------------- */
-function HighlightsBanner(){
+function HighlightsBanner() {
   return (
     <section className="max-w-7xl mx-auto mt-12">
       <div className="rounded-2xl overflow-hidden grid grid-cols-2 md:grid-cols-4 gap-0 text-sm">
@@ -149,7 +151,7 @@ function HighlightsBanner(){
         <FeaturePill
           icon={<MdAutoAwesomeMosaic />}
           title="آکادمی AI"
-          desc="آموزش‌های عملی، پرامپتینگ و لاب‌" 
+          desc="آموزش‌های عملی، پرامپتینگ و لاب‌"
           avatarInitials="N"
           comment="یادگیری مهارت‌های مربوط به AI"
         />
@@ -166,7 +168,7 @@ function HighlightsBanner(){
   );
 }
 
-function FeaturePill({ icon, title, desc, avatarInitials, comment }){
+function FeaturePill({ icon, title, desc, avatarInitials, comment }) {
   return (
     <div className="p-6 bg-white border-r last:border-r-0 flex flex-col gap-4">
       <div className="flex items-start gap-4">
@@ -224,7 +226,7 @@ function PlatformHighlights() {
 }
 
 /* ---------------- WhyDifferent & small utility cards (Persian) ---------------- */
-function WhyDifferent(){
+function WhyDifferent() {
   return (
     <section className="max-w-7xl mx-auto mt-12 text-right">
       <h3 className="text-2xl font-semibold">چرا ما متفاوتیم</h3>
@@ -239,7 +241,7 @@ function WhyDifferent(){
   );
 }
 
-function CardWithIcon({ icon, title, desc }){
+function CardWithIcon({ icon, title, desc }) {
   return (
     <div className="p-6 rounded-2xl bg-white shadow-sm flex gap-4 items-start">
       <div className="w-14 h-14 rounded-lg grid place-items-center text-2xl" style={{ background: 'linear-gradient(135deg,#eef2ff,#fff7ed)' }}>{icon}</div>
@@ -281,7 +283,7 @@ function Features() {
 }
 
 /* ---------------- FullCoverage ---------------- */
-function FullCoverage(){
+function FullCoverage() {
   return (
     <section className="max-w-7xl mx-auto mt-12 text-right">
       <h3 className="text-2xl font-semibold">پوشش کامل کتاب — صفحه‌به‌صفحه</h3>
@@ -296,7 +298,7 @@ function FullCoverage(){
   );
 }
 
-function StatCard({ num, label }){
+function StatCard({ num, label }) {
   return (
     <div className="p-6 rounded-2xl bg-white shadow-sm text-right">
       <div className="text-2xl font-bold">{num}</div>
@@ -306,7 +308,7 @@ function StatCard({ num, label }){
 }
 
 /* ---------------- Audio and Prompts ---------------- */
-function AudioAndPrompts(){
+function AudioAndPrompts() {
   return (
     <section className="max-w-7xl mx-auto mt-12 text-right">
       <h3 className="text-2xl font-semibold">صوتِ AI و کتابخانهٔ پرامپت‌ها</h3>
@@ -348,7 +350,7 @@ function AudioAndPrompts(){
 }
 
 /* ---------------- Visual break (big icon + callout) ---------------- */
-function VisualBreak(){
+function VisualBreak() {
   return (
     <section className="max-w-7xl mx-auto mt-12 flex items-center justify-center">
       <div className="w-full rounded-2xl p-12 bg-gradient-to-r from-sky-50 to-orange-50 shadow-lg text-center">
@@ -430,11 +432,11 @@ function SampleFlashcard() {
 }
 
 /* ---------------- Question Box ---------------- */
-function QuestionBox(){
+function QuestionBox() {
   const [q, setQ] = useState('');
   const [ans, setAns] = useState(null);
 
-  function ask(){
+  function ask() {
     setAns('پاسخ هوش‌مصنوعی (نمونه): خلاصه‌ای از نکات کلیدی و مثال‌ها...');
   }
 
@@ -482,11 +484,11 @@ function FAQ() {
 }
 
 /* ---------------- Testimonials ---------------- */
-function Testimonials(){
+function Testimonials() {
   const items = [
-    {name: 'Jose — Principal Engineer', text: 'این سرویس دقیقا همونی بود که تیم ما لازم داشت؛ مطالعهٔ هدفمند و سریع.'},
-    {name: 'Arianne Dee — Developer', text: 'پرامپت‌های آماده و صوت AI فوق‌العاده‌اند.'},
-    {name: 'Neal Ford — Architect', text: 'پوشش صفحه‌به‌صفحه واقعا تسریع یادگیری را ممکن می‌کند.'},
+    { name: 'Jose — Principal Engineer', text: 'این سرویس دقیقا همونی بود که تیم ما لازم داشت؛ مطالعهٔ هدفمند و سریع.' },
+    { name: 'Arianne Dee — Developer', text: 'پرامپت‌های آماده و صوت AI فوق‌العاده‌اند.' },
+    { name: 'Neal Ford — Architect', text: 'پوشش صفحه‌به‌صفحه واقعا تسریع یادگیری را ممکن می‌کند.' },
   ];
 
   return (
