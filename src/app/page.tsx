@@ -353,19 +353,24 @@ function AudioAndPrompts() {
 /* ---------------- Visual break (big icon + callout) ---------------- */
 function VisualBreak() {
   return (
-    <section className="border-5 border-dashed border-black/30 rounded-4xl px-6 py-12 max-w-7xl mx-auto mt-12 flex flex-col md:flex-row items-center gap-6">
+    <section className="border-5 border-dashed border-black/30 rounded-4xl px-6 py-12 max-w-7xl mx-auto mt-12 flex flex-col md:flex-row items-center gap-6
+                        transition-colors duration-300 hover:bg-black/80 group">
 
-      <div>
+      <div className="transition-colors duration-300 group-hover:text-gray-300">
         <h1 className="text-4xl md:text-4xl font-extrabold leading-tight">
-          <p className="!text-left leading-17 bg-gradient-to-r from-slate-100 via-gray-400 to-slate-100 bg-clip-text text-transparent text-[70px] mt-3">Organizations <span className="text-4xl">achieve great success</span></p>
+          <p className="!text-left leading-17 bg-gradient-to-r from-slate-100 via-gray-400 to-slate-100 bg-clip-text text-transparent text-[70px] mt-3
+                        group-hover:text-white transition-colors duration-300">
+            Organizations <span className="text-4xl">achieve great success</span>
+          </p>
         </h1>
-        <h4 className="text-3xl md:text-4xl mt-6 font-bold text-gray-800 mb-4">
+        <h4 className="text-3xl md:text-4xl mt-6 font-bold mb-4
+                       transition-colors duration-300 group-hover:text-white">
           سازمان‌ها به موفقیت‌های بزرگ دست پیدا می‌کنند
         </h4>
-        <p className="text-gray-600 mb-4 leading-8">
+        <p className="text-gray-600 mb-4 leading-8 transition-colors duration-300 group-hover:text-gray-300">
           تیم‌های هوشمند با مسیرهای یادگیری ساختارمند و ابزارهای تعاملی ما، توانسته‌اند مهارت‌های خود را سریع‌تر توسعه دهند و در پروژه‌ها پیشرو باشند. شما هم می‌توانید با استفاده از فلش‌کارت‌ها و صوت AI، یادگیری سازمانی خود را متحول کنید.
         </p>
-        <Button className="bg-black text-white" variant="flat" endContent={<MdArrowForwardIos className="text-sm scale-x-[-1]" />}>
+        <Button className="bg-black text-white transition-colors duration-300 group-hover:bg-white group-hover:text-black" variant="flat" endContent={<MdArrowForwardIos className="text-sm scale-x-[-1]" />}>
           مشاهده نمونه ها
         </Button>
       </div>
