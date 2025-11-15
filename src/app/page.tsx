@@ -223,10 +223,10 @@ function WhyDifferent() {
       {/* Title + background bubbles */}
       <div className="relative inline-block mb-6">
         {/* دایره‌های بزرگ و محو پشت عنوان */}
-        <div className="absolute -top-4 left-48 w-60 h-60 rounded-full bg-orange-100 blur-3xl -z-10"></div>
+        <div className="absolute -top-2 left-48 w-60 h-60 rounded-full bg-slate-300 blur-[55px] -z-10"></div>
 
-        <h3 className="text-2xl font-semibold relative z-10 text-orange-400">چرا ما متفاوتیم</h3>
-        <p className="mt-1 text-sm relative z-10 text-gray-600">
+        <h3 className="text-2xl font-semibold relative z-10">چرا ما متفاوتیم</h3>
+        <p className="mt-1 text-sm relative z-10 text-gray-950">
           تحلیل عمیق، پوشش کامل و تجربهٔ یادگیریِ قابل اتکا برای فارسی‌زبانان.
         </p>
       </div>
@@ -254,11 +254,11 @@ function WhyDifferent() {
 
 function CardWithIcon({ icon, title, desc }) {
   return (
-    <div className="relative p-5 rounded-3xl bg-white shadow border-2 border-dashed border-orange-200 transition-transform hover:scale-105 flex gap-4 items-start overflow-hidden">
-      <div className="absolute -right-8 top-8 w-28 h-28 rounded-full bg-gradient-to-tr from-sky-100 to-orange-100 opacity-10 blur-2xl -z-10 pointer-events-none"></div>
+    <div className="relative p-5 rounded-3xl bg-transparent shadow border-2 border-dashed border-black/40 transition-transform hover:scale-105 flex gap-4 items-start overflow-hidden">
+      <div className="absolute -right-8 top-8 w-28 h-28 rounded-full bg-gradient-to-tr from-white to-black -z-10 pointer-events-none"></div>
 
       <div className="flex items-center gap-3">
-        <div className="w-14 h-14 rounded-xl grid place-items-center text-2xl bg-gradient-to-tr from-white via-orange-50 to-white text-orange-400 shadow-inner flex-shrink-0">
+        <div className="w-14 h-14 rounded-xl grid place-items-center text-2xl border-3 border-dashed border-white text-white bg-black/30 shadow-inner flex-shrink-0">
           <span className="text-[26px]">{icon}</span>
         </div>
 
