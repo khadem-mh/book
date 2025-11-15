@@ -23,9 +23,12 @@ import {
   MdOutlinePerson,
   MdArrowOutward,
 } from "react-icons/md";
-import { LuScrollText } from "react-icons/lu";
+import { LuBookOpenText, LuScrollText } from "react-icons/lu";
 import { GrUpdate } from "react-icons/gr";
 import { TbBrandAmongUs, TbBrandOpenai, TbMessageCode, TbPrompt } from "react-icons/tb";
+import { FaCodeBranch } from "react-icons/fa6";
+import { SiOpenai } from "react-icons/si";
+import { RiMusicAiLine } from "react-icons/ri";
 
 export default function HomePage() {
   return (
@@ -133,19 +136,11 @@ function Badge({ icon, text }) {
   );
 }
 
-import {
-  MdSmartToy,
-  MdCode,
-  MdOutlineAssignment,
-  MdOutlineQuiz,
-} from "react-icons/md";
-import { FaCodeBranch } from "react-icons/fa6";
-import { SiOpenai } from "react-icons/si";
 
 function HighlightsBanner() {
   return (
-    <section className="max-w-7xl mx-auto mt-12 relative">
-      {/* پس‌زمینه حباب‌های خیلی کم‌رنگ (اختیاری ـ می‌تونی حذف کنی) */}
+    <section className="max-w-7xl mx-auto mt-16 relative">
+      {/* پس‌زمینه حباب‌های خیلی کم‌رنگ (اختیاری) */}
       <div className="absolute inset-0 overflow-hidden -z-10">
         {[...Array(30)].map((_, i) => (
           <div
@@ -167,12 +162,12 @@ function HighlightsBanner() {
         چهار قابلیت کلیدی که تجربهٔ یادگیریِ عمیق، تعاملی و سازمانی را ممکن می‌کنند.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <FeatureCard
           icon={<TbBrandAmongUs />}
           title="مربی هوش‌مصنوعی"
           desc="پاسخِ آنی و توضیحِ گام‌به‌گام برای هر بخش از کتاب — سازگار با سطح اختصاصیِ کاربر."
-          note="تعامل‌محور — مثل یک مربی شخصی در دسترس"
+          note="مثل یک مربی شخصی در دسترس"
         />
 
         <FeatureCard
@@ -200,16 +195,18 @@ function HighlightsBanner() {
   );
 }
 
-
-function FeatureCard({ icon, title, desc }) {
+function FeatureCard({ icon, title, desc, note }) {
   return (
-    <div className="flex flex-col p-8 rounded-3xl shadow-lg bg-white transition-transform hover:scale-105 relative overflow-hidden">
+    <div className="flex flex-col p-6 rounded-3xl shadow-lg bg-white transition-transform hover:scale-105 relative overflow-hidden">
       {/* هاله نورانی پشت آیکون */}
       <div className="absolute -top-8 -right-8 w-24 h-24 rounded-full bg-gradient-to-tr from-sky-200 to-orange-200 opacity-20 animate-pulse pointer-events-none"></div>
-      
+
       <div className="flex flex-col items-end z-10 relative">
-        <div className="w-16 h-16 rounded-xl grid place-items-center text-4xl bg-gradient-to-tr from-sky-100 to-white text-sky-600 shadow-inner mb-4">
-          {icon}
+        <div className="flex items-center w-full gap-3 mb-4">
+          <div className="w-14 h-14 rounded-xl grid place-items-center text-4xl bg-gradient-to-tr from-sky-100 to-white text-sky-600 shadow-inner">
+            {icon}
+          </div>
+          {note && <div className="text-sm text-gray-400">{note}</div>}
         </div>
         <div className="text-right">
           <div className="font-bold text-lg text-gray-800">{title}</div>
@@ -220,17 +217,36 @@ function FeatureCard({ icon, title, desc }) {
   );
 }
 
-/* ---------------- WhyDifferent & small utility cards (Persian) ---------------- */
 function WhyDifferent() {
   return (
-    <section className="max-w-7xl mx-auto mt-12 text-right">
-      <h3 className="text-2xl font-semibold">چرا ما متفاوتیم</h3>
-      <p className="text-gray-600 mt-2">تحلیل عمیق، پوشش کامل و تجربهٔ یادگیریِ قابل اتکا برای فارسی‌زبانان.</p>
+    <section className="max-w-7xl mx-auto mt-12 text-right relative">
+      {/* Title + background bubbles */}
+      <div className="relative inline-block mb-6">
+        {/* دایره‌های بزرگ و محو پشت عنوان */}
+        <div className="absolute -top-4 left-48 w-60 h-60 rounded-full bg-orange-100 blur-3xl -z-10"></div>
 
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <CardWithIcon icon={<MdOutlineLibraryBooks />} title="پوشش کامل کتاب" desc="هر صفحه، هر فصل، هر اصطلاح — تمام محتوا به‌صورت ساختاریافته پوشش داده می‌شود." />
-        <CardWithIcon icon={<MdHeadset />} title="صوت AI برای هر کارت" desc="گوش دهید در محل کار یا مسیر؛ صوت اختصاصی با صدای AI برای هر فلش‌کارت فراهم است." />
-        <CardWithIcon icon={<MdOutlineQuestionAnswer />} title="پرامپت و تعامل با AI" desc="پرامپت‌های آماده کنار هر کارت تا بتوانید از AI بخواهید آن بخش را کاملاً برایتان شرح دهد." />
+        <h3 className="text-2xl font-semibold relative z-10 text-orange-400">چرا ما متفاوتیم</h3>
+        <p className="mt-1 text-sm relative z-10 text-gray-600">
+          تحلیل عمیق، پوشش کامل و تجربهٔ یادگیریِ قابل اتکا برای فارسی‌زبانان.
+        </p>
+      </div>
+
+      <div className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <CardWithIcon
+          icon={<LuBookOpenText />}
+          title="پوشش کامل کتاب"
+          desc="هر صفحه، هر فصل، هر اصطلاح — تمام محتوا به‌صورت ساختاریافته پوشش داده می‌شود."
+        />
+        <CardWithIcon
+          icon={<RiMusicAiLine />}
+          title="صوت AI برای هر کارت"
+          desc="گوش دهید در محل کار یا مسیر؛ صوت اختصاصی با صدای AI برای هر فلش‌کارت فراهم است."
+        />
+        <CardWithIcon
+          icon={<TbPrompt />}
+          title="پرامپت و تعامل با AI"
+          desc="پرامپت‌های آماده کنار هر کارت تا بتوانید از AI بخواهید آن بخش را کاملاً برایتان شرح دهد."
+        />
       </div>
     </section>
   );
@@ -238,15 +254,23 @@ function WhyDifferent() {
 
 function CardWithIcon({ icon, title, desc }) {
   return (
-    <div className="p-6 rounded-2xl bg-white shadow-sm flex gap-4 items-start">
-      <div className="w-14 h-14 rounded-lg grid place-items-center text-2xl" style={{ background: 'linear-gradient(135deg,#eef2ff,#fff7ed)' }}>{icon}</div>
-      <div className="text-right">
-        <div className="font-semibold">{title}</div>
-        <p className="mt-2 text-sm text-gray-600">{desc}</p>
+    <div className="relative p-5 rounded-3xl bg-white shadow border-2 border-dashed border-orange-200 transition-transform hover:scale-105 flex gap-4 items-start overflow-hidden">
+      <div className="absolute -right-8 top-8 w-28 h-28 rounded-full bg-gradient-to-tr from-sky-100 to-orange-100 opacity-10 blur-2xl -z-10 pointer-events-none"></div>
+
+      <div className="flex items-center gap-3">
+        <div className="w-14 h-14 rounded-xl grid place-items-center text-2xl bg-gradient-to-tr from-white via-orange-50 to-white text-orange-400 shadow-inner flex-shrink-0">
+          <span className="text-[26px]">{icon}</span>
+        </div>
+
+        <div className="text-right">
+          <div className="font-semibold text-gray-800 text-base">{title}</div>
+          <p className="mt-2 text-sm text-gray-600 leading-relaxed">{desc}</p>
+        </div>
       </div>
     </div>
   );
 }
+
 
 /* ---------------- Features (Persian) ---------------- */
 function Features() {
@@ -259,7 +283,7 @@ function Features() {
 
   return (
     <section className="max-w-7xl mx-auto mt-12">
-      <h3 className="text-2xl font-semibold text-right">ویژگی‌ها</h3>
+      <h3 className="text-2xl font-semibold text-right">ویژگی‌های فلش کارت ها</h3>
       <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {features.map((f) => (
           <div key={f.title} className="flex gap-4 items-start p-6 rounded-2xl shadow-sm bg-white text-right hover:shadow-md transition-shadow">

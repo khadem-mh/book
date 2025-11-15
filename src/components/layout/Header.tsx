@@ -10,8 +10,6 @@ import {
   FiMenu,
   FiX,
   FiSearch,
-  FiUser,
-  FiBookmark,
   FiChevronDown,
   FiCode,
   FiDatabase,
@@ -20,11 +18,9 @@ import {
   FiCpu,
   FiBook,
 } from "react-icons/fi";
-import { LuBrainCircuit, LuScrollText, LuUserRound } from "react-icons/lu";
+import { LuBrainCircuit } from "react-icons/lu";
 import { HiOutlineUser } from "react-icons/hi2";
-import { BsBookmarks } from "react-icons/bs";
-import { PiBooks } from "react-icons/pi";
-import { TbCategory2 } from "react-icons/tb";
+import { TbBookmarkAi } from "react-icons/tb";
 
 /**
  * Clean & minimal Header
@@ -165,7 +161,7 @@ export default function Header() {
               </div>
             </form>
             <div className="bg-slate-100 p-2.5 rounded-xl cursor-pointer">
-              <BsBookmarks className="text-xl" />
+              <TbBookmarkAi className="text-xl" />
             </div>
             <Button color="primary" className="text-white" startContent={<HiOutlineUser className="text-2xl" />}>ورود | عضویت</Button>
           </div>
