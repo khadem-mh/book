@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@heroui/react";
+import { Accordion, AccordionItem, Button } from "@heroui/react";
 import {
   MdMenuBook,
   MdSchool,
@@ -22,10 +22,13 @@ import {
   MdOutlineQuestionAnswer,
   MdOutlinePerson,
   MdArrowOutward,
+  MdPersonPinCircle,
+  MdStars,
+  MdBolt,
 } from "react-icons/md";
 import { LuBookOpenText, LuScrollText } from "react-icons/lu";
 import { GrUpdate } from "react-icons/gr";
-import { TbBrandAmongUs, TbBrandOpenai, TbMessageCode, TbPrompt } from "react-icons/tb";
+import { TbBrandAmongUs, TbBrandOpenai, TbMessageCode, TbPrompt, TbUserCode } from "react-icons/tb";
 import { FaCodeBranch } from "react-icons/fa6";
 import { SiOpenai } from "react-icons/si";
 import { RiMusicAiLine } from "react-icons/ri";
@@ -41,7 +44,6 @@ export default function HomePage() {
       <Features />
       <AudioAndPrompts />
       <SampleFlashcard />
-      <QuestionBox />
       <FAQ />
       <Testimonials />
       <CTA />
@@ -377,7 +379,7 @@ function VisualBreak() {
 
       <div>
         <img
-          src="https://cdn.oreillystatic.com/oreilly/images/raven_awards_2024_443x442.png"
+          src="/images/global/raven.png"
           alt="O'Reilly Awards"
           className="w-[443px] scale-x-[-1]"
         />
@@ -456,54 +458,65 @@ function SampleFlashcard() {
   );
 }
 
-/* ---------------- Question Box ---------------- */
-function QuestionBox() {
-  const [q, setQ] = useState('');
-  const [ans, setAns] = useState(null);
-
-  function ask() {
-    setAns('پاسخ هوش‌مصنوعی (نمونه): خلاصه‌ای از نکات کلیدی و مثال‌ها...');
-  }
-
-  return (
-    <section className="max-w-4xl mx-auto mt-12 text-right">
-      <h3 className="text-2xl font-semibold">Question Box — تست و پرسش</h3>
-      <p className="text-gray-600 mt-2">یک سوال دربارهٔ مطلب بپرسید؛ سیستم به‌صورت هوشمند بر اساس محتوای کتاب پاسخ می‌دهد (نسخهٔ آزمایشی).</p>
-
-      <div className="mt-4 flex gap-3">
-        <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="سوال خود را اینجا بنویسید..." className="flex-1 px-3 py-2 rounded-md border" />
-        <Button color="primary" onClick={ask}>پرسش</Button>
-      </div>
-
-      {ans && (
-        <div className="mt-4 p-4 bg-white rounded-2xl shadow-sm">
-          <div className="font-semibold">پاسخ هوش‌مصنوعی</div>
-          <div className="mt-2 text-sm text-gray-700">{ans}</div>
-        </div>
-      )}
-    </section>
-  );
-}
-
-/* ---------------- FAQ (Persian) ---------------- */
 function FAQ() {
-  const faqs = [
-    { q: 'آیا تمام محتوا کامل و قابل استفاده است؟', a: 'بله. این وبسایت نسخهٔ کامل کتاب‌ها را صفحه‌به‌صفحه پوشش می‌دهد؛ نیازی به خرید PDF یا نسخهٔ فیزیکی نیست.' },
-    { q: 'آیا محتوا دقیق است؟', a: 'بله — محتوا توسط مدل‌های پیشرفته و سپس تیمِ محتوایی بازبینی می‌شود تا دقت و کیفیت تضمین شود.' },
-    { q: 'نسخهٔ کتاب‌ها چگونه به‌روز می‌شود؟', a: 'ما آخرین نسخه‌های معتبر کتاب‌ها را منتشر می‌کنیم و محتوای سایت با ورژن‌های جدید به‌روز می‌شود.' },
-  ];
+const faqs = [
+  {
+    q: "آیا تمامِ محتوای کتاب‌ها به‌صورت کامل در سایت وجود دارد؟",
+    a: "بله — هر کتاب به‌صورت صفحه‌به‌صفحه و فصل‌به‌فصل پوشش داده می‌شود: تعاریف، مثال‌ها، نمودارها، الگوریتم‌ها و تمرین‌ها. هدف ما این است که کاربر دیگر نیازی به خرید PDF یا نسخهٔ فیزیکی نداشته باشد و بتواند همهٔ محتوای آموزشی را در همین پلتفرم مطالعه، جستجو و گوش دهد."
+  },
+  {
+    q: "محتوا چگونه تولید و تضمینِ کیفیت می‌شود؟",
+    a: "محتوا ابتدا توسط مدل‌های پیشرفتهٔ زبانی استخراج و ساختاربندی می‌شود، سپس تیم محتوایی ما آن را بازبینی، ویرایش و اعتبارسنجی می‌کند تا از دقت مفاهیم و تطابق با منبع اصلی اطمینان حاصل شود. برای موارد حساس یا پیچیده، توضیحات کمکی و مثال‌های عملی اضافه می‌شوند."
+  },
+  {
+    q: "نسخهٔ کتاب‌ها چگونه به‌روزرسانی می‌شود؟",
+    a: "ما همواره آخرین نسخه‌ها و ادیشن‌های رسمی را منتشر می‌کنیم. هنگام انتشار ورژن جدید کتاب، محتوای سایت به‌روزرسانی می‌شود (به‌صورت فصل‌به‌فصل). هدف‌مان این است که هر کتاب در جدیدترین ورژن خود نگهداری شود و در صورت عرضه ادیشن جدید، سریعاً جایگزین شود."
+  },
+  {
+    q: "پرامپت‌ها و صوت AI دقیقاً چطور کار می‌کنند؟",
+    a: "برای هر فلش‌کارت یک پرامپت آماده ارائه می‌دهیم که کاربر می‌تواند آن را کپی کرده و مستقیماً به AI ارسال کند تا توضیح بیشتری دریافت کند. همچنین هر کارت یک فایل صوتی تولیدشده توسط TTS هوشمند دارد تا بتوانید در مسیر، سر کار یا هنگام مرور صوتی، محتوا را گوش کنید."
+  },
+  /* {
+    q: "آیا می‌توانم فلش‌کارت‌ها را برای دورهٔ تیمی اختصاص دهم یا مسیر یادگیری بسازم؟",
+    a: "بله — قابلیت ساختِ مسیرهای آموزشی، انتساب کارت/فصل به اعضای تیم و پیگیری پیشرفت در داشبورد تیمی وجود دارد (برای سطوح تیم و سازمان). رهبران می‌توانند محتوا تخصیص دهند، نمرات و گزارش‌ها را بررسی کنند و مسیرها را براساس هدف سازمانی تنظیم کنند."
+  }, */
+  {
+    q: "چقدر می‌توانم به پاسخ‌های AI اعتماد کنم؟ (دقت و محدودیت‌ها)",
+    a: "محتوای پاسخ‌ها دقیقاً بر اساس نسخهٔ کامل و معتبر کتاب تولید می‌شود و سپس توسط تیم محتوایی بازبینی و استانداردسازی می‌گردد تا مطمئن شویم هیچ نکته‌ای حذف یا جابه‌جا نشده است."
+  },
+  {
+    q: "آیا می‌توانم پرامپت‌ها و کارت‌ها را دانلود یا صادر (export) کنم؟",
+    a: "در حال حاضر گزینهٔ کپی پرامپت و دانلود صوت برای هر کارت فعال است. قابلیت‌های کاملِ خروجی‌گیری (CSV/JSON/Anki export) و همگام‌سازی با ابزارهای دیگر در حال توسعه هستند و به‌زودی اضافه می‌شوند."
+  },
+  {
+    q: "قیمت‌گذاری، آزمایشی رایگان و امکانات سازمانی چگونه است؟",
+    a: "ما طرح‌های متنوعی برای افراد و سازمان‌ها داریم؛ معمولاً ثبت‌نام با دورهٔ آزمایشی (مثلاً ۷ روز) آغاز می‌شود و سپس می‌توانید طرح مناسب تیم خود را انتخاب کنید. قابلیت‌های سازمانی مانند داشبوردِ تیمی، انتساب مسیر و گزارش‌های تحلیلی در طرح‌های سازمانی موجود یا به‌صورت افزونه ارائه می‌شوند."
+  }
+];
 
   return (
-    <section className="max-w-7xl mx-auto mt-12 text-right">
-      <h3 className="text-2xl font-semibold">سوالات متداول</h3>
-      <div className="mt-6 space-y-3">
-        {faqs.map((f, i) => (
-          <details key={i} className="p-4 bg-white rounded-2xl shadow-sm">
-            <summary className="cursor-pointer font-semibold">{f.q}</summary>
-            <div className="mt-3 text-sm text-gray-600">{f.a}</div>
-          </details>
+    <section className="max-w-7xl mx-auto mt-16">
+      <h3 className="text-3xl font-bold text-right mb-8">سوالات متداول</h3>
+
+      <Accordion
+        variant="splitted"
+        className="rtl"
+        itemClasses={{
+          base: "rounded-2xl my-0.5 shadow-sm border border-gray-200",
+          title: "font-bold text-right cursor-pointer",
+          content: "text-right text-gray-600 leading-7",
+        }}
+      >
+        {faqs.map((item, index) => (
+          <AccordionItem
+            key={index + 1}
+            aria-label={`faq-${index}`}
+            title={item.q}
+          >
+            {item.a}
+          </AccordionItem>
         ))}
-      </div>
+      </Accordion>
     </section>
   );
 }
@@ -511,22 +524,45 @@ function FAQ() {
 /* ---------------- Testimonials ---------------- */
 function Testimonials() {
   const items = [
-    { name: 'Jose — Principal Engineer', text: 'این سرویس دقیقا همونی بود که تیم ما لازم داشت؛ مطالعهٔ هدفمند و سریع.' },
-    { name: 'Arianne Dee — Developer', text: 'پرامپت‌های آماده و صوت AI فوق‌العاده‌اند.' },
-    { name: 'Neal Ford — Architect', text: 'پوشش صفحه‌به‌صفحه واقعا تسریع یادگیری را ممکن می‌کند.' },
+    {
+      name: "Jose — Principal Engineer",
+      icon: <TbUserCode className="text-sky-600 text-2xl" />,
+      text: "فلش‌کارت‌های این پلتفرم دقیقاً همان چیزی است که تیم مهندسی ما به آن نیاز داشت. سرعت مرور فصل‌ها فوق‌العاده بالاست و ساختار کارت‌ها اجازه می‌دهد در چند دقیقه مغز مطلب را کاملاً بگیرد. این حجم بهینه‌سازی زمان برای تیم ما بی‌نظیر بوده.",
+    },
+    {
+      name: "Arianne Dee — Developer",
+      icon: <TbUserCode className="text-orange-500 text-2xl" />,
+      text: "حس می‌کنم مطالعه برای من تازه ساده شده! پرامپت‌های آماده کنار هر کارت باعث می‌شود هر بخش را به شکل عمیق‌تری بفهمم و صوت AI هم مرور را خیلی راحت‌تر کرده. یک تجربه‌ی یادگیری سریع، تمیز و بدون دردسر.",
+    },
+    {
+      name: "Neal Ford — Architect",
+      icon: <TbUserCode className="text-purple-600 text-2xl" />,
+      text: "به‌ندرت سیستمی دیدم که *صفحه‌به‌صفحهٔ* یک کتاب فنی را این‌قدر تمیز و استاندارد ارائه کند. برای معماران نرم‌افزار، سرعت درک مفاهیم حیاتی است و این فلش‌کارت‌ها دقیقاً همین را تضمین می‌کنند.",
+    },
   ];
 
   return (
-    <section className="max-w-7xl mx-auto mt-12 text-right">
-      <h3 className="text-2xl font-semibold">نظر کاربران</h3>
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+    <section className="max-w-7xl mx-auto mt-16 text-right">
+      <h3 className="text-3xl font-bold">نظر کاربران</h3>
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
         {items.map((t, i) => (
-          <div key={i} className="p-6 bg-white rounded-2xl shadow-sm">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 rounded-full bg-sky-100 grid place-items-center font-semibold text-sky-700">{t.name[0]}</div>
-              <div className="font-semibold">{t.name}</div>
+          <div
+            key={i}
+            className="
+              p-6 rounded-3xl bg-white shadow-sm hover:shadow-lg
+              border border-gray-100 transition-all duration-300
+              hover:-translate-y-1 hover:bg-gradient-to-br
+              hover:from-sky-50 hover:to-orange-50
+            "
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-12 h-12 rounded-xl bg-gray-50 grid place-items-center shadow-inner">
+                {t.icon}
+              </div>
+              <div className="font-semibold text-gray-800">{t.name}</div>
             </div>
-            <div className="mt-2 text-sm text-gray-600">{t.text}</div>
+
+            <p className="text-sm text-gray-600 leading-7">{t.text}</p>
           </div>
         ))}
       </div>
