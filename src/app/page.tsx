@@ -582,7 +582,7 @@ function CTA() {
   return (
     <section className="max-w-4xl mx-auto mt-12 text-right">
       <div
-        className="flex flex-col md:flex-row-reverse items-center gap-6 border border-slate-200 shadow-md rounded-2xl p-6"
+        className="flex flex-col md:flex-row-reverse items-center gap-6 border border-slate-200 shadow-lg rounded-3xl p-6 bg-gradient-to-br from-white/90 via-sky-50/50 to-orange-50/50 backdrop-blur-md"
         role="region"
         aria-label="call-to-action"
       >
@@ -593,29 +593,30 @@ function CTA() {
               key={idx}
               src={src}
               alt={`Book ${idx + 1}`}
-              className="w-36 rounded-lg shadow-sm -rotate-6 border border-gray-100 object-cover cursor-pointer hover:scale-110 transition hover:rotate-0 hover:z-10"
+              className="w-36 rounded-xl shadow-lg border border-gray-100 object-cover cursor-pointer transform transition-all duration-500 hover:scale-110 hover:-rotate-2 hover:z-10"
+              style={{ filter: `drop-shadow(0 4px 8px rgba(0,0,0,0.1))` }}
             />
           ))}
         </div>
 
         {/* محتوا */}
         <div className="flex-1 min-w-0">
-          <div className="flex flex-col gap-4 flex-wrap">
-            <span className="text-xs px-4 py-1 rounded-xl w-fit text-gray-500">
-              313 ساعت دسترسی رایگان به ...
+          <div className="flex flex-col gap-3 flex-wrap">
+            <span className="text-xs px-4 py-1 rounded-xl w-fit text-gray-500 bg-gradient-to-r from-sky-50 to-orange-50">
+              313 ساعت دسترسی رایگان به فلش‌کارت‌ها و صوت AI
             </span>
-            <h4 className="text-lg font-semibold text-gray-900 leading-tight">
+            <h4 className="text-lg font-bold text-gray-900 leading-tight">
               شروع کنید — اولین کتاب را انتخاب کنید
             </h4>
           </div>
 
           <p className="mt-2 text-sm text-gray-600">
-            فلش‌کارت‌های دقیق، خلاصه‌های فصل‌به‌فصل و صوت AI برای یادگیری سریع‌تر و عمیق‌تر — مناسب افراد و تیم‌ها.
+            فلش‌کارت‌های دقیق، خلاصه‌های فصل‌به‌فصل و صوت AI برای یادگیری سریع‌تر و عمیق‌تر — مناسب افراد و تیم‌ها. تجربه‌ای متفاوت و موثر در هر مطالعه.
           </p>
 
           <div className="mt-4 flex flex-wrap gap-3 items-center">
-            <div className="ml-auto text-xs text-gray-400 hidden sm:inline">
-              برنامه‌نویسای دیگه همین حالا شروع کرده‌اند، عقب نمونی!
+            <div className="ml-auto text-xs text-gray-500 hidden sm:inline">
+              برنامه‌نویسای دیگه همین حالاشم شروع کردند ها! خلاصه گفتم که عقب نمونی!
             </div>
           </div>
         </div>
