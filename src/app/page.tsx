@@ -34,6 +34,7 @@ import { SiMinds, SiOpenai, SiWikibooks } from "react-icons/si";
 import { RiMusicAiLine } from "react-icons/ri";
 import { FcMindMap } from "react-icons/fc";
 import { LiaBookReaderSolid } from "react-icons/lia";
+import { VscGitPullRequestCreate } from "react-icons/vsc";
 
 export default function HomePage() {
   return (
@@ -283,7 +284,7 @@ function Features() {
     {
       title: 'تمرین و تست‌های چندسطحی',
       desc: 'سوالات هدفمند برای سنجش و تثبیت یادگیری هر فصل.',
-      Icon: FcMindMap,
+      Icon: VscGitPullRequestCreate,
     },
     {
       title: 'پخش صوت AI',
@@ -318,9 +319,9 @@ function Features() {
             className="relative flex items-start gap-4 p-6 rounded-3xl bg-white shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
           >
             {/* subtle background bubble with Tailwind gradient */}
-            <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full blur-2xl pointer-events-none bg-gradient-to-bl from-black/50 via-orange-200 to-transparent"></div>
+            <div className="absolute -top-6 -left-6 w-24 h-24 rounded-full blur-2xl pointer-events-none bg-gradient-to-bl from-white via-orange-200 to-transparent"></div>
 
-            <div className="flex-shrink-0 w-14 h-14 rounded-xl border-2 border-dashed grid place-items-center text-3xl bg-gradient-to-tr from-orange-50 to-orange-100 text-orange-400 shadow-inner">
+            <div className="flex-shrink-0 w-14 h-14 rounded-xl border-2 border-dashed grid place-items-center text-3xl text-orange-400 shadow-inner">
               <f.Icon />
             </div>
 
