@@ -26,12 +26,14 @@ import {
   MdStars,
   MdBolt,
 } from "react-icons/md";
-import { LuBookOpenText, LuScrollText } from "react-icons/lu";
+import { LuBookOpenText, LuScrollText, LuUserSearch } from "react-icons/lu";
 import { GrUpdate } from "react-icons/gr";
 import { TbBrandAmongUs, TbBrandOpenai, TbMessageCode, TbPrompt, TbUserCode } from "react-icons/tb";
 import { FaCodeBranch } from "react-icons/fa6";
-import { SiOpenai } from "react-icons/si";
+import { SiMinds, SiOpenai, SiWikibooks } from "react-icons/si";
 import { RiMusicAiLine } from "react-icons/ri";
+import { FcMindMap } from "react-icons/fc";
+import { LiaBookReaderSolid } from "react-icons/lia";
 
 export default function HomePage() {
   return (
@@ -42,7 +44,6 @@ export default function HomePage() {
       <WhyDifferent />
       <VisualBreak />
       <Features />
-      <AudioAndPrompts />
       <SampleFlashcard />
       <FAQ />
       <Testimonials />
@@ -274,79 +275,61 @@ function CardWithIcon({ icon, title, desc }) {
 
 function Features() {
   const features = [
-    { title: 'فلش‌کارت‌های فصل‌به‌فصل', desc: 'نکات کلیدی، تعاریف و مثال‌ها برای مرورِ سریعِ هر فصل.', Icon: MdMenuBook },
-    { title: 'پرسش‌های تستی و تمرین', desc: 'سوالات چندسطحی برای سنجش و تثبیت یادگیری.', Icon: MdSchool },
-    { title: 'داشبورد تیمی', desc: 'گزارش‌های پیشرفت، انتساب محتوا و مسیرهای شخصی‌سازی شده.', Icon: MdOutlineAnalytics },
-    { title: 'دروس کوتاه و کاربردی', desc: 'هر کارت در ۵–۱۰ دقیقه مرور می‌شود.', Icon: MdAccessTime },
+    {
+      title: 'فلش‌کارت‌های فصل‌به‌فصل',
+      desc: 'نکات کلیدی، تعاریف و مثال‌ها برای مرور سریع هر فصل.',
+      Icon: SiWikibooks,
+    },
+    {
+      title: 'تمرین و تست‌های چندسطحی',
+      desc: 'سوالات هدفمند برای سنجش و تثبیت یادگیری هر فصل.',
+      Icon: FcMindMap,
+    },
+    {
+      title: 'پخش صوت AI',
+      desc: 'هر کارت همراه با فایل صوتی طبیعی برای مرور در حرکت.',
+      Icon: RiMusicAiLine,
+    },
+    {
+      title: 'پرامپت‌های آماده',
+      desc: 'پرامپت‌ها را کپی کنید و برای توضیح، خلاصه‌سازی یا مثال‌سازی به AI بدهید.',
+      Icon: TbPrompt,
+    },
+    {
+      title: 'تطبیق محتوا با سطح شما',
+      desc: 'AI سوالات و توضیحات را بر اساس سطح شما شخصی‌سازی می‌کند.',
+      Icon: LuUserSearch,
+    },
+    {
+      title: 'دروس کوتاه و کاربردی',
+      desc: 'هر کارت در ۱–۳ دقیقه مرور می‌شود و تمام نکات کلیدی و مثال‌ها را پوشش می‌دهد',
+      Icon: LiaBookReaderSolid,
+    },
   ];
 
   return (
-    <section className="max-w-7xl mx-auto mt-12">
-      <h3 className="text-2xl font-semibold text-right">ویژگی‌های فلش کارت‌ها</h3>
-      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {features.map((f) => (
-          <div
-            key={f.title}
-            className="relative flex gap-4 items-start p-6 rounded-3xl shadow-lg bg-white text-right hover:shadow-xl transition-all duration-300 overflow-hidden"
-          >
-            {/* subtle background bubble behind icon */}
-            <div
-              className="absolute -top-6 -right-6 w-28 h-28 rounded-full opacity-10 pointer-events-none blur-2xl"
-              style={{ background: 'radial-gradient(circle at 30% 30%, rgba(14,165,233,0.08), transparent 40%)' }}
-            ></div>
+    <section className="max-w-7xl mx-auto mt-12 px-4 text-right">
+      <h3 className="text-2xl font-bold mb-8">ویژگی‌های فلش‌کارت‌ها و ابزارهای یادگیری</h3>
 
-            <div className="flex-shrink-0 w-16 h-16 rounded-xl grid place-items-center text-3xl bg-gradient-to-tr from-sky-100 to-white text-sky-600 shadow-inner">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {features.map((f, i) => (
+          <div
+            key={i}
+            className="relative flex items-start gap-4 p-6 rounded-3xl bg-white shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+          >
+            {/* subtle background bubble with Tailwind gradient */}
+            <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full blur-2xl pointer-events-none bg-gradient-to-bl from-black/50 via-orange-200 to-transparent"></div>
+
+            <div className="flex-shrink-0 w-14 h-14 rounded-xl border-2 border-dashed grid place-items-center text-3xl bg-gradient-to-tr from-orange-50 to-orange-100 text-orange-400 shadow-inner">
               <f.Icon />
             </div>
 
             <div>
-              <h4 className="font-bold text-gray-800 text-lg">{f.title}</h4>
-              <p className="mt-2 text-sm text-gray-500 leading-relaxed">{f.desc}</p>
+              <h4 className="text-gray-900 font-semibold text-lg">{f.title}</h4>
+              <p className="mt-1 text-gray-500 text-sm leading-relaxed">{f.desc}</p>
             </div>
           </div>
         ))}
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- Audio and Prompts ---------------- */
-function AudioAndPrompts() {
-  return (
-    <section className="max-w-7xl mx-auto mt-12 text-right">
-      <h3 className="text-2xl font-semibold">صوتِ AI و کتابخانهٔ پرامپت‌ها</h3>
-      <p className="text-gray-600 mt-2">هر فلش‌کارت همراه با فایل صوتیِ تولیدشده توسط هوش‌مصنوعی و پرامپتِ قابل‌کپی عرضه می‌شود. اگر نیاز به توضیح بیشتر بود، پرامپت را کپی کنید و مستقیماً به AI بدهید.</p>
-
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="p-6 bg-white rounded-2xl shadow-sm">
-          <div className="flex items-center gap-3">
-            <MdHeadset className="text-2xl text-sky-600" />
-            <div>
-              <div className="font-semibold">پخش صوت AI</div>
-              <div className="text-xs text-gray-500">صداهای طبیعی برای مرور در حرکت</div>
-            </div>
-          </div>
-        </div>
-
-        <div className="p-6 bg-white rounded-2xl shadow-sm">
-          <div className="flex items-center gap-3">
-            <MdOutlineQuestionAnswer className="text-2xl text-sky-600" />
-            <div>
-              <div className="font-semibold">پرامپت‌های آماده</div>
-              <div className="text-xs text-gray-500">پرامپت‌ برای توضیح بیشتر، خلاصه‌سازی یا مثال‌سازی</div>
-            </div>
-          </div>
-        </div>
-
-        <div className="p-6 bg-white rounded-2xl shadow-sm">
-          <div className="flex items-center gap-3">
-            <MdOutlineSmartDisplay className="text-2xl text-sky-600" />
-            <div>
-              <div className="font-semibold">تطبیق محتوا با سطح شما</div>
-              <div className="text-xs text-gray-500">AI سوالات را بر اساس سطح شما تنظیم می‌کند</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
