@@ -15,7 +15,7 @@ export default function Footer() {
 
   return (
     <footer className="mt-16">
-      <div className="max-w-7xl mx-auto px-6 pt-10 pb-4 bg-gradient-to-r from-white via-gray-100 to-white border border-slate-300 mb-4 rounded-4xl">
+      <div className="max-w-7xl mx-auto px-6 pt-10 pb-4 bg-gradient-to-r from-white via-gray-100 to-white border border-b-0 border-slate-300 rounded-t-4xl">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* ABOUT */}
           <div className="space-y-3">
