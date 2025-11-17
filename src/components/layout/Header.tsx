@@ -35,24 +35,6 @@ export default function Header() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  // categories and small icons map
-  const categories = useMemo(() => (categoriesData as any[]).slice(0, 12), []);
-  const iconsMap: Record<string, React.ElementType> = {
-    "frontend": FiCode,
-    "backend": FiCpu,
-    "web-development": FiCode,
-    "software-architecture": FiBook,
-    "software-engineering": FiBook,
-    "data-science": FiDatabase,
-    "cloud-computing": FiCloud,
-    "security": FiShield,
-    "ai-ml": FiCpu,
-    "devops": FiCloud,
-    "algorithms": FiCode,
-    "testing": FiBook,
-    "architecture-patterns": FiBook,
-  };
-
   // search state (small input)
   const initialQ = (searchParams?.get("q") ?? "") as string;
   const [q, setQ] = useState<string>(initialQ);
@@ -97,28 +79,27 @@ export default function Header() {
                 </div>
               </Link>
 
-              <Popover>
+              <Popover placement="top-start">
                 <PopoverTrigger asChild>
-                  <button className="text-sm text-slate-700 flex items-center gap-1 hover:bg-slate-100 rounded-xl py-1.5 px-3 transition-all duration-300 cursor-pointer">
+                  <button className="text-sm text-slate-700 flex items-center gap-1 py-1.5 px-3 duration-300 cursor-pointer">
                     {/* <TbCategory2 className="text-xl" /> */}
                     دسته‌ها <FiChevronDown className="text-sm" />
                   </button>
                 </PopoverTrigger>
 
-                <PopoverContent className="w-[360px] p-3 rounded-lg border border-slate-100 shadow-sm">
-                  <div className="grid grid-cols-2 gap-2">
-                    {categories.map((c: any) => {
-                      const Icon = iconsMap[c.slug] ?? FiBook;
+                <PopoverContent className="p-3 rounded-xl border border-slate-100 shadow-sm">
+                  <div className="grid grid-cols-3 gap-3.5">
+                    {categoriesData.map((c: any) => {
                       return (
                         <button
                           key={c.slug}
                           onClick={() => gotoCategory(c.slug)}
-                          className="flex items-start gap-3 p-2 rounded hover:bg-slate-50 text-left"
+                          className="flex items-center gap-2 cursor-pointer py-1 px-2 rounded-xl hover:bg-slate-100 transition-all text-left"
                         >
-                          <span className="mt-0.5 text-lg text-slate-600"><Icon /></span>
+                          <img src={c.img} alt="cate" className="w-14"/>
                           <div className="text-sm">
-                            <div className="font-medium">{c.nameFa ?? c.name}</div>
-                            <div className="text-xs text-slate-500">مطالب مرتبط</div>
+                            <p className="font-medium text-right">{c.nameFa}</p>
+                            <p className="text-xs text-slate-500 text-right">{c.name}</p>
                           </div>
                         </button>
                       );
@@ -127,12 +108,12 @@ export default function Header() {
                 </PopoverContent>
               </Popover>
 
-              <Link href="/books" className="flex items-center gap-1 hover:bg-slate-100 rounded-xl py-1.5 px-3 transition-all duration-300">
+              <Link href="/books" className="flex items-center gap-1 py-1.5 px-3 transition-all duration-300">
                 {/* <PiBooks className="text-2xl" /> */}
                 <p className="text-sm text-slate-700">همه کتاب‌ها</p>
               </Link>
 
-              <Link href="/blog" className="flex items-center gap-1 hover:bg-slate-100 rounded-xl py-1.5 px-3 transition-all duration-300">
+              <Link href="/blog" className="flex items-center gap-1 py-1.5 px-3 transition-all duration-300">
                 {/* <LuScrollText className="text-xl" /> */}
                 <p className="text-sm text-slate-700">مقالات</p>
               </Link>
