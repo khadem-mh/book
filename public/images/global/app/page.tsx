@@ -78,31 +78,23 @@ function Hero() {
         </div>
 
         <div className="mt-6 grid grid-cols-4 gap-3 text-sm">
-          <div className="flex flex-col gap-1.5 text-[13px] shadow-md rounded-2xl p-2 xl items-center text-center 
-                  transition transform duration-300 hover:scale-105 hover:shadow-xl">
-            <img src="/images/home/review-book-with-ai.png" alt="AI book review" className="w-20" />
-            <p> تمام مفاهیم کتاب توسط Ai مرور و ارائه شده‌اند.</p>
+          <div>
+            <GrUpdate />
+            <p>نسخه‌های به‌روز و رسمی</p>
           </div>
-
-          <div className="flex flex-col gap-1.5 text-[13px] shadow-md rounded-2xl p-2 xl items-center text-center 
-                  transition transform duration-300 hover:scale-105 hover:shadow-xl">
-            <img src="/images/home/card.png" alt="Flashcards" className="w-20" />
-            <p>فلش‌کارت‌های دقیق برای هر صفحه و فصل کتاب.</p>
+          <div>
+            <GrUpdate />
+            <p>پوشش صفحه‌به‌صفحه و فصل‌به‌فصل</p>
           </div>
-
-          <div className="flex flex-col gap-1.5 text-[13px] shadow-md rounded-2xl p-2 xl items-center text-center 
-                  transition transform duration-300 hover:scale-105 hover:shadow-xl">
-            <img src="/images/home/sound-ai.png" alt="AI audio" className="w-20" />
-            <p>صوت Ai برای یادگیری سریع‌تر هر کارت.</p>
+          <div className="flex flex-col items-center">
+            <img src="/images/home/sound-ai.png" alt="sound-ai" className="w-20" />
+            <p>صوت هوش مصنوعی برای هر کارت</p>
           </div>
-
-          <div className="flex flex-col gap-1.5 text-[13px] shadow-md rounded-2xl p-2 xl items-center text-center 
-                  transition transform duration-300 hover:scale-105 hover:shadow-xl">
-            <img src="/images/home/prompt.png" alt="Copyable prompt" className="w-20" />
-            <p>پرامپت‌های آماده و قابل استفاده برای هر کارت.</p>
+          <div>
+            <img src="/images/home/prompt.png" alt="sound-ai" className="w-20" />
+            <p>پرامپت قابل کپی برای هر کارت</p>
           </div>
         </div>
-
       </div>
 
       <div className="relative">
