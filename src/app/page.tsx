@@ -3,36 +3,18 @@
 import { useState } from "react";
 import { Accordion, AccordionItem, Button } from "@heroui/react";
 import {
-  MdMenuBook,
-  MdSchool,
-  MdGroup,
-  MdAccessTime,
-  MdOutlineAutoAwesome,
-  MdFlashOn,
   MdArrowForwardIos,
   MdOutlineSearch,
-  MdOutlineCheckCircle,
   MdHeadset,
-  MdArticle,
-  MdAutoAwesomeMosaic,
-  MdOutlineAssignmentTurnedIn,
-  MdOutlineAnalytics,
   MdOutlineLibraryBooks,
-  MdOutlineSmartDisplay,
-  MdOutlineQuestionAnswer,
-  MdOutlinePerson,
   MdArrowOutward,
-  MdPersonPinCircle,
-  MdStars,
-  MdBolt,
 } from "react-icons/md";
 import { LuBookOpenText, LuScrollText, LuUserSearch } from "react-icons/lu";
 import { GrUpdate } from "react-icons/gr";
 import { TbBrandAmongUs, TbBrandOpenai, TbMessageCode, TbPrompt, TbUserCode } from "react-icons/tb";
 import { FaCodeBranch } from "react-icons/fa6";
-import { SiMinds, SiOpenai, SiWikibooks } from "react-icons/si";
+import { SiOpenai, SiWikibooks } from "react-icons/si";
 import { RiMusicAiLine } from "react-icons/ri";
-import { FcMindMap } from "react-icons/fc";
 import { LiaBookReaderSolid } from "react-icons/lia";
 import { VscGitPullRequestCreate } from "react-icons/vsc";
 
@@ -49,7 +31,6 @@ export default function HomePage() {
       <FAQ />
       <Testimonials />
       <CTA />
-      <Footer />
     </main>
   );
 }
@@ -606,23 +587,5 @@ function CTA() {
         </div>
       </div>
     </section>
-  );
-}
-
-
-function Footer() {
-  return (
-    <footer className="max-w-7xl mx-auto mt-12 text-right text-sm text-gray-500">
-      <div className="py-8 border-t">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div>© {new Date().getFullYear()} یادگیری از O'Reilly — کامل، فارسی‌شده، صوت AI</div>
-          <div className="flex items-center gap-4">
-            <a className="underline">حریم خصوصی</a>
-            <a className="underline">قوانین استفاده</a>
-            <a className="underline">تماس با ما</a>
-          </div>
-        </div>
-      </div>
-    </footer>
   );
 }
