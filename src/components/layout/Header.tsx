@@ -79,7 +79,7 @@ export default function Header() {
                 </div>
               </Link>
 
-              <Popover placement="top-start">
+              <Popover placement="top-start" backdrop="blur">
                 <PopoverTrigger asChild>
                   <button className="text-sm text-slate-700 flex items-center gap-1 py-1.5 px-3 duration-300 cursor-pointer">
                     {/* <TbCategory2 className="text-xl" /> */}
@@ -94,9 +94,9 @@ export default function Header() {
                         <button
                           key={c.slug}
                           onClick={() => gotoCategory(c.slug)}
-                          className="flex items-center gap-2 cursor-pointer py-1 px-2 rounded-xl hover:bg-slate-100 transition-all text-left"
+                          className="flex items-center text-sky-700 gap-2 cursor-pointer py-1 px-2 rounded-xl hover:bg-slate-100 transition-all text-left"
                         >
-                          <img src={c.img} alt="cate" className="w-14"/>
+                          <img src={c.img} alt="cate" className="w-15"/>
                           <div className="text-sm">
                             <p className="font-medium text-right">{c.nameFa}</p>
                             <p className="text-xs text-slate-500 text-right">{c.name}</p>
