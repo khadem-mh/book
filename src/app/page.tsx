@@ -66,10 +66,10 @@ function Hero() {
         </h1>
 
         <p className="mt-4 text-gray-600 leading-8">
-          ما کتاب‌ها را صفحه‌به‌صفحه، فصل‌به‌فصل و اصطلاح‌به‌اصطلاح پوشش می‌دهیم — تمام مفاهیم، مثال‌ها و تمرین‌ها را در یک تجربهٔ تعاملی و کاملاً فارسی‌شده ارائه می‌کنیم. دیگر نیازی به خرید PDF یا نسخهٔ فیزیکی نیست.
+          ما کتاب‌ها را صفحه‌به‌صفحه، فصل‌به‌فصل پوشش می‌دهیم — تمام مفاهیم، مثال‌ها و تمرین‌ها دقیقاً مطابق با نسخهٔ اصلی انگلیسی و در قالبی کاملاً تعاملی و فارسی‌شده ارائه می‌شوند.
         </p>
 
-        <div className="mt-6 flex flex-wrap gap-3">
+        <div className="mt-8 flex flex-wrap gap-3">
           <Button variant="bordered">ورود / ثبت‌نام</Button>
 
           <Button color="primary" variant="light" endContent={<MdArrowForwardIos className="text-sm scale-x-[-1]" />}>
@@ -77,7 +77,7 @@ function Hero() {
           </Button>
         </div>
 
-        <div className="mt-6 grid grid-cols-4 gap-3 text-sm">
+        <div className="mt-10 grid grid-cols-4 gap-3 text-sm">
           <div className="flex flex-col gap-1.5 text-[13px] shadow-md rounded-2xl p-2 xl items-center text-center 
                   transition transform duration-300 hover:scale-105 hover:shadow-xl">
             <img src="/images/home/review-book-with-ai.png" alt="AI book review" className="w-20" />
@@ -129,21 +129,10 @@ function Hero() {
   );
 }
 
-function Badge({ icon, text }) {
-  return (
-    <div className="flex items-center gap-3 bg-white rounded-lg p-3 shadow-sm">
-      <div className="w-10 h-10 rounded-lg grid place-items-center" style={{ background: 'linear-gradient(135deg, #eef2ff, #fff7ed)' }}>
-        <div className="text-2xl text-sky-600">{icon}</div>
-      </div>
-      <div className="text-xs text-gray-700">{text}</div>
-    </div>
-  );
-}
-
 
 function HighlightsBanner() {
   return (
-    <section className="max-w-7xl mx-auto mt-16 relative">
+    <section className="max-w-7xl mx-auto mt-26 relative">
       {/* پس‌زمینه حباب‌های خیلی کم‌رنگ (اختیاری) */}
       <div className="absolute inset-0 overflow-hidden -z-10">
         {[...Array(30)].map((_, i) => (
