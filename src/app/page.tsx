@@ -61,7 +61,7 @@ function Hero() {
         <h1 className="text-4xl md:text-4xl font-extrabold leading-tight">
           <p className="!text-left leading-17 bg-gradient-to-r from-slate-100 via-gray-400 to-slate-100 bg-clip-text text-transparent text-[70px] mt-3">Build <span className="text-4xl">the skills your teams need</span></p>
           <p className="leading-15 mt-8">
-            <span className="bg-gradient-to-r from-sky-500 to-orange-400 bg-clip-text text-transparent">مطالعهٔ کاملِ کتاب‌های</span> حوزهٔ کامپیوتر با فلش‌کارت‌های مبتنی بر هوش مصنوعی
+            <span className="bg-gradient-to-r from-sky-500 to-orange-400 bg-clip-text text-transparent">مطالعهٔ کاملِ کتاب‌های</span> کامپیوتر با فلش‌کارت‌های هوشمند AI 
           </p>
         </h1>
 
