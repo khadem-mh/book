@@ -20,6 +20,8 @@ import { RiMusicAiLine } from "react-icons/ri";
 import { LiaBookReaderSolid } from "react-icons/lia";
 import { VscGitPullRequestCreate } from "react-icons/vsc";
 import { GiBrain } from "react-icons/gi";
+import { PiHandPointing, PiHandPointingLight, PiHandWaving } from "react-icons/pi";
+import AnimatedHands from "@/components/books/AnimatedHands";
 
 export default function HomePage() {
   return (
@@ -224,32 +226,43 @@ function ProcessStory() {
       img: "/images/home/story/flashcard.png",
       title: "فلش‌کارت‌ها و صوت آماده",
       desc: "همه آماده است؛ فقط یاد بگیر و جلو برو!",
+      systemBase: true
     },
     {
       id: 6,
       img: "/images/home/story/cheep.png",
       title: "تراشهٔ هوشمند در مغز",
       desc: "دانش و کارت‌ها مستقیم در مغز، همیشه در دسترس.",
+      btnText: "به زودی!"
     }
   ];
   return (
     <section className="max-w-7xl mx-auto mt-12">
-      <div className="text-center mb-6">
-        <h3 className="text-2xl font-semibold">دبگه وقتشه مسیرت عوض کنی!!</h3>
-        <p className="text-gray-600 mt-1">
-          روند کامل تبدیل منبع اصلی به تجربهٔ یادگیری آماده — ساده و کاربردی.
+      <div className="mb-6">
+        <h3 className="text-2xl font-semibold">دیگه وقتشه مسیرت رو عوض کنی!!</h3>
+        <p className="text-gray-600 mt-2">
+          راهی سریع و تعاملی برای یادگیری کامل و آمادهٔ استفاده
         </p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
         {steps.map((s) => (
-          <div
-            key={s.id}
-            className={`flex flex-col gap-1.5 text-[13px] shadow-md rounded-2xl p-2 xl items-center text-center  transition transform duration-300 hover:scale-105 hover:shadow-xl`}
-          >
-            <img src={s.img} alt={s.title} className="w-20" />
-            <h4 className="font-semibold text-gray-900">{s.title}</h4>
-            <p className="text-gray-600">{s.desc}</p>
+          <div>
+            {
+              s?.systemBase &&
+              <div className="flex justify-center text-3xl w-full">
+                <AnimatedHands />
+              </div>
+            }
+            <div
+              key={s.id}
+              className={`relative flex flex-col gap-1.5 text-[13px] shadow-md rounded-2xl p-2 xl items-center text-center  transition transform duration-300 hover:scale-105 hover:shadow-xl`}
+            >
+              {s?.btnText && <p className="absolute top-2 left-2 text-sky-600 bg-sky-100 px-2 text-xs rounded-full animate-pulse">{s.btnText}</p>}
+              <img src={s.img} alt={s.title} className="w-20" />
+              <h4 className="font-semibold text-gray-900">{s.title}</h4>
+              <p className="text-gray-600">{s.desc}</p>
+            </div>
           </div>
         ))}
       </div>
