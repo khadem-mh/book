@@ -202,40 +202,47 @@ function ProcessStory() {
       img: "/images/home/story/book.png",
       title: "کتاب فیزیکی",
       desc: "منبع اصلی و پایهٔ همهٔ یادگیری‌ها. با نسخه چاپی",
+      accent: "bg-green-200"
     },
     {
       id: 2,
       img: "/images/home/story/book-digital.png",
       title: "کتاب دیجیتالی",
       desc: "دسترسی سریع به کتاب همه جا با دستگاه هوشمند.",
+      accent: "bg-purple-200"
     },
     {
       id: 3,
       img: "/images/home/story/video-learning.png",
       title: "ویدیوهای آموزشی",
       desc: "نمایش عملی و توضیحات مفاهیم، ولی زمان‌بر و طولانی.",
+      accent: "bg-red-200"
     },
     {
       id: 4,
       img: "/images/home/story/ai.png",
       title: "تحلیل با AI",
       desc: "AI نکات مهم را جدا و ساختار آموزشی می‌سازد.",
+      accent: "bg-orange-200"
     },
     {
       id: 5,
       img: "/images/home/story/flashcard.png",
       title: "فلش‌کارت‌ها و صوت آماده",
       desc: "همه آماده است؛ فقط یاد بگیر و جلو برو!",
-      systemBase: true
+      systemBase: true,
+      accent: "bg-sky-200"
     },
     {
       id: 6,
       img: "/images/home/story/cheep.png",
       title: "تراشهٔ هوشمند در مغز",
       desc: "دانش و کارت‌ها مستقیم در مغز، همیشه در دسترس.",
-      btnText: "به زودی!"
+      btnText: "به زودی!",
+      accent: "bg-slate-300"
     }
   ];
+
   return (
     <section className="max-w-7xl mx-auto mt-12">
       <div className="mb-6">
@@ -256,10 +263,21 @@ function ProcessStory() {
             }
             <div
               key={s.id}
-              className={`relative flex flex-col gap-1.5 text-[13px] shadow-md rounded-2xl p-2 xl items-center text-center  transition transform duration-300 hover:scale-105 hover:shadow-xl`}
+              className={`relative flex flex-col gap-1.5 text-[13px] shadow-md rounded-2xl p-2 xl items-center text-center 
+              transition transform duration-300 hover:scale-105 hover:shadow-xl`}
             >
-              {s?.btnText && <p className="absolute top-2 left-2 text-sky-600 bg-sky-100 px-2 text-xs rounded-full animate-pulse">{s.btnText}</p>}
-              <img src={s.img} alt={s.title} className="w-20" />
+              {/* دایرهٔ رنگی پشت تصویر */}
+              <div
+                className={`absolute -top-4 w-24 h-24 rounded-full opacity-20 pointer-events-none
+                ${s?.accent || ""}`}
+              ></div>
+
+              {s?.btnText && (
+                <p className="absolute top-2 left-2 text-sky-600 bg-sky-100 px-2 text-xs rounded-full animate-pulse">
+                  {s.btnText}
+                </p>
+              )}
+              <img src={s.img} alt={s.title} className="w-20 relative z-10" />
               <h4 className="font-semibold text-gray-900">{s.title}</h4>
               <p className="text-gray-600">{s.desc}</p>
             </div>
