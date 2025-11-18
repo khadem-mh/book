@@ -250,7 +250,7 @@ function ProcessStory() {
           <div>
             {
               s?.systemBase &&
-              <div className="flex justify-center text-3xl w-full">
+              <div className="flex justify-center text-3xl w-full -mt-9.5 mb-2">
                 <AnimatedHands />
               </div>
             }

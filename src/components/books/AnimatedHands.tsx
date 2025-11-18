@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { PiHandWaving, PiHandPointingLight } from "react-icons/pi";
+import { PiHandWaving, PiHandPointingLight, PiHandTap } from "react-icons/pi";
 
 export default function AnimatedHands() {
     const [showWaving, setShowWaving] = useState(true);
@@ -22,7 +22,7 @@ export default function AnimatedHands() {
                     }}
                 />
             ) : (
-                <PiHandPointingLight
+                <PiHandTap
                     className="animate-bounce rotate-180"
                 />
             )}
