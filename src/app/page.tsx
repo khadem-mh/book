@@ -8,21 +8,25 @@ import {
   MdHeadset,
   MdOutlineLibraryBooks,
   MdArrowOutward,
+  MdOutlineSmartDisplay,
+  MdOndemandVideo,
+  MdBolt,
 } from "react-icons/md";
-import { LuBookOpenText, LuScrollText, LuUserSearch } from "react-icons/lu";
-import { GrUpdate } from "react-icons/gr";
+import { LuBookOpenText, LuUserSearch } from "react-icons/lu";
 import { TbBrandAmongUs, TbBrandOpenai, TbMessageCode, TbPrompt, TbUserCode } from "react-icons/tb";
 import { FaCodeBranch } from "react-icons/fa6";
 import { SiOpenai, SiWikibooks } from "react-icons/si";
 import { RiMusicAiLine } from "react-icons/ri";
 import { LiaBookReaderSolid } from "react-icons/lia";
 import { VscGitPullRequestCreate } from "react-icons/vsc";
+import { GiBrain } from "react-icons/gi";
 
 export default function HomePage() {
   return (
     <main dir="rtl" lang="fa" className="relative px-4 md:px-12 py-12 text-gray-800">
       <BackgroundBubbles />
       <Hero />
+      <ProcessStory />
       <HighlightsBanner />
       <WhyDifferent />
       <VisualBreak />
@@ -61,7 +65,7 @@ function Hero() {
         <h1 className="text-4xl md:text-4xl font-extrabold leading-tight">
           <p className="!text-left leading-17 bg-gradient-to-r from-slate-100 via-gray-400 to-slate-100 bg-clip-text text-transparent text-[70px] mt-3">Build <span className="text-4xl">the skills your teams need</span></p>
           <p className="leading-15 mt-8">
-            <span className="bg-gradient-to-r from-sky-500 to-orange-400 bg-clip-text text-transparent">مطالعهٔ کاملِ کتاب‌های</span> کامپیوتر با فلش‌کارت‌های هوشمند AI 
+            <span className="bg-gradient-to-r from-sky-500 to-orange-400 bg-clip-text text-transparent">مطالعهٔ کاملِ کتاب‌های</span> کامپیوتر با فلش‌کارت‌های هوشمند AI
           </p>
         </h1>
 
@@ -187,6 +191,75 @@ function HighlightsBanner() {
     </section>
   );
 }
+
+const steps = [
+  {
+    id: 1,
+    img: "/images/home/book-physical.png",
+    title: "کتاب فیزیکی",
+    desc: "این کتاب مثل نقشهٔ گنج؛ همهٔ اصول و مثال‌ها اینجا هستن و می‌تونیم رویش حساب کنیم.",
+  },
+  {
+    id: 2,
+    img: "/images/home/book-digital.png",
+    title: "نسخهٔ دیجیتال",
+    desc: "نسخهٔ آنلاین که می‌تونیم سریع جستجو کنیم، فصل‌ها رو جدا کنیم و آماده کنیم تا AI سراغش بره.",
+  },
+  {
+    id: 3,
+    img: "/images/home/video-learning.png",
+    title: "ویدیوهای آموزشی",
+    desc: "ویدیوها همه چیز رو عملی نشون می‌دن، اما حواس‌پرتی زیاد داره و زمان زیادی می‌بره.",
+  },
+  {
+    id: 4,
+    img: "/images/home/ai-analysis.png",
+    title: "تحلیل با AI",
+    desc: "AI متن رو دقیق تحلیل می‌کنه، نکات مهم رو جدا می‌کنه و یه ساختار آموزشی عالی می‌سازه.",
+  },
+  {
+    id: 5,
+    img: "/images/home/flashcards.png",
+    title: "فلش‌کارت‌ها و صوت آماده",
+    desc: "همه چی آماده‌ست؛ کارت‌ها، صوت‌ها و پرامپت‌ها. دیگه لازم نیست چیزی بسازی، فقط یاد بگیر و جلو برو!",
+    highlight: true,
+  },
+  { id: 6, title: "تراشهٔ هوشمند در مغز", subtitle: "AI شخصی در ذهن شما", desc: "دانش و فلش‌کارت‌ها مستقیماً در مغز شما، بهینه‌شده توسط AI — سریع، تعاملی و همیشه در دسترس.", Icon: GiBrain, accent: "from-purple-200 to-indigo-300", highlight: true, }
+];
+
+function ProcessStory() {
+  return (
+    <section className="max-w-7xl mx-auto mt-12">
+      <div className="text-center mb-6">
+        <h3 className="text-2xl font-semibold">مسیر یادگیری</h3>
+        <p className="text-gray-600 mt-1">
+          روند کامل تبدیل منبع اصلی به تجربهٔ یادگیری آماده — ساده و کاربردی.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+        {steps.map((s) => (
+          <div
+            key={s.id}
+            className={`flex flex-col gap-2 text-[13px] shadow-md rounded-2xl p-4 items-center text-center 
+                        transition transform duration-300 hover:scale-105 hover:shadow-xl
+                        ${s.highlight ? "bg-gradient-to-r from-sky-50 to-orange-50" : "bg-white"}`}
+          >
+            <img src={s.img} alt={s.title} className="w-20" />
+            <h4 className="font-semibold text-gray-900">{s.title}</h4>
+            <p className="text-gray-600">{s.desc}</p>
+            {s.highlight && (
+              <span className="mt-2 inline-block text-xs font-medium px-3 py-1 rounded-full bg-gradient-to-r from-sky-100 to-orange-100 text-sky-700">
+                آماده و قابل استفاده
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 
 function FeatureCard({ icon, title, desc, note }) {
   return (
