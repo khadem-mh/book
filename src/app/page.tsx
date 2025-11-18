@@ -192,46 +192,50 @@ function HighlightsBanner() {
   );
 }
 
-const steps = [
-  {
-    id: 1,
-    img: "/images/home/book-physical.png",
-    title: "کتاب فیزیکی",
-    desc: "این کتاب مثل نقشهٔ گنج؛ همهٔ اصول و مثال‌ها اینجا هستن و می‌تونیم رویش حساب کنیم.",
-  },
-  {
-    id: 2,
-    img: "/images/home/book-digital.png",
-    title: "نسخهٔ دیجیتال",
-    desc: "نسخهٔ آنلاین که می‌تونیم سریع جستجو کنیم، فصل‌ها رو جدا کنیم و آماده کنیم تا AI سراغش بره.",
-  },
-  {
-    id: 3,
-    img: "/images/home/video-learning.png",
-    title: "ویدیوهای آموزشی",
-    desc: "ویدیوها همه چیز رو عملی نشون می‌دن، اما حواس‌پرتی زیاد داره و زمان زیادی می‌بره.",
-  },
-  {
-    id: 4,
-    img: "/images/home/ai-analysis.png",
-    title: "تحلیل با AI",
-    desc: "AI متن رو دقیق تحلیل می‌کنه، نکات مهم رو جدا می‌کنه و یه ساختار آموزشی عالی می‌سازه.",
-  },
-  {
-    id: 5,
-    img: "/images/home/flashcards.png",
-    title: "فلش‌کارت‌ها و صوت آماده",
-    desc: "همه چی آماده‌ست؛ کارت‌ها، صوت‌ها و پرامپت‌ها. دیگه لازم نیست چیزی بسازی، فقط یاد بگیر و جلو برو!",
-    highlight: true,
-  },
-  { id: 6, title: "تراشهٔ هوشمند در مغز", subtitle: "AI شخصی در ذهن شما", desc: "دانش و فلش‌کارت‌ها مستقیماً در مغز شما، بهینه‌شده توسط AI — سریع، تعاملی و همیشه در دسترس.", Icon: GiBrain, accent: "from-purple-200 to-indigo-300", highlight: true, }
-];
 
 function ProcessStory() {
+  const steps = [
+    {
+      id: 1,
+      img: "/images/home/story/book.png",
+      title: "کتاب فیزیکی",
+      desc: "منبع اصلی و پایهٔ همهٔ یادگیری‌ها. با نسخه چاپی",
+    },
+    {
+      id: 2,
+      img: "/images/home/story/book-digital.png",
+      title: "کتاب دیجیتالی",
+      desc: "دسترسی سریع به کتاب همه جا با دستگاه هوشمند.",
+    },
+    {
+      id: 3,
+      img: "/images/home/story/video-learning.png",
+      title: "ویدیوهای آموزشی",
+      desc: "نمایش عملی و توضیحات مفاهیم، ولی زمان‌بر و طولانی.",
+    },
+    {
+      id: 4,
+      img: "/images/home/story/ai.png",
+      title: "تحلیل با AI",
+      desc: "AI نکات مهم را جدا و ساختار آموزشی می‌سازد.",
+    },
+    {
+      id: 5,
+      img: "/images/home/story/flashcard.png",
+      title: "فلش‌کارت‌ها و صوت آماده",
+      desc: "همه آماده است؛ فقط یاد بگیر و جلو برو!",
+    },
+    {
+      id: 6,
+      img: "/images/home/story/cheep.png",
+      title: "تراشهٔ هوشمند در مغز",
+      desc: "دانش و کارت‌ها مستقیم در مغز، همیشه در دسترس.",
+    }
+  ];
   return (
     <section className="max-w-7xl mx-auto mt-12">
       <div className="text-center mb-6">
-        <h3 className="text-2xl font-semibold">مسیر یادگیری</h3>
+        <h3 className="text-2xl font-semibold">دبگه وقتشه مسیرت عوض کنی!!</h3>
         <p className="text-gray-600 mt-1">
           روند کامل تبدیل منبع اصلی به تجربهٔ یادگیری آماده — ساده و کاربردی.
         </p>
@@ -241,18 +245,11 @@ function ProcessStory() {
         {steps.map((s) => (
           <div
             key={s.id}
-            className={`flex flex-col gap-2 text-[13px] shadow-md rounded-2xl p-4 items-center text-center 
-                        transition transform duration-300 hover:scale-105 hover:shadow-xl
-                        ${s.highlight ? "bg-gradient-to-r from-sky-50 to-orange-50" : "bg-white"}`}
+            className={`flex flex-col gap-1.5 text-[13px] shadow-md rounded-2xl p-2 xl items-center text-center  transition transform duration-300 hover:scale-105 hover:shadow-xl`}
           >
             <img src={s.img} alt={s.title} className="w-20" />
             <h4 className="font-semibold text-gray-900">{s.title}</h4>
             <p className="text-gray-600">{s.desc}</p>
-            {s.highlight && (
-              <span className="mt-2 inline-block text-xs font-medium px-3 py-1 rounded-full bg-gradient-to-r from-sky-100 to-orange-100 text-sky-700">
-                آماده و قابل استفاده
-              </span>
-            )}
           </div>
         ))}
       </div>
