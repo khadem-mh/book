@@ -7,15 +7,15 @@ export const meta = {
     {
       name: "مارک ریچاردز",
       enName: "Mark Richards",
-      cover: "images/books/authors/mark-richards.jpg"
+      cover: "/images/books/authors/mark-richards.jpg"
     },
     {
       name: "نیل فورد",
       enName: "Neal Ford",
-      cover: "images/books/authors/neal-ford.jpg"
+      cover: "/images/books/authors/neal-ford.jpg"
     }
   ],
-  cover: "images/books/covers/fundamentals-of-software-architecture_2nd-edition.jpg",
+  cover: "/images/books/covers/fundamentals-of-software-architecture_2nd-edition.jpg",
   pages: 450,
   language: "en",
   languageFa: "fa",
