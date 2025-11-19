@@ -3,7 +3,7 @@ export const meta = {
   slug: "fundamentals-of-software-architecture_2nd-edition",
   title: "مبانی معماری نرم افزار",
   title_en: "Fundamentals of Software Architecture",
-  sub_title: "ویرایش دوم",
+  edition: "ویرایش دوم",
   description: "این کتاب یکی از منابع کلیدی برای درک معماری نرم‌افزار است و با بررسی الگوها، تصمیمات طراحی و ویژگی‌های کیفی، دید مهندسی و کاربردی نسبت به معماری ارائه می‌دهد.",
   cover: "/images/books/covers/fundamentals-of-software-architecture_2nd-edition.jpg",
   authors: [
@@ -25,6 +25,7 @@ export const meta = {
   publish_year: 2025,
   publish_year_ai: 2026,
   publish_chapters_ai: 1,
+  publish_pages_ai: 50,
   level: "hard",
   rating: 4.6,
   categories: [
