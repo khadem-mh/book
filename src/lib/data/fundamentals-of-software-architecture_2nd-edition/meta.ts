@@ -1,42 +1,36 @@
 export const meta = {
+  id: 1,
   slug: "fundamentals-of-software-architecture_2nd-edition",
-  title: "Fundamentals of Software Architecture",
-  titleFa: "مبانی معماری نرم‌افزار",
-  subTitle: "ویرایش دوم",
+  title: "مبانی معماری نرم افزار",
+  title_en: "Fundamentals of Software Architecture",
+  sub_title: "ویرایش دوم",
+  description: "این کتاب یکی از منابع کلیدی برای درک معماری نرم‌افزار است و با بررسی الگوها، تصمیمات طراحی و ویژگی‌های کیفی، دید مهندسی و کاربردی نسبت به معماری ارائه می‌دهد.",
+  cover: "/images/books/covers/fundamentals-of-software-architecture_2nd-edition.jpg",
   authors: [
     {
+      id: 1,
       name: "مارک ریچاردز",
-      enName: "Mark Richards",
+      en_name: "Mark Richards",
       cover: "/images/books/authors/mark-richards.jpg"
     },
     {
+      id: 2,
       name: "نیل فورد",
-      enName: "Neal Ford",
+      en_name: "Neal Ford",
       cover: "/images/books/authors/neal-ford.jpg"
     }
   ],
-  cover: "/images/books/covers/fundamentals-of-software-architecture_2nd-edition.jpg",
-  pages: 450,
-  language: "en",
-  languageFa: "fa",
-  publishedYear: 2022,
-  publishedYearAi: 2025,
-  chapters: 14,
+  total_chapters: 27,
+  total_pages: 450,
+  publish_year: 2025,
+  publish_year_ai: 2026,
+  publish_chapters_ai: 1,
   level: "hard",
-  categories: [
-    "software-architecture",
-    "software-engineering",
-    "architecture-patterns"
-  ],
-  tags: [
-    "architecture",
-    "software design",
-    "patterns",
-    "scalability",
-    "quality attributes"
-  ],
   rating: 4.6,
-  description: "این کتاب یکی از منابع کلیدی برای درک معماری نرم‌افزار است و با بررسی الگوها، تصمیمات طراحی و ویژگی‌های کیفی، دید مهندسی و کاربردی نسبت به معماری ارائه می‌دهد.",
-  publishedPages: 10,
-  createdAt: "2025-10-24T00:00:00.000Z"
+  categories: [
+    { id: 1, title: "software-architecture" },
+    { id: 2, title: "software-engineering" },
+    { id: 3, title: "architecture-patterns" }
+  ],
+  created_at: "2025-10-24T00:00:00.000Z"
 };

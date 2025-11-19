@@ -1,247 +1,29 @@
-import { chapter_001 } from "./chapters/chapter_001";
-
 export const chapters = [
-  {
-    id: "ch1",
-    title: "Introduction",
-    titleFa: "مقدمه",
-    startPage: "page-0001",
-    endPage: "page-0005",
-    totalPages: 5,
-    overview: "این فصل توضیح می‌دهد که نرم‌افزار معماری چیست، چه کسانی علاقه‌مندند و نقش معماران چیست.",
-  },
-  {
-    id: "ch2",
-    title: "Architectural Thinking",
-    titleFa: "تفکر معماری",
-    startPage: "page-0006",
-    endPage: "page-0010",
-    totalPages: 5,
-    overview: "در این فصل با مفاهیم تفکر معماری، تحلیل trade-offها و دید کلان سیستم‌ها آشنا می‌شویم."
-  },
-  {
-    id: "ch3",
-    title: "Modularity",
-    titleFa: "ماژولاریتی",
-    startPage: "page-0011",
-    endPage: "page-0015",
-    totalPages: 5,
-    overview: "این فصل مفهوم ماژولار بودن سیستم‌ها و چگونگی تقسیم نرم‌افزار به بخش‌های قابل مدیریت و مستقل را توضیح می‌دهد."
-  },
-  {
-    id: "ch4",
-    title: "Architectural Characteristics Defined",
-    titleFa: "تعریف ویژگی‌های معماری",
-    startPage: "page-0016",
-    endPage: "page-0020",
-    totalPages: 5,
-    overview: "ویژگی‌های معماری مانند performance، reliability، scalability و maintainability معرفی و تعریف می‌شوند."
-  },
-  {
-    id: "ch5",
-    title: "Identifying Architectural Characteristics",
-    titleFa: "شناسایی ویژگی‌های معماری",
-    startPage: "page-0021",
-    endPage: "page-0025",
-    totalPages: 5,
-    overview: "چگونگی شناسایی و اولویت‌بندی ویژگی‌های مهم معماری برای پروژه‌های مختلف توضیح داده می‌شود."
-  },
-  {
-    id: "ch6",
-    title: "Measuring and Governing Architecture Characteristics",
-    titleFa: "سنجش و مدیریت ویژگی‌های معماری",
-    startPage: "page-0026",
-    endPage: "page-0030",
-    totalPages: 5,
-    overview: "روش‌های اندازه‌گیری ویژگی‌های معماری و کنترل کیفیت آن‌ها در طول توسعه و نگهداری سیستم بررسی می‌شود."
-  },
-  {
-    id: "ch7",
-    title: "The Scope of Architectural Characteristics",
-    titleFa: "دامنه ویژگی‌های معماری",
-    startPage: "page-0031",
-    endPage: "page-0035",
-    totalPages: 5,
-    overview: "این فصل محدودهٔ اثر ویژگی‌های معماری و تأثیر آن‌ها بر اجزای سیستم و تصمیمات طراحی را توضیح می‌دهد."
-  },
-  {
-    id: "ch8",
-    title: "Component-Based Thinking",
-    titleFa: "تفکر مبتنی بر مؤلفه",
-    startPage: "page-0036",
-    endPage: "page-0040",
-    totalPages: 5,
-    overview: "نحوهٔ طراحی و تحلیل سیستم‌ها به صورت مؤلفه‌ای و مزایای آن در معماری نرم‌افزار تشریح می‌شود."
-  },
-  {
-    id: "ch9",
-    title: "Foundations (Architecture Styles)",
-    titleFa: "مبانی (سبک‌های معماری)",
-    startPage: "page-0041",
-    endPage: "page-0045",
-    totalPages: 5,
-    overview: "مبانی سبک‌های معماری و فلسفهٔ پشت هر سبک معرفی می‌شوند."
-  },
-  {
-    id: "ch10",
-    title: "Layered Architecture Style",
-    titleFa: "سبک معماری لایه‌ای",
-    startPage: "page-0046",
-    endPage: "page-0050",
-    totalPages: 5,
-    overview: "معماری لایه‌ای و نحوهٔ تفکیک مسئولیت‌ها بین لایه‌ها توضیح داده می‌شود."
-  },
-  {
-    id: "ch11",
-    title: "The Modular Monolith Architecture Style",
-    titleFa: "سبک معماری مونوولی ماژولار",
-    startPage: "page-0051",
-    endPage: "page-0055",
-    totalPages: 5,
-    overview: "مزایا، محدودیت‌ها و طراحی سیستم‌های مونوولی که به صورت ماژولار سازماندهی شده‌اند، بررسی می‌شود."
-  },
-  {
-    id: "ch12",
-    title: "Pipeline Architecture Style",
-    titleFa: "سبک معماری پایپلاین",
-    startPage: "page-0056",
-    endPage: "page-0060",
-    totalPages: 5,
-    overview: "سبک معماری پایپلاین و جریان داده بین مؤلفه‌ها، همراه با مثال‌ها شرح داده می‌شود."
-  },
-  {
-    id: "ch13",
-    title: "Microkernel Architecture Style",
-    titleFa: "سبک معماری میکروکرنل",
-    startPage: "page-0061",
-    endPage: "page-0065",
-    totalPages: 5,
-    overview: "معماری میکروکرنل و کاربرد آن در سیستم‌های قابل توسعه و plugin-oriented توضیح داده می‌شود."
-  },
-  {
-    id: "ch14",
-    title: "Service-Based Architecture Style",
-    titleFa: "سبک معماری مبتنی بر سرویس",
-    startPage: "page-0066",
-    endPage: "page-0070",
-    totalPages: 5,
-    overview: "این فصل به سبک سرویس‌محور و نحوهٔ طراحی سرویس‌ها برای همکاری و مقیاس‌پذیری می‌پردازد."
-  },
-  {
-    id: "ch15",
-    title: "Event-Driven Architecture Style",
-    titleFa: "سبک معماری رویدادمحور",
-    startPage: "page-0071",
-    endPage: "page-0075",
-    totalPages: 5,
-    overview: "سبک معماری مبتنی بر رویداد و نحوهٔ پردازش رویدادها در سیستم‌های بزرگ توضیح داده می‌شود."
-  },
-  {
-    id: "ch16",
-    title: "Space-Based Architecture Style",
-    titleFa: "سبک معماری مبتنی بر فضای حافظه",
-    startPage: "page-0076",
-    endPage: "page-0080",
-    totalPages: 5,
-    overview: "این سبک برای مقیاس‌پذیری افقی و پردازش توزیع‌شده در سیستم‌های بزرگ مناسب است."
-  },
-  {
-    id: "ch17",
-    title: "Orchestration-Driven Service-Oriented Architecture",
-    titleFa: "معماری سرویس‌محور با ارکستراسیون",
-    startPage: "page-0081",
-    endPage: "page-0085",
-    totalPages: 5,
-    overview: "نحوهٔ هماهنگی سرویس‌ها با الگوهای ارکستراسیون و workflow توضیح داده می‌شود."
-  },
-  {
-    id: "ch18",
-    title: "Microservices Architecture",
-    titleFa: "معماری میکروسرویس‌ها",
-    startPage: "page-0086",
-    endPage: "page-0090",
-    totalPages: 5,
-    overview: "معماری میکروسرویس‌ها، مزایا، trade-offها و کاربردهای آن در پروژه‌های واقعی توضیح داده می‌شود."
-  },
-  {
-    id: "ch19",
-    title: "Choosing the Appropriate Architecture Style",
-    titleFa: "انتخاب سبک معماری مناسب",
-    startPage: "page-0091",
-    endPage: "page-0095",
-    totalPages: 5,
-    overview: "معیارها و روش‌های انتخاب سبک معماری متناسب با نیازهای پروژه بررسی می‌شود."
-  },
-  {
-    id: "ch20",
-    title: "Architectural Patterns",
-    titleFa: "الگوهای معماری",
-    startPage: "page-0096",
-    endPage: "page-0100",
-    totalPages: 5,
-    overview: "الگوهای رایج معماری و نحوهٔ استفاده از آن‌ها در طراحی سیستم‌ها تشریح می‌شود."
-  },
-  {
-    id: "ch21",
-    title: "Architectural Decisions",
-    titleFa: "تصمیمات معماری",
-    startPage: "page-0101",
-    endPage: "page-0105",
-    totalPages: 5,
-    overview: "فرایند تصمیم‌گیری در معماری، روش‌های تحلیل trade-off و اثر آن بر سیستم توضیح داده می‌شود."
-  },
-  {
-    id: "ch22",
-    title: "Analyzing Architecture Risk",
-    titleFa: "تحلیل ریسک معماری",
-    startPage: "page-0106",
-    endPage: "page-0110",
-    totalPages: 5,
-    overview: "شناسایی و مدیریت ریسک‌های معماری و راهکارهای کاهش آن‌ها بررسی می‌شود."
-  },
-  {
-    id: "ch23",
-    title: "Diagramming Architecture",
-    titleFa: "نمایش گرافیکی معماری",
-    startPage: "page-0111",
-    endPage: "page-0115",
-    totalPages: 5,
-    overview: "روش‌های ترسیم و مدل‌سازی معماری به صورت دیاگرام و ابزارهای مرتبط معرفی می‌شوند."
-  },
-  {
-    id: "ch24",
-    title: "Making Teams Effective",
-    titleFa: "موثر کردن تیم‌ها",
-    startPage: "page-0116",
-    endPage: "page-0120",
-    totalPages: 5,
-    overview: "مهارت‌ها و رویکردهای تیمی برای بهبود همکاری و عملکرد تیم‌های توسعه بررسی می‌شود."
-  },
-  {
-    id: "ch25",
-    title: "Negotiation and Leadership Skills",
-    titleFa: "مهارت‌های مذاکره و رهبری",
-    startPage: "page-0121",
-    endPage: "page-0125",
-    totalPages: 5,
-    overview: "مهارت‌های نرم شامل رهبری، مذاکره و مدیریت افراد برای معماران توضیح داده می‌شود."
-  },
-  {
-    id: "ch26",
-    title: "Architectural Intersections",
-    titleFa: "تقاطع‌های معماری",
-    startPage: "page-0126",
-    endPage: "page-0130",
-    totalPages: 5,
-    overview: "ارتباط بین سبک‌ها، الگوها و تصمیمات مختلف معماری و اثرات متقابل آن‌ها بررسی می‌شود."
-  },
-  {
-    id: "ch27",
-    title: "The Laws of Software Architecture, Revisited",
-    titleFa: "قوانین معماری نرم‌افزار، بازنگری شده",
-    startPage: "page-0131",
-    endPage: "page-0135",
-    totalPages: 5,
-    overview: "قوانین و اصول پایهٔ معماری نرم‌افزار مرور و با توجه به تجربیات و تغییرات مدرن به‌روزرسانی می‌شوند."
-  }
-]
+  { id: 1, title: "مقدمه", title_en: "Introduction", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 1, end_page: 5, overview: "این فصل توضیح می‌دهد که نرم‌افزار معماری چیست، چه کسانی علاقه‌مندند و نقش معماران چیست." },
+  { id: 2, title: "تفکر معماری", title_en: "Architectural Thinking", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 6, end_page: 10, overview: "در این فصل با مفاهیم تفکر معماری، تحلیل trade-offها و دید کلان سیستم‌ها آشنا می‌شویم." },
+  { id: 3, title: "ماژولاریتی", title_en: "Modularity", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 11, end_page: 15, overview: "این فصل مفهوم ماژولار بودن سیستم‌ها و چگونگی تقسیم نرم‌افزار به بخش‌های قابل مدیریت و مستقل را توضیح می‌دهد." },
+  { id: 4, title: "تعریف ویژگی‌های معماری", title_en: "Architectural Characteristics Defined", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 16, end_page: 20, overview: "ویژگی‌های معماری مانند performance، reliability، scalability و maintainability معرفی و تعریف می‌شوند." },
+  { id: 5, title: "شناسایی ویژگی‌های معماری", title_en: "Identifying Architectural Characteristics", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 21, end_page: 25, overview: "چگونگی شناسایی و اولویت‌بندی ویژگی‌های مهم معماری برای پروژه‌های مختلف توضیح داده می‌شود." },
+  { id: 6, title: "سنجش و مدیریت ویژگی‌های معماری", title_en: "Measuring and Governing Architecture Characteristics", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 26, end_page: 30, overview: "روش‌های اندازه‌گیری ویژگی‌های معماری و کنترل کیفیت آن‌ها در طول توسعه و نگهداری سیستم بررسی می‌شود." },
+  { id: 7, title: "دامنه ویژگی‌های معماری", title_en: "The Scope of Architectural Characteristics", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 31, end_page: 35, overview: "این فصل محدودهٔ اثر ویژگی‌های معماری و تأثیر آن‌ها بر اجزای سیستم و تصمیمات طراحی را توضیح می‌دهد." },
+  { id: 8, title: "تفکر مبتنی بر مؤلفه", title_en: "Component-Based Thinking", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 36, end_page: 40, overview: "نحوهٔ طراحی و تحلیل سیستم‌ها به صورت مؤلفه‌ای و مزایای آن در معماری نرم‌افزار تشریح می‌شود." },
+  { id: 9, title: "مبانی (سبک‌های معماری)", title_en: "Foundations (Architecture Styles)", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 41, end_page: 45, overview: "مبانی سبک‌های معماری و فلسفهٔ پشت هر سبک معرفی می‌شوند." },
+  { id: 10, title: "سبک معماری لایه‌ای", title_en: "Layered Architecture Style", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 46, end_page: 50, overview: "معماری لایه‌ای و نحوهٔ تفکیک مسئولیت‌ها بین لایه‌ها توضیح داده می‌شود." },
+  { id: 11, title: "سبک معماری مونوولی ماژولار", title_en: "The Modular Monolith Architecture Style", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 51, end_page: 55, overview: "مزایا، محدودیت‌ها و طراحی سیستم‌های مونوولی که به صورت ماژولار سازماندهی شده‌اند، بررسی می‌شود." },
+  { id: 12, title: "سبک معماری پایپلاین", title_en: "Pipeline Architecture Style", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 56, end_page: 60, overview: "سبک معماری پایپلاین و جریان داده بین مؤلفه‌ها، همراه با مثال‌ها شرح داده می‌شود." },
+  { id: 13, title: "سبک معماری میکروکرنل", title_en: "Microkernel Architecture Style", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 61, end_page: 65, overview: "معماری میکروکرنل و کاربرد آن در سیستم‌های قابل توسعه و plugin-oriented توضیح داده می‌شود." },
+  { id: 14, title: "سبک معماری مبتنی بر سرویس", title_en: "Service-Based Architecture Style", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 66, end_page: 70, overview: "این فصل به سبک سرویس‌محور و نحوهٔ طراحی سرویس‌ها برای همکاری و مقیاس‌پذیری می‌پردازد." },
+  { id: 15, title: "سبک معماری رویدادمحور", title_en: "Event-Driven Architecture Style", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 71, end_page: 75, overview: "سبک معماری مبتنی بر رویداد و نحوهٔ پردازش رویدادها در سیستم‌های بزرگ توضیح داده می‌شود." },
+  { id: 16, title: "سبک معماری مبتنی بر فضای حافظه", title_en: "Space-Based Architecture Style", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 76, end_page: 80, overview: "این سبک برای مقیاس‌پذیری افقی و پردازش توزیع‌شده در سیستم‌های بزرگ مناسب است." },
+  { id: 17, title: "معماری سرویس‌محور با ارکستراسیون", title_en: "Orchestration-Driven Service-Oriented Architecture", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 81, end_page: 85, overview: "نحوهٔ هماهنگی سرویس‌ها با الگوهای ارکستراسیون و workflow توضیح داده می‌شود." },
+  { id: 18, title: "معماری میکروسرویس‌ها", title_en: "Microservices Architecture", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 86, end_page: 90, overview: "معماری میکروسرویس‌ها، مزایا، trade-offها و کاربردهای آن در پروژه‌های واقعی توضیح داده می‌شود." },
+  { id: 19, title: "انتخاب سبک معماری مناسب", title_en: "Choosing the Appropriate Architecture Style", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 91, end_page: 95, overview: "معیارها و روش‌های انتخاب سبک معماری متناسب با نیازهای پروژه بررسی می‌شود." },
+  { id: 20, title: "الگوهای معماری", title_en: "Architectural Patterns", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 96, end_page: 100, overview: "الگوهای رایج معماری و نحوهٔ استفاده از آن‌ها در طراحی سیستم‌ها تشریح می‌شود." },
+  { id: 21, title: "تصمیمات معماری", title_en: "Architectural Decisions", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 101, end_page: 105, overview: "فرایند تصمیم‌گیری در معماری، روش‌های تحلیل trade-off و اثر آن بر سیستم توضیح داده می‌شود." },
+  { id: 22, title: "تحلیل ریسک معماری", title_en: "Analyzing Architecture Risk", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 106, end_page: 110, overview: "شناسایی و مدیریت ریسک‌های معماری و راهکارهای کاهش آن‌ها بررسی می‌شود." },
+  { id: 23, title: "نمایش گرافیکی معماری", title_en: "Diagramming Architecture", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 111, end_page: 115, overview: "روش‌های ترسیم و مدل‌سازی معماری به صورت دیاگرام و ابزارهای مرتبط معرفی می‌شوند." },
+  { id: 24, title: "موثر کردن تیم‌ها", title_en: "Making Teams Effective", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 116, end_page: 120, overview: "مهارت‌ها و رویکردهای تیمی برای بهبود همکاری و عملکرد تیم‌های توسعه بررسی می‌شود." },
+  { id: 25, title: "مهارت‌های مذاکره و رهبری", title_en: "Negotiation and Leadership Skills", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 121, end_page: 125, overview: "مهارت‌های نرم شامل رهبری، مذاکره و مدیریت افراد برای معماران توضیح داده می‌شود." },
+  { id: 26, title: "تقاطع‌های معماری", title_en: "Architectural Intersections", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 126, end_page: 130, overview: "ارتباط بین سبک‌ها، الگوها و تصمیمات مختلف معماری و اثرات متقابل آن‌ها بررسی می‌شود." },
+  { id: 27, title: "قوانین معماری نرم‌افزار، بازنگری شده", title_en: "The Laws of Software Architecture, Revisited", total_pages: 5, publish_year_ai: 2026, publish_pages_ai: 1, start_page: 131, end_page: 135, overview: "قوانین و اصول پایهٔ معماری نرم‌افزار مرور و با توجه به تجربیات و تغییرات مدرن به‌روزرسانی می‌شوند." },
+];
