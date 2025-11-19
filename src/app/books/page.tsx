@@ -1,11 +1,11 @@
 "use client";
 
-import { books } from "@/lib/books";
 import BookCard from "@/components/books/BookCard";
 import BookFilter from "@/components/books/BookFilter";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import BookSort from "@/components/books/BookSort";
+import { books } from "@/lib/data/books";
 
 const Books = () => {
   const searchParams = useSearchParams();
@@ -19,7 +19,7 @@ const Books = () => {
   const sort = searchParams.get("sort") ?? ""; // ex: "publishedYear:desc"
 
 
-  const filteredBooks = books.filter((book) => {
+   const filteredBooks = books.filter((book) => {
     const matchesQuery =
       !q ||
       book.title.toLowerCase().includes(q) ||
@@ -83,7 +83,7 @@ const Books = () => {
   }, [filteredBooks, sort]);
 
   return (
-    <div className="px-6 flex gap-6">
+    <div className="max-w-7xl mx-auto px-6 flex gap-6">
       <BookFilter books={books} />
       
       <div>

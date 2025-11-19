@@ -1,6 +1,4 @@
-// src/lib/data/chapters.ts
-
-export const chapter1 = {
+export const chapter_001 = {
   id: "ch1",
   title: "Introduction",
   titleFa: "مقدمه",

@@ -1,7 +1,4 @@
-"use client";
-
-import React from "react";
-import { books } from "@/lib/books";
+import { book } from "@/lib/data/fundamentals-of-software-architecture_2nd-edition/book";
 import {
     TbUser,
     TbCalendarStats,
@@ -12,31 +9,10 @@ import {
 
 type Props = { params: any };
 
-function formatDate(dateStr?: string) {
-    if (!dateStr) return "-";
-    try {
-        return new Date(dateStr).toLocaleDateString("fa-IR");
-    } catch {
-        return dateStr;
-    }
-}
-
 export default function SpecificOfBook({ params }: Props) {
     const { slug } = params;
-    const book = books.find((b: any) => b.slug === slug);
-
-    if (!book) {
-        return (
-            <div className="p-6">
-                <h1 className="text-xl font-bold">کتاب یافت نشد</h1>
-                <p className="text-sm text-gray-500 mt-2">ممکن است slug اشتباه باشد یا کتاب هنوز اضافه نشده باشد.</p>
-            </div>
-        );
-    }
-
-    const iconBg = "rounded-full p-2 flex items-center justify-center shadow-sm";
-    const iconSize = 22;
-
+    console.log(book);
+    
     return (
         <div className="max-w-7xl mx-auto p-6 space-y-8">
             {/* Header */}
@@ -70,7 +46,7 @@ export default function SpecificOfBook({ params }: Props) {
                     {/* small badges */}
                     <div className="mt-3 flex gap-2">
                         <span className="text-xs bg-white/95 px-3 py-1 rounded-full shadow glass">
-                            {book.languageFa ?? book.language ?? "—"}
+                            language
                         </span>
                         <span className="text-xs bg-white/95 px-3 py-1 rounded-full shadow glass">
                             {book.level ?? "—"}
@@ -128,8 +104,8 @@ export default function SpecificOfBook({ params }: Props) {
                     {/* stats row */}
                     <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
                         <div className="flex items-center gap-3 bg-white rounded-2xl p-3 shadow-sm">
-                            <div className={`${iconBg} bg-sky-50 text-sky-600`}>
-                                <TbUser size={iconSize} />
+                            <div className={`bg-sky-50 text-sky-600`}>
+                                <TbUser />
                             </div>
                             <div>
                                 <div className="text-xs text-gray-400">نویسنده(ها)</div>
@@ -140,8 +116,8 @@ export default function SpecificOfBook({ params }: Props) {
                         </div>
 
                         <div className="flex items-center gap-3 bg-white rounded-2xl p-3 shadow-sm">
-                            <div className={`${iconBg} bg-amber-50 text-amber-600`}>
-                                <TbCalendarStats size={iconSize} />
+                            <div className={`bg-amber-50 text-amber-600`}>
+                                <TbCalendarStats />
                             </div>
                             <div>
                                 <div className="text-xs text-gray-400">انتشار</div>
@@ -150,8 +126,8 @@ export default function SpecificOfBook({ params }: Props) {
                         </div>
 
                         <div className="flex items-center gap-3 bg-white rounded-2xl p-3 shadow-sm">
-                            <div className={`${iconBg} bg-violet-50 text-violet-600`}>
-                                <TbFileText size={iconSize} />
+                            <div className={`bg-violet-50 text-violet-600`}>
+                                <TbFileText />
                             </div>
                             <div>
                                 <div className="text-xs text-gray-400">صفحات</div>
@@ -162,12 +138,12 @@ export default function SpecificOfBook({ params }: Props) {
                         </div>
 
                         <div className="flex items-center gap-3 bg-white rounded-2xl p-3 shadow-sm">
-                            <div className={`${iconBg} bg-slate-50 text-slate-700`}>
-                                <TbClock size={iconSize} />
+                            <div className={`bg-slate-50 text-slate-700`}>
+                                <TbClock />
                             </div>
                             <div>
                                 <div className="text-xs text-gray-400">ایجاد شده</div>
-                                <div className="text-sm font-medium">{formatDate(book.createdAt)}</div>
+                                <div className="text-sm font-medium">{new Date(book.createdAt).toLocaleDateString("fa-IR")}</div>
                             </div>
                         </div>
                     </div>

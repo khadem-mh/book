@@ -1,21 +1,15 @@
-// components/layout/Header.tsx
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import categoriesData from "@/data/categories.json";
+import { categories } from "@/lib/data/categories";
 import { Input, Popover, PopoverTrigger, PopoverContent, Button } from "@heroui/react";
 import {
   FiMenu,
   FiX,
   FiSearch,
   FiChevronDown,
-  FiCode,
-  FiDatabase,
-  FiCloud,
-  FiShield,
-  FiCpu,
   FiBook,
 } from "react-icons/fi";
 import { LuBrainCircuit } from "react-icons/lu";
@@ -89,7 +83,7 @@ export default function Header() {
 
                 <PopoverContent className="p-3 rounded-xl border border-slate-100 shadow-sm">
                   <div className="grid grid-cols-3 gap-3.5">
-                    {categoriesData.map((c: any) => {
+                    {categories.map((c: any) => {
                       return (
                         <button
                           key={c.slug}

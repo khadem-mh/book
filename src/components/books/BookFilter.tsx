@@ -3,7 +3,7 @@
 import React from "react";
 import { useMemo, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import categoriesData from "@/data/categories.json";
+import { categories } from "@/lib/data/categories";
 
 import {
     Input,
@@ -103,7 +103,7 @@ const BookFilter: React.FC<Props> = ({ books, onChange }) => {
     const selectedCategories = React.useMemo(() => Array.from(categoryKeys), [categoryKeys]);
 
     // categories list (from json)
-    const allCategories = useMemo(() => (categoriesData as Category[]).slice(), []);
+    const allCategories = useMemo(() => (categories as Category[]).slice(), []);
 
     // derive filter options from books
     const allLevels = useMemo(() => {
