@@ -1,4 +1,4 @@
-import { book } from "@/lib/data/fundamentals-of-software-architecture_2nd-edition/book";
+import { bookDetail } from "@/lib/data/fundamentals-of-software-architecture_2nd-edition/book";
 import {
     TbUser,
     TbCalendarStats,
@@ -11,7 +11,7 @@ type Props = { params: any };
 
 export default function SpecificOfBook({ params }: Props) {
     const { slug } = params;
-    console.log(book);
+    console.log(bookDetail);
     
     return (
         <div className="max-w-7xl mx-auto p-6 space-y-8">
@@ -21,8 +21,8 @@ export default function SpecificOfBook({ params }: Props) {
                 <div className="relative w-full md:w-64 flex-shrink-0">
                     <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                         <img
-                            src={book.cover}
-                            alt={`${book.titleFa || book.title} cover`}
+                            src={bookDetail.cover}
+                            alt={`${bookDetail.titleFa || bookDetail.title} cover`}
                             className="w-full h-auto object-cover"
                             style={{ borderRadius: 24 }}
                         />
@@ -49,7 +49,7 @@ export default function SpecificOfBook({ params }: Props) {
                             language
                         </span>
                         <span className="text-xs bg-white/95 px-3 py-1 rounded-full shadow glass">
-                            {book.level ?? "—"}
+                            {bookDetail.level ?? "—"}
                         </span>
                     </div>
                 </div>
@@ -58,15 +58,15 @@ export default function SpecificOfBook({ params }: Props) {
                 <div className="flex-1 flex flex-col justify-between py-1">
                     <div>
                         <h1 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight heading-gradient">
-                            {book.titleFa || book.title}
+                            {bookDetail.titleFa || bookDetail.title}
                         </h1>
-                        {book.subTitle && (
-                            <p className="text-sm text-gray-400 mt-2 max-w-3xl">{book.subTitle}</p>
+                        {bookDetail.subTitle && (
+                            <p className="text-sm text-gray-400 mt-2 max-w-3xl">{bookDetail.subTitle}</p>
                         )}
 
                         {/* authors with avatars */}
                         <div className="mt-4 flex items-center gap-3 flex-wrap">
-                            {(book.authors ?? []).map((a: any) => (
+                            {(bookDetail.authors ?? []).map((a: any) => (
                                 <div
                                     key={a.name}
                                     className="flex items-center gap-3 bg-white/70 backdrop-blur-sm rounded-full px-3 py-1 shadow-sm"
@@ -81,9 +81,9 @@ export default function SpecificOfBook({ params }: Props) {
                             ))}
                         </div>
 
-                        {book.description && (
+                        {bookDetail.description && (
                             <p className="mt-5 text-sm text-gray-600 max-w-3xl leading-relaxed">
-                                {book.description}
+                                {bookDetail.description}
                             </p>
                         )}
 
@@ -96,7 +96,7 @@ export default function SpecificOfBook({ params }: Props) {
                                 className="inline-flex items-center gap-2 border border-slate-200 text-sm px-4 py-2 rounded-2xl hover:shadow transition"
                                 href="#tags"
                             >
-                                تگ‌ها ({(book.tags ?? []).length})
+                                تگ‌ها ({(bookDetail.tags ?? []).length})
                             </a>
                         </div>
                     </div>
@@ -110,7 +110,7 @@ export default function SpecificOfBook({ params }: Props) {
                             <div>
                                 <div className="text-xs text-gray-400">نویسنده(ها)</div>
                                 <div className="text-sm font-medium">
-                                    {(book.authors ?? []).map((a: any) => a.name).join(", ")}
+                                    {(bookDetail.authors ?? []).map((a: any) => a.name).join(", ")}
                                 </div>
                             </div>
                         </div>
@@ -121,7 +121,7 @@ export default function SpecificOfBook({ params }: Props) {
                             </div>
                             <div>
                                 <div className="text-xs text-gray-400">انتشار</div>
-                                <div className="text-sm font-medium">{book.publishedYear ?? "-"}</div>
+                                <div className="text-sm font-medium">{bookDetail.publishedYear ?? "-"}</div>
                             </div>
                         </div>
 
@@ -132,7 +132,7 @@ export default function SpecificOfBook({ params }: Props) {
                             <div>
                                 <div className="text-xs text-gray-400">صفحات</div>
                                 <div className="text-sm font-medium">
-                                    {book.publishedPages ?? book.pages ?? "-"}
+                                    {bookDetail.publishedPages ?? bookDetail.pages ?? "-"}
                                 </div>
                             </div>
                         </div>
@@ -143,7 +143,7 @@ export default function SpecificOfBook({ params }: Props) {
                             </div>
                             <div>
                                 <div className="text-xs text-gray-400">ایجاد شده</div>
-                                <div className="text-sm font-medium">{new Date(book.createdAt).toLocaleDateString("fa-IR")}</div>
+                                <div className="text-sm font-medium">{new Date(bookDetail.createdAt).toLocaleDateString("fa-IR")}</div>
                             </div>
                         </div>
                     </div>

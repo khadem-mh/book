@@ -250,9 +250,9 @@ const BookFilter: React.FC<Props> = ({ books, onChange }) => {
                     variant="bordered"
                 >
                     <SelectItem key="">همه</SelectItem>
-                    {allLevels.map((lv) => (
+                   {/*  {allLevels.map((lv) => (
                         <SelectItem key={lv}>{lv}</SelectItem>
-                    ))}
+                    ))} */}
                 </Select>
 
                 <Select
@@ -264,9 +264,9 @@ const BookFilter: React.FC<Props> = ({ books, onChange }) => {
                     variant="bordered"
                 >
                     <SelectItem key="">همه</SelectItem>
-                    {allAuthors.map((a) => (
+                    {/* {allAuthors.map((a) => (
                         <SelectItem key={a}>{a}</SelectItem>
-                    ))}
+                    ))} */}
                 </Select>
 
                 <DateRangePicker

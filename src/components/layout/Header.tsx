@@ -162,7 +162,7 @@ export default function Header() {
 
             <div className="grid grid-cols-2 gap-2">
               {categories.map((c: any) => {
-                const Icon = iconsMap[c.slug] ?? FiBook;
+                const Icon = FiBook;
                 return (
                   <button key={c.slug} onClick={() => gotoCategory(c.slug)} className="flex items-start gap-2 p-2 rounded hover:bg-slate-50 text-left">
                     <Icon className="text-lg mt-0.5" />
