@@ -1,26 +1,18 @@
 "use client";
 
-import { useState } from "react";
 import { Accordion, AccordionItem, Button } from "@heroui/react";
 import {
   MdArrowForwardIos,
-  MdOutlineSearch,
-  MdHeadset,
   MdOutlineLibraryBooks,
   MdArrowOutward,
-  MdOutlineSmartDisplay,
-  MdOndemandVideo,
-  MdBolt,
 } from "react-icons/md";
 import { LuBookOpenText, LuUserSearch } from "react-icons/lu";
-import { TbBrandAmongUs, TbBrandOpenai, TbMessageCode, TbPrompt, TbUserCode } from "react-icons/tb";
+import { TbBrandAmongUs, TbMessageCode, TbPrompt, TbUserCode } from "react-icons/tb";
 import { FaCodeBranch } from "react-icons/fa6";
 import { SiOpenai, SiWikibooks } from "react-icons/si";
 import { RiMusicAiLine } from "react-icons/ri";
 import { LiaBookReaderSolid } from "react-icons/lia";
 import { VscGitPullRequestCreate } from "react-icons/vsc";
-import { GiBrain } from "react-icons/gi";
-import { PiHandPointing, PiHandPointingLight, PiHandWaving } from "react-icons/pi";
 import AnimatedHands from "@/components/books/AnimatedHands";
 
 export default function HomePage() {
@@ -33,7 +25,6 @@ export default function HomePage() {
       <WhyDifferent />
       <VisualBreak />
       <Features />
-      <SampleFlashcard />
       <FAQ />
       <Testimonials />
       <CTA />
@@ -460,75 +451,6 @@ function VisualBreak() {
         />
       </div>
 
-    </section>
-  );
-}
-
-/* ---------------- Sample flashcard (no rotation) ---------------- */
-function SampleFlashcard() {
-  const [flipped, setFlipped] = useState(false);
-
-  return (
-    <section className="max-w-4xl mx-auto mt-12 text-right">
-      <h3 className="text-2xl font-semibold">نمونه فلش‌کارت</h3>
-      <p className="text-gray-600 mt-2">روی دکمهٔ "دیدن پاسخ" کلیک کنید — متن سوال به‌آرامی محو می‌شود و پاسخ جایگزین می‌شود (بدون چرخش). صوت AI و دکمهٔ کپی پرامپت نیز قرار داده شده‌اند.</p>
-
-      <div className="mt-6 flex flex-col md:flex-row items-center gap-6">
-        <div className="w-full md:w-2/3">
-          <div className="relative p-6 rounded-2xl bg-white shadow-lg overflow-hidden" style={{ minHeight: 160 }}>
-            {/* front */}
-            <div className={`transition-all duration-300 ease-in-out ${flipped ? 'opacity-0 translate-y-2 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
-              <h4 className="font-semibold text-lg">سوال: تفاوت بین Monolith و Microservices چیست؟</h4>
-              <p className="mt-3 text-sm text-gray-600">کوتاه توضیح بده و یک مثال عملی بزن.</p>
-            </div>
-
-            {/* back */}
-            <div className={`absolute inset-0 transition-all duration-300 ease-in-out ${flipped ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
-              <h4 className="font-semibold text-lg">پاسخ (خلاصه)</h4>
-              <ul className="mt-2 text-sm text-gray-600 list-disc pr-5 space-y-1">
-                <li>مونو‌لیت: ساده، استقرار یکجا؛ مناسب پروژه‌های کوچک.</li>
-                <li>میکروسرویس: هر سرویس مستقل، مقیاس‌پذیری و انعطاف بیشتر اما پیچیدگی زیرساختی.</li>
-                <li>مثال: استارتاپی که سریع توسعه می‌دهد معمولاً با مونو‌لیت شروع می‌کند و سپس بخش‌هایی را سرویس‌بندی می‌کند.</li>
-              </ul>
-
-              <div className="mt-4 flex items-center gap-3">
-                <MdHeadset />
-                <button className="text-sm underline">پخش صوتی AI</button>
-                <span className="text-xs text-gray-500 mr-3">|</span>
-                <button className="text-sm underline">کپی پرامپت</button>
-              </div>
-            </div>
-
-            <button
-              onClick={() => setFlipped((p) => !p)}
-              className="absolute bottom-4 left-4 text-sm px-3 py-1 rounded-md bg-slate-100"
-            >
-              {flipped ? 'دیدن سوال' : 'دیدن پاسخ'}
-            </button>
-          </div>
-        </div>
-
-        <div className="w-full md:w-1/3">
-          <div className="p-4 bg-white rounded-2xl shadow-sm text-sm">
-            <div className="flex items-center gap-2">
-              <MdOutlineSearch />
-              <div>
-                <div className="font-semibold">عملیات روی کارت</div>
-                <div className="text-gray-500 text-xs">ذخیره — نشانه‌گذاری — تکرار</div>
-              </div>
-            </div>
-
-            <div className="mt-4 grid grid-cols-2 gap-2">
-              <button className="px-3 py-2 rounded-md border">ذخیره</button>
-              <button className="px-3 py-2 rounded-md border">علامت‌گذاری</button>
-              <button className="px-3 py-2 rounded-md border">تمرین شبیه‌سازی</button>
-              <button className="px-3 py-2 rounded-md border">اشتراک‌گذاری</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <p className="mt-4 text-xs text-gray-500">(برای دیدنِ جواب روی دکمهٔ "دیدن پاسخ" کلیک کنید)</p>
     </section>
   );
 }
