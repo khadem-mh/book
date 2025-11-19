@@ -129,7 +129,7 @@ function Hero() {
 
 function HighlightsBanner() {
   return (
-    <section className="max-w-7xl mx-auto mt-26 relative">
+    <section className="max-w-7xl mx-auto mt-24 relative">
       {/* پس‌زمینه حباب‌های خیلی کم‌رنگ (اختیاری) */}
       <div className="absolute inset-0 overflow-hidden -z-10">
         {[...Array(30)].map((_, i) => (
@@ -193,28 +193,28 @@ function ProcessStory() {
       img: "/images/home/story/book.png",
       title: "کتاب فیزیکی",
       desc: "منبع اصلی و پایهٔ همهٔ یادگیری‌ها. با نسخه چاپی",
-      accent: "bg-green-200"
+      accent: "bg-green-300"
     },
     {
       id: 2,
       img: "/images/home/story/book-digital.png",
       title: "کتاب دیجیتالی",
       desc: "دسترسی سریع به کتاب همه جا با دستگاه هوشمند.",
-      accent: "bg-purple-200"
+      accent: "bg-purple-300"
     },
     {
       id: 3,
       img: "/images/home/story/video-learning.png",
       title: "ویدیوهای آموزشی",
       desc: "نمایش عملی و توضیحات مفاهیم، ولی زمان‌بر و طولانی.",
-      accent: "bg-red-200"
+      accent: "bg-red-300"
     },
     {
       id: 4,
       img: "/images/home/story/ai.png",
       title: "تحلیل با AI",
       desc: "AI نکات مهم را جدا و ساختار آموزشی می‌سازد.",
-      accent: "bg-orange-200"
+      accent: "bg-orange-300"
     },
     {
       id: 5,
@@ -222,7 +222,7 @@ function ProcessStory() {
       title: "فلش‌کارت‌ها و صوت آماده",
       desc: "همه آماده است؛ فقط یاد بگیر و جلو برو!",
       systemBase: true,
-      accent: "bg-sky-200"
+      accent: "bg-sky-300"
     },
     {
       id: 6,
@@ -230,12 +230,12 @@ function ProcessStory() {
       title: "تراشهٔ هوشمند در مغز",
       desc: "دانش و کارت‌ها مستقیم در مغز، همیشه در دسترس.",
       btnText: "به زودی!",
-      accent: "bg-slate-300"
+      accent: "bg-black/50"
     }
   ];
 
   return (
-    <section className="max-w-7xl mx-auto mt-12">
+    <section className="max-w-7xl mx-auto mt-24">
       <div className="mb-6">
         <h3 className="text-2xl font-semibold">دیگه وقتشه مسیرت رو عوض کنی!!</h3>
         <p className="text-gray-600 mt-2">
@@ -259,7 +259,7 @@ function ProcessStory() {
             >
               {/* دایرهٔ رنگی پشت تصویر */}
               <div
-                className={`absolute -top-4 w-24 h-24 rounded-full opacity-20 pointer-events-none
+                className={`absolute top-4 w-16 h-16 blur-2xl rounded-full pointer-events-none
                 ${s?.accent || ""}`}
               ></div>
 
