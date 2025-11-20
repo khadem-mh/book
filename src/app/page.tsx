@@ -21,7 +21,6 @@ export default function HomePage() {
       <BackgroundBubbles />
       <Hero />
       <ProcessStory />
-      <HighlightsBanner />
       <WhyDifferent />
       <VisualBreak />
       <Features />
@@ -58,7 +57,7 @@ function Hero() {
         <h1 className="text-4xl md:text-4xl font-extrabold leading-tight">
           <p className="!text-left leading-17 bg-gradient-to-r from-slate-100 via-gray-400 to-slate-100 bg-clip-text text-transparent text-[70px] mt-3">Build <span className="text-4xl">the skills your teams need</span></p>
           <p className="leading-15 mt-8">
-            <span className="bg-gradient-to-r from-sky-500 to-orange-400 bg-clip-text text-transparent">مطالعهٔ کاملِ کتاب‌های</span> کامپیوتر با فلش‌کارت‌های هوشمند AI
+            <span className="bg-gradient-to-r from-sky-500 to-orange-400 bg-clip-text text-transparent">مطالعهٔ کاملِ کتاب‌های</span> مهندسی کامپیوتر با فلش‌کارت‌های هوشمند  AI
           </p>
         </h1>
 
@@ -90,7 +89,7 @@ function Hero() {
           <div className="flex flex-col gap-1.5 text-[13px] shadow-md rounded-2xl p-2 xl items-center text-center 
                   transition transform duration-300 hover:scale-105 hover:shadow-xl">
             <img src="/images/home/sound-ai.png" alt="AI audio" className="w-20" />
-            <p>صوت Ai برای یادگیری سریع‌تر هر کارت.</p>
+            <p>صوت های آماده و قابل استفاده برای هر کارت.</p>
           </div>
 
           <div className="flex flex-col gap-1.5 text-[13px] shadow-md rounded-2xl p-2 xl items-center text-center 
@@ -116,7 +115,7 @@ function Hero() {
                   <MdArrowOutward />
                   <span>مطاله</span>
                 </div>
-                <MdOutlineLibraryBooks className="text-lg text-gray-600 cursor-pointer hover:text-gray-900 transition" />
+                <MdOutlineLibraryBooks className="text-lg text-gray-600 bg-slate-200 ml-2 cursor-pointer hover:text-gray-900 transition" />
               </div>
             </div>
           </div>
@@ -125,66 +124,6 @@ function Hero() {
     </section>
   );
 }
-
-
-function HighlightsBanner() {
-  return (
-    <section className="max-w-7xl mx-auto mt-24 relative">
-      {/* پس‌زمینه حباب‌های خیلی کم‌رنگ (اختیاری) */}
-      <div className="absolute inset-0 overflow-hidden -z-10">
-        {[...Array(30)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full opacity-8"
-            style={{
-              width: `${Math.random() * 10 + 6}px`,
-              height: `${Math.random() * 10 + 6}px`,
-              backgroundColor: `hsl(${Math.random() * 360}, 70%, 88%)`,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
-      </div>
-
-      <h3 className="text-2xl font-bold text-right mb-3">ویژگی‌های متمایز پلتفرم</h3>
-      <p className="text-gray-600 text-right mb-8">
-        چهار قابلیت کلیدی که تجربهٔ یادگیریِ عمیق، تعاملی و سازمانی را ممکن می‌کنند.
-      </p>
-
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <FeatureCard
-          icon={<TbBrandAmongUs />}
-          title="مربی هوش‌مصنوعی"
-          desc="پاسخِ آنی و توضیحِ گام‌به‌گام برای هر بخش از کتاب — سازگار با سطح اختصاصیِ کاربر."
-          note="مثل یک مربی شخصی در دسترس"
-        />
-
-        <FeatureCard
-          icon={<TbMessageCode />}
-          title="لاب‌های سناریویی"
-          desc="تمرین‌های شبیه‌سازی‌شده برای مسائل واقعی: طراحی معماری، رفع باگ و پیاده‌سازی نمونه‌ها بدون نیاز به نصب."
-          note="عملی و کاربردی — «یادگیری با دست»"
-        />
-
-        <FeatureCard
-          icon={<FaCodeBranch />}
-          title="مسیرها و انتساب تیمی"
-          desc="ساخت و تخصیص مسیرهای آموزشی برای تیم، پیگیری پیشرفت و گزارش‌های دقیق برای رهبران."
-          note="مدیریت یادگیری سازمانی"
-        />
-
-        <FeatureCard
-          icon={<SiOpenai />}
-          title="کتابخانهٔ پرامپت‌های تخصصی"
-          desc="پرامپت‌های آماده و بهینه‌شده برای هر کارت — کپی کن، پرس و پاسخ بگیر، یا برای توضیح عمیق‌تر استفاده کن."
-          note="ابزارِ کمکی برای تعامل بهتر با AI"
-        />
-      </div>
-    </section>
-  );
-}
-
 
 function ProcessStory() {
   const steps = [
@@ -214,7 +153,7 @@ function ProcessStory() {
       img: "/images/home/story/ai.png",
       title: "تحلیل با AI",
       desc: "AI نکات مهم را جدا و ساختار آموزشی می‌سازد.",
-      accent: "bg-orange-300"
+      accent: "bg-yellow-300"
     },
     {
       id: 5,
@@ -229,8 +168,8 @@ function ProcessStory() {
       img: "/images/home/story/cheep.png",
       title: "تراشهٔ هوشمند در مغز",
       desc: "دانش و کارت‌ها مستقیم در مغز، همیشه در دسترس.",
-      btnText: "به زودی!",
-      accent: "bg-black/50"
+      btnText: "یکم صبر!",
+      accent: "bg-orange-300"
     }
   ];
 
@@ -259,12 +198,12 @@ function ProcessStory() {
             >
               {/* دایرهٔ رنگی پشت تصویر */}
               <div
-                className={`absolute top-4 w-16 h-16 blur-2xl rounded-full pointer-events-none
+                className={`absolute top-4 w-12 h-12 blur-2xl rounded-full pointer-events-none
                 ${s?.accent || ""}`}
               ></div>
 
               {s?.btnText && (
-                <p className="absolute top-2 left-2 text-sky-600 bg-sky-100 px-2 text-xs rounded-full animate-pulse">
+                <p className="absolute top-2 left-2 text-white bg-black px-2 text-xs rounded-full animate-pulse">
                   {s.btnText}
                 </p>
               )}
@@ -279,38 +218,12 @@ function ProcessStory() {
   );
 }
 
-
-function FeatureCard({ icon, title, desc, note }) {
-  return (
-    <div className="flex flex-col p-6 rounded-3xl shadow-lg bg-white transition-transform hover:scale-105 relative overflow-hidden">
-      {/* هاله نورانی پشت آیکون */}
-      <div className="absolute -top-8 -right-8 w-24 h-24 rounded-full bg-gradient-to-tr from-sky-200 to-orange-200 opacity-20 animate-pulse pointer-events-none"></div>
-
-      <div className="flex flex-col items-end z-10 relative">
-        <div className="flex items-center w-full gap-3 mb-4">
-          <div className="w-14 h-14 rounded-xl grid place-items-center text-4xl bg-gradient-to-tr from-sky-100 to-white text-sky-600 shadow-inner">
-            {icon}
-          </div>
-          {note && <div className="text-sm text-gray-400">{note}</div>}
-        </div>
-        <div className="text-right">
-          <div className="font-bold text-lg text-gray-800">{title}</div>
-          <div className="text-sm text-gray-500 mt-1">{desc}</div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function WhyDifferent() {
   return (
     <section className="max-w-7xl mx-auto mt-24 text-right relative">
       {/* Title + background bubbles */}
       <div className="relative inline-block mb-6">
-        {/* دایره‌های بزرگ و محو پشت عنوان */}
-        <div className="absolute -top-2 left-24 w-96 h-96 rounded-full bg-slate-200 blur-[55px] -z-10"></div>
-
-        <h3 className="text-2xl font-semibold relative z-10">چرا ما متفاوتیم</h3>
+        <h3 className="text-2xl font-semibold relative z-10">ویژگی های متمایز پلتفرم</h3>
         <p className="mt-1 text-sm relative z-10 text-gray-950">
           تحلیل عمیق، پوشش کامل و تجربهٔ یادگیریِ قابل اتکا برای فارسی‌زبانان.
         </p>
@@ -318,35 +231,38 @@ function WhyDifferent() {
 
       <div className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-6">
         <CardWithIcon
-          icon={<LuBookOpenText />}
-          title="پوشش کامل کتاب"
+          src="/images/home/why-different/prompt-library-ai.png"
+          title="کتابخانه پرامپت AI برای هرفصل"
           desc="هر صفحه، هر فصل، هر اصطلاح — تمام محتوا به‌صورت ساختاریافته پوشش داده می‌شود."
         />
         <CardWithIcon
-          icon={<RiMusicAiLine />}
-          title="صوت AI برای هر کارت"
+          src="/images/home/why-different/sound-library-ai.png"
+          title="کتابخانه صوت AI برای هرفصل"
           desc="گوش دهید در محل کار یا مسیر؛ صوت اختصاصی با صدای AI برای هر فلش‌کارت فراهم است."
         />
         <CardWithIcon
-          icon={<TbPrompt />}
-          title="پرامپت و تعامل با AI"
+          src="/images/home/why-different/12303690.png"
+          title="امتحان AI از شما"
           desc="پرامپت‌های آماده کنار هر کارت تا بتوانید از AI بخواهید آن بخش را کاملاً برایتان شرح دهد."
+          textBtn="به زودی!"
         />
       </div>
     </section>
   );
 }
 
-function CardWithIcon({ icon, title, desc }) {
+function CardWithIcon({ src, title, desc, textBtn }: any) {
   return (
     <div className="relative p-5 rounded-3xl bg-transparent shadow border-2 border-dashed border-black/40 transition-transform hover:scale-105 flex gap-4 items-start overflow-hidden">
       <div className="absolute -right-8 top-8 w-28 h-28 rounded-full bg-gradient-to-tr from-white to-black -z-10 pointer-events-none"></div>
 
       <div className="flex items-center gap-3">
-        <div className="w-14 h-14 rounded-xl grid place-items-center text-2xl border-3 border-dashed border-white text-white bg-black/30 shadow-inner flex-shrink-0">
-          <span className="text-[26px]">{icon}</span>
-        </div>
-
+        <img src={src} alt={title} className="w-24 bg-white rounded-full p-1" />
+        {textBtn && (
+          <p className="absolute top-2 left-2 text-white bg-black px-2 text-xs rounded-full animate-pulse">
+            {textBtn}
+          </p>
+        )}
         <div className="text-right">
           <div className="font-semibold text-gray-800 text-base">{title}</div>
           <p className="mt-2 text-sm text-gray-600 leading-relaxed">{desc}</p>
