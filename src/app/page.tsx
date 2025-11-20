@@ -277,54 +277,54 @@ function Features() {
     {
       title: 'فلش‌کارت‌های فصل‌به‌فصل',
       desc: 'نکات کلیدی، تعاریف و مثال‌ها برای مرور سریع هر فصل.',
-      Icon: SiWikibooks,
-    },
-    {
-      title: 'تمرین و تست‌های چندسطحی',
-      desc: 'سوالات هدفمند برای سنجش و تثبیت یادگیری هر فصل.',
-      Icon: VscGitPullRequestCreate,
+      src: "/images/home/card.png",
     },
     {
       title: 'پخش صوت AI',
       desc: 'هر کارت همراه با فایل صوتی طبیعی برای مرور در حرکت.',
-      Icon: RiMusicAiLine,
+      src: "/images/home/sound-ai.png",
     },
     {
       title: 'پرامپت‌های آماده',
       desc: 'پرامپت‌ها را کپی کنید و برای توضیح، خلاصه‌سازی یا مثال‌سازی به AI بدهید.',
-      Icon: TbPrompt,
-    },
-    {
-      title: 'تطبیق محتوا با سطح شما',
-      desc: 'AI سوالات و توضیحات را بر اساس سطح شما شخصی‌سازی می‌کند.',
-      Icon: LuUserSearch,
+      src: "/images/home/prompt.png",
     },
     {
       title: 'دروس کوتاه و کاربردی',
       desc: 'هر کارت در ۱–۳ دقیقه مرور می‌شود و تمام نکات کلیدی و مثال‌ها را پوشش می‌دهد',
-      Icon: LiaBookReaderSolid,
+      src: "/images/home/specific-flashcard/small-content.png",
+    },
+    {
+      title: 'تمرین و تست‌های چندسطحی',
+      desc: 'سوالات هدفمند برای سنجش و تثبیت یادگیری هر فصل.',
+      src: "/images/home/specific-flashcard/test-ai.png",
+    },
+    {
+      title: 'تطبیق محتوا با سطح شما',
+      desc: 'AI سوالات و توضیحات را بر اساس سطح شما شخصی‌سازی می‌کند.',
+      src: "/images/home/specific-flashcard/level-ai.png",
     },
   ];
 
   return (
     <section className="max-w-7xl mx-auto mt-12 px-4 text-right">
-      <h3 className="text-2xl font-bold mb-8">ویژگی‌های فلش‌کارت‌ها و ابزارهای یادگیری</h3>
+      <h3 className="text-2xl font-bold mb-8">ویژگی‌های فلش‌کارت‌ها</h3>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {features.map((f, i) => (
           <div
             key={i}
-            className="relative flex items-start gap-4 p-6 rounded-3xl bg-white shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+            className="relative flex items-start gap-4 p-4 rounded-3xl bg-white hover:shadow-md transition-shadow duration-300 overflow-hidden"
           >
             {/* subtle background bubble with Tailwind gradient */}
-            <div className="absolute -top-6 -left-6 w-24 h-24 rounded-full blur-2xl pointer-events-none bg-gradient-to-bl from-white via-orange-200 to-transparent"></div>
+            <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full blur-2xl pointer-events-none bg-gradient-to-bl from-white via-orange-200 to-transparent"></div>
 
-            <div className="flex-shrink-0 w-14 h-14 rounded-xl border-2 border-dashed grid place-items-center text-3xl text-orange-400 shadow-inner">
-              <f.Icon />
+            <div className="flex-shrink-0 grid place-items-center">
+              <img src={f.src} alt={"img"} className="w-24"/>
             </div>
 
             <div>
-              <h4 className="text-gray-900 font-semibold text-lg">{f.title}</h4>
+              <h4 className="text-gray-900 font-semibold text-base">{f.title}</h4>
               <p className="mt-1 text-gray-500 text-sm leading-relaxed">{f.desc}</p>
             </div>
           </div>
