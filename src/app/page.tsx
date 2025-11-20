@@ -77,13 +77,13 @@ function Hero() {
           <div className="flex flex-col gap-1.5 text-[13px] shadow-md rounded-2xl p-2 xl items-center text-center 
                   transition transform duration-300 hover:scale-105 hover:shadow-xl">
             <img src="/images/home/review-book-with-ai.png" alt="AI book review" className="w-20" />
-            <p> تمام مفاهیم کتاب توسط Ai مرور و ارائه شده‌اند.</p>
+            <p> همهٔ مفاهیم تحلیل و ساختاردهی شده‌اند.</p>
           </div>
 
           <div className="flex flex-col gap-1.5 text-[13px] shadow-md rounded-2xl p-2 xl items-center text-center 
                   transition transform duration-300 hover:scale-105 hover:shadow-xl">
             <img src="/images/home/card.png" alt="Flashcards" className="w-20" />
-            <p>فلش‌کارت‌های دقیق برای هر صفحه و فصل کتاب.</p>
+            <p>فلش‌کارت‌های دقیق برای هر صفحه از فصل کتاب.</p>
           </div>
 
           <div className="flex flex-col gap-1.5 text-[13px] shadow-md rounded-2xl p-2 xl items-center text-center 
@@ -178,7 +178,7 @@ function ProcessStory() {
       <div className="mb-6">
         <h3 className="text-2xl font-semibold">دیگه وقتشه مسیرت رو عوض کنی!!</h3>
         <p className="text-gray-600 mt-2">
-          راهی سریع و تعاملی برای یادگیری کامل و آمادهٔ استفاده
+          راهی سریع، تعاملی و قابل اعتماد برای یادگیری کامل و کاربردی.
         </p>
       </div>
 
