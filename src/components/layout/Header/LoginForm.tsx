@@ -40,13 +40,27 @@ const LoginForm = () => {
                     </form>
                 ) : (
                     <form className="flex flex-col gap-4">
-                        <div className="w-full flex items-center justify-around">
-                            <div>
-                                <p>آماده ای بریم!!؟</p>
-                                <p className="test-sm text-gray-600 animate-pulse">شروع یه ماجراجویی متفاوت و جدید</p>
+                        <div className="relative w-full flex items-center justify-around gap-6">
+                            {/* دایره رنگی blur و absolute */}
+                            <div className="absolute -top-4 -left-4 w-16 h-16 bg-green-500 rounded-full filter blur-2xl opacity-50 animate-pulse"></div>
+
+                            {/* متن اصلی */}
+                            <div className="flex flex-col items-center justify-center text-center z-10">
+                                <p className="font-semibold text-lg">آماده ای بریم!!؟</p>
+                                <p className="text-sm text-gray-600 animate-pulse">
+                                    شروع یه ماجراجویی متفاوت و جدید
+                                </p>
                             </div>
-                            <img src="/images/register.png" alt="register" className="w-20 animate-bounce" style={{animationDuration: "5000ms"}} />
+
+                            {/* تصویر کنار */}
+                            <img
+                                src="/images/register.png"
+                                alt="register"
+                                className="w-20 animate-bounce z-10"
+                                style={{ animationDuration: "5000ms" }}
+                            />
                         </div>
+
                         <div className="flex items-center gap-2">
                             <Input labelPlacement="outside" isRequired label="نام" placeholder="نام خود را وارد کنید" type="text" />
                             <Input labelPlacement="outside" isRequired label="نام خوانوادگی" placeholder="نام خوانوادگی خود را وارد کنید" type="text" />
@@ -57,7 +71,7 @@ const LoginForm = () => {
                                 labelPlacement="outside"
                                 isRequired
                                 label="رمز عبور"
-                                placeholder="ali_20 , @Ali_20 ..."
+                                placeholder="@Ai_1234"
                                 type="password"
                                 dir="ltr"
                             />
