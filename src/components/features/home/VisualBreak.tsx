@@ -5,7 +5,7 @@ import { MdArrowForwardIos } from "react-icons/md";
 
 const VisualBreak: React.FC = () => {
   return (
-    <section className="border-5 border-dashed border-black/30 rounded-4xl px-6 py-12 max-w-7xl mx-auto mt-12 flex flex-col md:flex-row items-center gap-6
+    <section className="border-5 border-dashed border-black/30 rounded-4xl px-6 py-12 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-6
                         bg-black/80 text-white transition-colors duration-300 hover:bg-white group hover:text-black">
 
       <div className="transition-colors duration-300 group-hover:text-black">
@@ -40,7 +40,7 @@ const VisualBreak: React.FC = () => {
 
       <div>
         <img
-          src="/images/global/raven.png"
+          src="/images/home/raven.png"
           alt="O'Reilly Awards"
           className="w-[443px] scale-x-[-1]"
         />

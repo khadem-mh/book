@@ -15,8 +15,8 @@ type FAQProps = {
 
 const FAQ: React.FC<FAQProps> = ({ title = "سوالات متداول", items }) => {
   return (
-    <section className="max-w-7xl mx-auto mt-16">
-      <h3 className="text-3xl font-bold text-right mb-8">{title}</h3>
+    <section>
+      <h3 className="text-2xl font-semibold relative z-10 mb-6">{title}</h3>
 
       <Accordion
         variant="splitted"

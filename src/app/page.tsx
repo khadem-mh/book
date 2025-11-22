@@ -1,9 +1,9 @@
 import Hero from "@/components/features/home/Hero/Hero";
 import LearningJourney from "@/components/features/home/LearningJourney/LearningJourney";
-import CTA from "@/components/features/home/templates/CTA";
-import FAQ from "@/components/features/home/templates/FAQ";
-import FlashcardFeatures from "@/components/features/home/templates/FlashcardFeatures";
-import Testimonials from "@/components/features/home/templates/Testimonials";
+import CTA from "@/components/features/home/CTA";
+import FAQ from "@/components/features/home/FAQ";
+import FlashcardFeatures from "@/components/features/home/FlashcardFeatures/FlashcardFeatures";
+import Testimonials from "@/components/features/home/Testimonials/Testimonials";
 import VisualBreak from "@/components/features/home/VisualBreak";
 import WhyDifferent from "@/components/features/home/WhyDifferent/WhyDifferent";
 import { TbUserCode } from "react-icons/tb";
@@ -190,7 +190,7 @@ export default function HomePage() {
         subTitle="راهی سریع، تعاملی و قابل اعتماد برای یادگیری کامل و کاربردی."
         cards={steps}
       />
-      <div>
+      <div className="flex flex-col gap-8">
         <WhyDifferent
           title="ویژگی های متمایز پلتفرم"
           subTitle="تحلیل عمیق، پوشش کامل و تجربهٔ یادگیریِ قابل اتکا برای فارسی‌زبانان."
@@ -198,16 +198,16 @@ export default function HomePage() {
         />
         <VisualBreak />
       </div>
-      <FlashcardFeatures title="ویژگی‌های فلش‌کارت‌ها" items={features} />
-      <FAQ items={faqs} />;
-      <Testimonials items={testimonialItems} />;
+      <FlashcardFeatures title="ویژگی‌های فلش‌کارت‌ها" subTitle="همه‌چیز برای یادگیری کامل هر فصل—از صوت و پرامپت تا تست و مرور سریع." items={features} />
+      <FAQ items={faqs} />
+      <Testimonials items={testimonialItems} />
       <CTA
         title="شروع کنید — اولین کتاب را انتخاب کنید"
         description="فلش‌کارت‌های دقیق، خلاصه‌های فصل‌به‌فصل و صوت AI برای یادگیری سریع‌تر و عمیق‌تر — مناسب افراد و تیم‌ها. تجربه‌ای متفاوت و موثر در هر مطالعه."
         badge="313 ساعت دسترسی رایگان به فلش‌کارت‌ها و صوت AI"
         note="برنامه‌نویسای دیگه همین حالاشم شروع کردند ها! خلاصه گفتم که عقب نمونی!"
         bookImages={bookImages}
-      />;
+      />
     </main>
   );
 }

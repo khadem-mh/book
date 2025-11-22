@@ -15,7 +15,7 @@ const WhyDifferent = ({ title, subTitle, cards }: WhyDifferentProps) => {
                 description={subTitle}
             />
 
-            <div className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {cards.map((f, i) => (
                     <FeatureCard key={i} {...f} />
                 ))}

@@ -70,7 +70,7 @@ const Hero = ({
                 <BackgroundBubbles />
 
                 <img
-                    src="/images/global/effective.png"
+                    src="/images/home/effective.png"
                     alt="illustration"
                     className="w-full select-none animate-spin"
                     style={{ animationDuration: "25000ms" }}
