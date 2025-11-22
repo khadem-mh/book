@@ -15,6 +15,7 @@ import {
 import { LuBrainCircuit } from "react-icons/lu";
 import { HiOutlineUser } from "react-icons/hi2";
 import { TbBookmarkAi } from "react-icons/tb";
+import LoginForm from "./LoginForm";
 
 /**
  * Clean & minimal Header
@@ -73,7 +74,7 @@ export default function Header() {
                 </div>
               </Link>
 
-              <Popover placement="top-start" backdrop="blur">
+              <Popover placement="top-start" backdrop="opaque">
                 <PopoverTrigger asChild>
                   <button className="text-sm text-slate-700 flex items-center gap-1 py-1.5 px-3 duration-300 cursor-pointer">
                     {/* <TbCategory2 className="text-xl" /> */}
@@ -90,7 +91,7 @@ export default function Header() {
                           onClick={() => gotoCategory(c.slug)}
                           className="flex items-center text-sky-700 gap-2 cursor-pointer py-1 px-2 rounded-xl hover:bg-slate-100 transition-all text-left"
                         >
-                          <img src={c.img} alt="cate" className="w-15"/>
+                          <img src={c.img} alt="cate" className="w-15" />
                           <div className="text-sm">
                             <p className="font-medium text-right">{c.nameFa}</p>
                             <p className="text-xs text-slate-500 text-right">{c.name}</p>
@@ -138,7 +139,7 @@ export default function Header() {
             <div className="bg-slate-100 p-2.5 rounded-xl cursor-pointer">
               <TbBookmarkAi className="text-xl" />
             </div>
-            <Button color="primary" className="text-white" startContent={<HiOutlineUser className="text-2xl" />}>ورود | عضویت</Button>
+            <LoginForm/>
           </div>
 
         </div>
