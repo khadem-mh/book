@@ -21,8 +21,23 @@ const levelTitles = {
 const TestimonialCard = ({ name, job, src, text, level }: TestimonialCardProps) => {
   return (
     <div
-      className="shadow-md relative gap-4 p-4 rounded-3xl bg-white hover:shadow-md transition-shadow duration-300 overflow-hidden"
+      className="
+    shadow-md relative gap-4 p-4 rounded-3xl bg-white 
+    hover:shadow-xl hover:-translate-y-1 transition-all duration-300
+    overflow-hidden group
+  "
     >
+      {/* نور ملایم روی هاور */}
+      <div
+        className="
+      absolute inset-0 opacity-0 group-hover:opacity-100 
+      transition-opacity duration-300
+      bg-gradient-to-br from-white/30 via-sky-50/20 to-transparent
+      pointer-events-none
+    "
+      />
+
+      {/* نور گوشه قبلی */}
       <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full blur-2xl pointer-events-none bg-gradient-to-bl from-white via-sky-200 to-transparent"></div>
 
       <div className="flex items-center justify-between">
@@ -39,9 +54,9 @@ const TestimonialCard = ({ name, job, src, text, level }: TestimonialCardProps) 
         {/* Level Badge */}
         <span
           className={`
-          ${levelStyles[level]} 
-          text-xs px-3 py-0.5 rounded-xl font-medium inline-block mb-4
-        `}
+        ${levelStyles[level]} 
+        text-xs px-3 py-0.5 rounded-xl font-medium inline-block mb-4
+      `}
         >
           {levelTitles[level]}
         </span>
