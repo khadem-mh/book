@@ -172,7 +172,7 @@ export default function HomePage() {
   ];
 
   return (
-    <main dir="rtl" lang="fa" className="relative flex flex-col gap-24 px-2 py-12 text-gray-800">
+    <main dir="rtl" lang="fa" className="flex flex-col gap-24 px-2 py-12 text-gray-800">
       <Hero
         officialSourceText="منبع رسمی: O'Reilly"
         subtitleText="پوشش کامل کتاب‌ها — صوت AI — پرامپت‌های آماده"

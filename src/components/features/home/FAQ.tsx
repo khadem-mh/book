@@ -2,6 +2,7 @@
 
 import { Accordion, AccordionItem } from "@heroui/react";
 import React from "react";
+import BackgroundBubbles from "./components/BackgroundBubbles";
 
 export type FAQItem = {
   q: string;
@@ -29,19 +30,17 @@ const FAQ: React.FC<FAQProps> = ({ title = "سوالات متداول", items })
           }}
         >
           {items.map((item, index) => (
-            <AccordionItem
-              key={index + 1}
-              aria-label={`faq-${index}`}
-              title={item.q}
-            >
+            <AccordionItem key={index + 1} aria-label={`faq-${index}`} title={item.q}>
               {item.a}
             </AccordionItem>
           ))}
         </Accordion>
+
         <img
           src="/images/home/faq.png"
           alt="illustration"
-          className="w-64 select-none"
+          style={{animationDuration: "10000ms"}}
+          className="w-64 select-none relative z-10 animate-bounce"
         />
       </div>
     </section>

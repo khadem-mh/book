@@ -25,7 +25,7 @@ export default function RootLayout({
         />
         <HeroProvider>
           <Header />
-          <div className="max-w-7xl mx-auto">{children}</div>
+          <div className="relative max-w-7xl mx-auto">{children}</div>
           <Footer />
         </HeroProvider>
       </body>
