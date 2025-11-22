@@ -7,6 +7,7 @@ import Testimonials from "@/components/features/home/Testimonials/Testimonials";
 import VisualBreak from "@/components/features/home/VisualBreak";
 import WhyDifferent from "@/components/features/home/WhyDifferent/WhyDifferent";
 import { TbUserCode } from "react-icons/tb";
+import { TestimonialCardProps } from "@/components/features/home/Testimonials/TestimonialCard";
 
 export default function HomePage() {
 
@@ -147,21 +148,27 @@ export default function HomePage() {
     }
   ];
 
-  const testimonialItems = [
+  const testimonialItems: TestimonialCardProps[] = [
     {
-      name: "Jose — Principal Engineer",
-      icon: <TbUserCode className="text-sky-600 text-2xl" />,
+      name: "مهدی عباسی",
+      job: "برنامه نویس فول استک",
+      src: "senior.png",
       text: "فلش‌کارت‌های این پلتفرم دقیقاً همان چیزی است که تیم مهندسی ما به آن نیاز داشت. سرعت مرور فصل‌ها فوق‌العاده بالاست و ساختار کارت‌ها اجازه می‌دهد در چند دقیقه مغز مطلب را کاملاً بگیرد. این حجم بهینه‌سازی زمان برای تیم ما بی‌نظیر بوده.",
+      level: "senior",
     },
     {
-      name: "Arianne Dee — Developer",
-      icon: <TbUserCode className="text-orange-500 text-2xl" />,
-      text: "حس می‌کنم مطالعه برای من تازه ساده شده! پرامپت‌های آماده کنار هر کارت باعث می‌شود هر بخش را به شکل عمیق‌تری بفهمم و صوت AI هم مرور را خیلی راحت‌تر کرده. یک تجربه‌ی یادگیری سریع، تمیز و بدون دردسر.",
-    },
-    {
-      name: "Neal Ford — Architect",
-      icon: <TbUserCode className="text-purple-600 text-2xl" />,
+      name: "رضا ولی پور",
+      job: "برنامه نویس فرانت اند",
+      src: "middlevel.png",
       text: "به‌ندرت سیستمی دیدم که *صفحه‌به‌صفحهٔ* یک کتاب فنی را این‌قدر تمیز و استاندارد ارائه کند. برای معماران نرم‌افزار، سرعت درک مفاهیم حیاتی است و این فلش‌کارت‌ها دقیقاً همین را تضمین می‌کنند.",
+      level: "mid",
+    },
+    {
+      name: "احمد براتی",
+      job: "برنامه نویس بک اند",
+      src: "junior.png",
+      text: "حس می‌کنم مطالعه برای من تازه ساده شده! پرامپت‌های آماده کنار هر کارت باعث می‌شود هر بخش را به شکل عمیق‌تری بفهمم و صوت AI هم مرور را خیلی راحت‌تر کرده. یک تجربه‌ی یادگیری سریع، تمیز و بدون دردسر.",
+      level: "junior",
     },
   ];
 

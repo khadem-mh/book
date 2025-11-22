@@ -40,7 +40,7 @@ const FAQ: React.FC<FAQProps> = ({ title = "سوالات متداول", items })
           src="/images/home/faq.png"
           alt="illustration"
           style={{animationDuration: "10000ms"}}
-          className="w-64 select-none relative z-10 animate-bounce"
+          className="w-64 select-none relative z-10 animate-bounce opacity-70"
         />
       </div>
     </section>

@@ -1,14 +1,8 @@
-import TestimonialCard from "./TestimonialCard";
-
-export type TestimonialItem = {
-  name: string;
-  icon: React.ReactNode;
-  text: string;
-};
+import TestimonialCard, { TestimonialCardProps } from "./TestimonialCard";
 
 type TestimonialsProps = {
   title?: string;
-  items: TestimonialItem[];
+  items: TestimonialCardProps[];
 };
 
 const Testimonials: React.FC<TestimonialsProps> = ({
@@ -16,16 +10,14 @@ const Testimonials: React.FC<TestimonialsProps> = ({
   items,
 }) => {
   return (
-    <section className="max-w-7xl mx-auto mt-16 text-right">
+    <section>
       <h3 className="text-3xl font-bold">{title}</h3>
 
       <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
         {items.map((t, i) => (
           <TestimonialCard
             key={i}
-            name={t.name}
-            icon={t.icon}
-            text={t.text}
+            {...t}
           />
         ))}
       </div>
