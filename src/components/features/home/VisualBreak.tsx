@@ -5,7 +5,7 @@ import { MdArrowForwardIos } from "react-icons/md";
 
 const VisualBreak: React.FC = () => {
   return (
-    <section className="border-5 border-dashed border-black/30 rounded-4xl px-6 py-12 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-6
+    <section className="border-5 border-dashed border-black/30 rounded-4xl px-6 py-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-6
                         bg-black/80 text-white transition-colors duration-300 hover:bg-white group hover:text-black">
 
       <div className="transition-colors duration-300 group-hover:text-black">
@@ -28,9 +28,9 @@ const VisualBreak: React.FC = () => {
         </h4>
 
         {/* متن توضیحی عامیانه و طعنه‌آمیز */}
-        <p className="text-gray-300 mb-4 leading-8 transition-colors duration-300 group-hover:text-gray-700">
+        <p className="text-gray-300 mb-4 mt-8 leading-8 transition-colors duration-300 group-hover:text-gray-700">
           ممکنه هزاران ساعت با فریم‌ورک‌ها و زبان‌های برنامه نویسی سر و کله زده باشی، پروژه‌ها لانچ کرده باشی و حتی <span className="text-red-500">مدرک دانشگاهی</span> گرفته باشی… ولی واقعاً می‌دونی چرا این کدها اینجوری نوشته می‌شن؟ معماری، طراحی سیستم و اصول نرم‌افزار رو فهمیدی یا نه؟<br /><br />
-          <span className="text-red-500">اینجا خبری از درس‌های خشک و مفاهیم کهنهٔ دانشگاه یا کتابای سنگین نیست.</span> <span className="text-orange-300">با فلش‌کارت‌های هوشمند AI، مفاهیم رو صفحه‌به‌صفحه و فصل‌به‌فصل مرور کن، طراحی و معماری رو ببین، و مهارتت رو از صرفاً کدنویسی به <strong>درک واقعی مهندسی نرم‌افزار</strong> برسون.</span>
+          <span className="text-red-500">اینجا خبری از درس‌های خشک و مفاهیم کهنهٔ دانشگاه یا کتابای سنگین نیست.</span> <span className="text-orange-300 group-hover:text-sky-600">با فلش‌کارت‌های هوشمند AI، مفاهیم رو صفحه‌به‌صفحه و فصل‌به‌فصل مرور کن، طراحی و معماری رو ببین، و مهارتت رو از صرفاً کدنویسی به <strong>درک واقعی مهندسی نرم‌افزار</strong> برسون.</span>
         </p>
 
         {/* دکمه */}
@@ -43,12 +43,11 @@ const VisualBreak: React.FC = () => {
         </Button>
       </div>
 
-      {/* تصویر */}
       <div>
         <img
           src="/images/home/raven.png"
           alt="O'Reilly Awards"
-          className="w-[443px] scale-x-[-1]"
+          className="w-[450px] scale-x-[-1]"
         />
       </div>
 

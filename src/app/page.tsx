@@ -166,9 +166,11 @@ export default function HomePage() {
   ];
 
   const bookImages = [
-    "/images/books/covers/building-micro-frontends_2nd-edition.jpg",
-    "/images/books/covers/fundamentals-of-software-architecture_2nd-edition.jpg",
+    "/images/books/covers/fundamentals-of-data-visualization.jpg",
+    "/images/books/covers/fundamentals-of-devOps-and-software-delivery.jpg",
+    "/images/books/covers/fundamentals-of-software-engineering.jpg",
     "/images/books/covers/practical-lakehouse-architecture.jpg",
+    "/images/books/covers/fundamentals-of-software-architecture_2nd-edition.jpg",
   ];
 
   return (

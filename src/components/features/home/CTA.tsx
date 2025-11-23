@@ -16,7 +16,7 @@ const CTA: React.FC<CTAProps> = ({
   bookImages,
 }) => {
   return (
-    <section className="max-w-5xl mx-auto">
+    <section>
       <div
         className="flex flex-col md:flex-row-reverse items-center gap-6 border border-slate-200 shadow-lg rounded-3xl p-6 bg-gradient-to-br from-white/90 via-sky-50/50 to-orange-50/50 backdrop-blur-md"
         role="region"
