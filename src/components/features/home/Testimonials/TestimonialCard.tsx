@@ -1,3 +1,5 @@
+import TestimonialCardImage from "./TestimonialCardImage";
+
 export type TestimonialCardProps = {
   name: string;
   job: string;
@@ -29,21 +31,16 @@ const TestimonialCard = ({ name, job, src, text, level }: TestimonialCardProps) 
     >
       {/* نور ملایم روی هاور */}
       <div
-        className="
-      absolute inset-0 opacity-0 group-hover:opacity-100 
-      transition-opacity duration-300
-      bg-gradient-to-br from-white/30 via-sky-50/20 to-transparent
-      pointer-events-none
-    "
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300bg-gradient-to-br from-white/30 via-sky-50/20 to-transparentpointer-events-none"
       />
 
       {/* نور گوشه قبلی */}
-      <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full blur-2xl pointer-events-none bg-gradient-to-bl from-white via-sky-200 to-transparent"></div>
+      <div className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full blur-2xl pointer-events-none bg-gradient-to-bl from-white via-sky-200 to-transparent"></div>
 
       <div className="flex items-center justify-between">
         {/* Header */}
         <div className="flex items-center gap-3 mb-3">
-          <img src={`/images/home/testimonials/${src}`} alt="img" className="w-24" />
+          <TestimonialCardImage src={src} />
 
           <div className="flex flex-col">
             <span className="font-semibold text-gray-800">{name}</span>
@@ -53,10 +50,7 @@ const TestimonialCard = ({ name, job, src, text, level }: TestimonialCardProps) 
 
         {/* Level Badge */}
         <span
-          className={`
-        ${levelStyles[level]} 
-        text-xs px-3 py-0.5 rounded-xl font-medium inline-block mb-4
-      `}
+          className={`${levelStyles[level]} text-xs px-3 py-0.5 rounded-xl font-medium inline-block mb-4`}
         >
           {levelTitles[level]}
         </span>
