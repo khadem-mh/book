@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MdArrowOutward } from "react-icons/md";
-import CopyButton from "@/components/features/shared/CopyButton";
+import CopyButton from "@/components/shared/CopyButton";
 import HeroClient from "./HeroClient";
 import FeatureBox,{ FeatureBoxProps } from "./FeatureBox";
 import BackgroundBubbles from "../components/BackgroundBubbles";

@@ -2,7 +2,7 @@ import "../core/styles/globals.css";
 import Header from "@/components/layout/Header/Header";
 import Footer from "@/components/layout/Footer";
 import { Toaster } from "react-hot-toast";
-import HeroProvider from "@/components/providers/HeroProvider";
+import HeroProvider from "@/components/layout/providers/HeroProvider";
 
 export default function RootLayout({
   children,

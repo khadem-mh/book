@@ -1,13 +1,13 @@
-import Hero from "@/components/features/home/Hero/Hero";
-import LearningJourney from "@/components/features/home/LearningJourney/LearningJourney";
-import CTA from "@/components/features/home/CTA";
-import FAQ from "@/components/features/home/FAQ";
-import FlashcardFeatures from "@/components/features/home/FlashcardFeatures/FlashcardFeatures";
-import Testimonials from "@/components/features/home/Testimonials/Testimonials";
-import VisualBreak from "@/components/features/home/VisualBreak";
-import WhyDifferent from "@/components/features/home/WhyDifferent/WhyDifferent";
+import Hero from "@/components/features/landing/Hero/Hero";
+import LearningJourney from "@/components/features/landing/LearningJourney/LearningJourney";
+import CTA from "@/components/features/landing/CTA";
+import FAQ from "@/components/features/landing/FAQ";
+import FlashcardFeatures from "@/components/features/landing/FlashcardFeatures/FlashcardFeatures";
+import Testimonials from "@/components/features/landing/Testimonials/Testimonials";
+import VisualBreak from "@/components/features/landing/VisualBreak";
+import WhyDifferent from "@/components/features/landing/WhyDifferent/WhyDifferent";
 import { TbUserCode } from "react-icons/tb";
-import { TestimonialCardProps } from "@/components/features/home/Testimonials/TestimonialCard";
+import { TestimonialCardProps } from "@/components/features/landing/Testimonials/TestimonialCard";
 
 export default function HomePage() {
 
