@@ -1,7 +1,7 @@
 "use client";
 
 import { MdOutlineLibraryBooks } from "react-icons/md";
-import useCopyToClipboard from "@/hooks/useCopyToClipboard";
+import useCopyToClipboard from "@/core/hooks/useCopyToClipboard";
 
 type CopyButtonProps = {
     textToCopy: string;

@@ -3,7 +3,7 @@
 import React from "react";
 import { useMemo, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { categories } from "@/lib/data/categories";
+import { categories } from "@/core/lib/data/categories";
 
 import {
     Input,

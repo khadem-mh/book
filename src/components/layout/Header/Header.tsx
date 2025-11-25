@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { categories } from "@/lib/data/categories";
+import { categories } from "@/core/lib/data/categories";
 import { Input, Popover, PopoverTrigger, PopoverContent, Button } from "@heroui/react";
 import {
   FiMenu,

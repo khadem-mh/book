@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { categories as categoriesData } from "@/lib/data/categories";
+import { categories as categoriesData } from "@/core/lib/data/categories";
 import { Input, Button } from "@heroui/react";
 import { FiMail, FiArrowUp, FiInstagram, FiTwitter, FiGithub, FiLinkedin } from "react-icons/fi";
 import { LuBrainCircuit } from "react-icons/lu";

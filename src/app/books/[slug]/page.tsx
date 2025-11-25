@@ -1,4 +1,4 @@
-import { bookDetail } from "@/lib/data/fundamentals-of-software-architecture_2nd-edition/book";
+import { bookDetail } from "@/core/lib/data/fundamentals-of-software-architecture_2nd-edition/book";
 import {
   TbUser,
   TbCalendarStats,

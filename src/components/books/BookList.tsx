@@ -1,8 +1,7 @@
-import { Book } from '@/types';
 import BookCard from './BookCard';
 
 interface BookListProps {
-  books: Book[];
+  books: any[];
 }
 
 export default function BookList({ books }: BookListProps) {

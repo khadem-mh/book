@@ -5,7 +5,7 @@ import BookFilter from "@/components/books/BookFilter";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import BookSort from "@/components/books/BookSort";
-import { books } from "@/lib/data/books";
+import { books } from "@/core/lib/data/books";
 
 const Books = () => {
   const searchParams = useSearchParams();
