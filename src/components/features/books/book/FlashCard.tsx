@@ -1,5 +1,6 @@
 "use client"
 
+import { LuScrollText } from "react-icons/lu";
 import AudioButton from "./AudioButton";
 import PromptButton from "./PromptButton";
 
@@ -23,11 +24,14 @@ const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
     return (
         <div className="max-w-[420px] w-full bg-white shadow-[0_0_8px_lightgray] rounded-2xl p-6">
             <div className="relative space-y-4">
-                <div className="w-full absolute pt-0.5 -top-10 rounded-3xl bg-slate-100 border border-black/15 text-center">
-                    <h3 className="text-gray-500 animated-text">{data.title_en}</h3>
+                <div className="w-full absolute pt-0.5 -top-10 rounded-2xl bg-slate-50 border border-black/15 text-center">
+                    <h3 className="text-gray-500 animated-text truncate">{data.title_en}</h3>
                 </div>
-                <h2 className="text-xl font-bold">{data.title}</h2>
-                <div className="mx-12 text-gray-300">
+                <div className="relative flex items-center justify-start">
+                    <h2 className="text-md font-bold truncate pt-3">{data.title}</h2>
+                    <img src="/images/flashcard/12303751.png" alt="ai-brain" className="w-16 absolute top-0 left-0"/>
+                </div>
+                <div className="mx-12 text-gray-300 -mt-2">
                     <hr />
                 </div>
                 {/* توضیح */}
