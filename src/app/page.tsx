@@ -8,6 +8,7 @@ import VisualBreak from "@/components/features/landing/VisualBreak";
 import WhyDifferent from "@/components/features/landing/WhyDifferent/WhyDifferent";
 import { TbUserCode } from "react-icons/tb";
 import { TestimonialCardProps } from "@/components/features/landing/Testimonials/TestimonialCard";
+import FlashCard from "@/components/features/books/book/FlashCard";
 
 export default function HomePage() {
 
@@ -201,6 +202,7 @@ export default function HomePage() {
         <VisualBreak />
       </div>
       <FlashcardFeatures title="ویژگی‌های فلش‌کارت‌ها" subTitle="همه‌چیز برای یادگیری کامل هر فصل—از صوت و پرامپت تا تست و مرور سریع." items={features} />
+      <FlashCard/>
       <FAQ items={faqs} />
       <Testimonials items={testimonialItems} />
       <CTA
