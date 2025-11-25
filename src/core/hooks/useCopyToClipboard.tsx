@@ -16,7 +16,7 @@ export default function useCopyToClipboard() {
         try {
             await navigator.clipboard.writeText(text);
             setIsCopied(true);
-            toast.success("متن کپی شد!");
+            toast.success("کپی شد!");
             setTimeout(() => setIsCopied(false), 2000);
             return true;
         } catch (err) {

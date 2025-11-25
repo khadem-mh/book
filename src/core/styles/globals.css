@@ -36,12 +36,12 @@
 }
 
 .animated-text {
-  background: linear-gradient(to right, #222831 50%, #0069a8 50%);
+  background: linear-gradient(to right, gray 50%, black 50%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 100%;
   animation: shine 8s linear infinite;
-  font-family: Exo_2
+  font-family: Exo_2;
 }
 
 @keyframes shine {
