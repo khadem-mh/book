@@ -1,10 +1,10 @@
 "use client";
 
 import BookCard from "@/components/features/books/BookCard";
-import BookFilter from "@/components/features/books/BookFilter";
+import BookFilter from "@/components/features/books/Filter/BookFilter";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
-import BookSort from "@/components/features/books/BookSort";
+import BookSort from "@/components/features/books/Filter/BookSort";
 import { books } from "@/core/lib/data/books";
 
 const Books = () => {

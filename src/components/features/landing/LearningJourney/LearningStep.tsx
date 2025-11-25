@@ -1,4 +1,4 @@
-import AnimatedHands from "@/components/features/books/AnimatedHands";
+import AnimatedHands from "@/components/shared/AnimatedHands";
 
 export type Step = {
   id: number;

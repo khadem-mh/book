@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { LuBrain } from 'react-icons/lu';
 import { TbBrandOpenai, TbFileTextAi } from 'react-icons/tb';
-import RatingStars from './RatingStars';
+import RatingStars from '../../shared/RatingStars';
 
 interface BookCardProps {
   book: any;
