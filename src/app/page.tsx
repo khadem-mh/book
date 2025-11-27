@@ -129,7 +129,8 @@ export default function HomePage() {
     ],
     conclusion: "آگاهی از axiomها باعث میشه تصمیمات معماری منطقی‌تر باشن و تغییرات آینده کمترین تاثیر منفی رو روی سیستم بذارن.",
     images: [
-      { id: 1, path: "/images/flashcard/axiom-architecture.png" }
+      { id: 1, path: "/images/flashcard/axiom-architecture.png" },
+      { id: 2, path: "/images/flashcard/axiom-architecture-2.png" },
     ],
     audioUrl: "/audio/flashcard_axiom.mp3",
     prompt: `Explain the concept of "Axiom" in software architecture. 

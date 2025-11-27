@@ -15,7 +15,7 @@ const PromptButton: React.FC<CopyButtonProps> = ({ textToCopy }) => {
             onClick={() => copy(textToCopy)}
             className="flex items-center justify-center w-8 h-8 cursor-pointer rounded-lg bg-slate-100 hover:bg-slate-200 transition-all"
         >
-            <TbPrompt className="text-xl text-gray-600" />
+            <TbPrompt className="text-[20px] text-gray-600" />
         </div>
     );
 };

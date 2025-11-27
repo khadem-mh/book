@@ -31,7 +31,7 @@ const AudioButton: React.FC<AudioButtonProps> = ({ src }) => {
       className="flex items-center justify-center w-8 h-8 cursor-pointer rounded-lg bg-slate-100 hover:bg-slate-200 transition-all"
       title={isPlaying ? "Pause audio" : "Play audio"}
     >
-      <RiMicAiLine className="text-[22px] text-gray-600" />
+      <RiMicAiLine className="text-[20px] text-gray-600" />
       <audio ref={audioRef} src={src} />
     </div>
   );
