@@ -26,17 +26,11 @@ type FlashCardProps = {
 const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
     return (
         <div className="group">
-            <div className="max-w-[400px] w-full bg-white shadow-md group-hover:shadow-lg rounded-2xl p-6 transition-all">
+            <div className="relative max-w-[400px] w-full bg-white shadow-md group-hover:shadow-lg rounded-2xl p-6 transition-all">
                 <div className="relative space-y-4">
 
                     <div className="w-full absolute p-1 px-2 -top-12 rounded-xl bg-slate-50 shadow-md group-hover:shadow-lg transition-all">
-                        <div className="flex items-center justify-between">
-                            <div className="flex gap-2">
-                                <AudioButton src={data.audioUrl} />
-                                <CopyButtonFlashCard textToCopy={data.prompt} Icon={TbBrandAmongUs} />
-                            </div>
-                            <h3 className="text-gray-500 animated-text text-left truncate text-sm">{data.title_en}</h3>
-                        </div>
+                        <h3 className="text-gray-500 animated-text text-center truncate text-sm">{data.title_en}</h3>
                     </div>
 
                     <div className="relative flex items-center justify-start">
@@ -99,15 +93,17 @@ const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
                         />
                     </div>
 
-                    <div className="flex justify-end items-center gap-2 mt-6">
-                        <div
-                            onClick={() => { }}
-                            className="flex items-center justify-center w-8 h-8 cursor-pointer rounded-lg bg-slate-100 hover:bg-slate-200 transition-all"
-                        >
-                            <IoMdMore className="text-[20px] text-gray-600" />
-                        </div>
-                        <CopyButtonFlashCard textToCopy={data.prompt} Icon={MdOutlineLibraryBooks} />
+                </div>
+                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-1.5 rounded-xl flex items-center gap-2">
+                    <div
+                        onClick={() => { }}
+                        className="flex items-center justify-center w-8 h-8 cursor-pointer rounded-lg bg-slate-100 hover:bg-slate-200 transition-all"
+                    >
+                        <IoMdMore className="text-[20px] text-gray-600" />
                     </div>
+                    <AudioButton src={data.audioUrl} />
+                    <CopyButtonFlashCard textToCopy={data.prompt} Icon={TbBrandAmongUs} />
+                    <CopyButtonFlashCard textToCopy={data.prompt} Icon={MdOutlineLibraryBooks} />
                 </div>
             </div>
         </div>
