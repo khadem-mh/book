@@ -74,8 +74,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
 
                     {/* تصاویر */}
                     {data.images && data.images.length > 0 && (
-                        <div className="relative flex items-center justify-between gap-2">
-                            <div className="w-10 h-10 absolute top-0 -left-2 rounded-full bg-red-100"></div>
+                        <div className="flex items-center justify-between gap-2">
                             <div className="flex">
                                 {data.images.map((img) => (
                                     <img
@@ -85,9 +84,6 @@ const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
                                         className="w-14 h-14 object-cover rounded-full"
                                     />
                                 ))}
-                            </div>
-                            <div className="relative">
-                                <img src="/images/flashcard/12303771.png" alt="gallery" className="w-16 h-16 animate-pulse" />
                             </div>
                         </div>
                     )}
