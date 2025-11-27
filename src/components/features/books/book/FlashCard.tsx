@@ -27,17 +27,21 @@ const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
         <div className="group">
             <div className="max-w-[400px] w-full bg-white shadow-md group-hover:shadow-lg rounded-2xl p-6 transition-all">
                 <div className="relative space-y-4">
-                    <div className="flex flex-col gap-2 absolute top-0 -right-10">
-                        <AudioButton src={data.audioUrl} />
-                        <CopyButtonFlashCard textToCopy={data.prompt} Icon={TbBrandAmongUs} />
+
+                    <div className="w-full absolute p-1 px-2 -top-12 rounded-xl bg-slate-50 shadow-md group-hover:shadow-lg transition-all">
+                        <div className="flex items-center justify-between">
+                            <div className="flex gap-2">
+                                <AudioButton src={data.audioUrl} />
+                                <CopyButtonFlashCard textToCopy={data.prompt} Icon={TbBrandAmongUs} />
+                            </div>
+                            <h3 className="text-gray-500 animated-text truncate">{data.title_en}</h3>
+                        </div>
                     </div>
-                    <div className="w-full absolute pt-0.5 -top-10 rounded-xl bg-slate-50 shadow-md group-hover:shadow-lg transition-all text-center">
-                        <h3 className="text-gray-500 animated-text truncate">{data.title_en}</h3>
-                    </div>
+
                     <div className="relative flex items-center justify-start">
-                        <div className="w-10 h-10 absolute top-0 -left-2 rounded-full bg-orange-100"></div>
+                        <div className="w-10 h-10 absolute top-2 -left-2 rounded-full bg-orange-100"></div>
                         <h2 className="text-sm font-bold truncate pt-3">{data.title}</h2>
-                        <img src="/images/flashcard/12303690.png" alt="title" className="w-16 absolute top-0 left-0 animate-float-x" />
+                        <img src="/images/flashcard/12303690.png" alt="title" className="w-16 absolute top-2 left-0 animate-float-x" />
                     </div>
                     <div className="mx-20 text-gray-200 -mt-2 mb-5">
                         <hr />
