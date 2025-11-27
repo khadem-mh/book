@@ -29,14 +29,13 @@ const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
                 </div>
                 <div className="relative flex items-center justify-start">
                     <h2 className="text-md font-bold truncate pt-3">{data.title}</h2>
-                    <img src="/images/flashcard/12303751.png" alt="ai-brain" className="w-16 absolute top-0 left-0"/>
+                    <img src="/images/flashcard/12303690.png" alt="title" className="w-16 absolute top-0 left-0 animate-float-x" />
                 </div>
-                <div className="mx-12 text-gray-300 -mt-2">
+                <div className="mx-12 text-gray-300 -mt-2 mb-5">
                     <hr />
                 </div>
                 {/* توضیح */}
-                {data.description && <p className="text-gray-700">{data.description}</p>}
-
+                <p className="text-gray-600">{data.description}</p>
                 {/* مثال‌ها */}
                 {data.examples && data.examples.length > 0 && (
                     <ul className="list-disc list-inside space-y-1">
@@ -45,7 +44,17 @@ const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
                         ))}
                     </ul>
                 )}
-
+                <div className="relative flex items-center justify-start">
+                    <h2 className="text-md font-bold truncate">نتیجه گیری</h2>
+                    <img
+                        src="/images/flashcard/12303685.png"
+                        alt="title"
+                        className="w-16 absolute -top-3 left-0 animate-float-y"
+                    />
+                </div>
+                <div className="mx-12 text-gray-300 -mt-2 mb-5">
+                    <hr />
+                </div>
                 {/* نتیجه‌گیری */}
                 {data.conclusion && (
                     <p className="text-blue-600 font-semibold">{data.conclusion}</p>
