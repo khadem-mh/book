@@ -2,9 +2,10 @@
 
 import AudioButton from "./AudioButton";
 import { MdOutlineLibraryBooks } from "react-icons/md";
-import { TbBrandAmongUs } from "react-icons/tb";
+import { TbBrandAmongUs, TbHandClick } from "react-icons/tb";
 import CopyButtonFlashCard from "./CopyButtonFlashCard";
 import { IoMdMore } from "react-icons/io";
+import { LuGalleryHorizontalEnd } from "react-icons/lu";
 
 export type FlashCardData = {
     id: number;
@@ -72,21 +73,31 @@ const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
                     {/* نتیجه‌گیری */}
                     <p className="text-sm text-sky-700">{data.conclusion}</p>
 
-                    {/* تصاویر */}
-                    {data.images && data.images.length > 0 && (
-                        <div className="flex items-center justify-between gap-2">
-                            <div className="flex">
-                                {data.images.map((img) => (
+                    <div className="relative flex items-center justify-start">
+                        <div className="w-10 h-10 absolute top-0 rounded-full -left-2 bg-black/10"></div>
+                        {data.images && data.images.length > 0 && (
+                            <div className="flex cursor-pointer items-center justify-center -space-x-4">
+                                {data.images.slice(0, 3).map((img) => (
                                     <img
                                         key={img.id}
                                         src={img.path}
                                         alt={`image-${img.id}`}
-                                        className="w-14 h-14 object-cover rounded-full"
+                                        className="w-13 h-13 object-cover hover:scale-105 transition-all rounded-xl border-2 border-white"
                                     />
                                 ))}
+                                {data.images.length > 1 && (
+                                    <div className="w-13 h-13 flex items-center hover:scale-105 transition-all justify-center rounded-xl text-sm font-medium border-2 border-slate-200 bg-slate-50/80">
+                                        {data.images.length - 1} +
+                                    </div>
+                                )}
                             </div>
-                        </div>
-                    )}
+                        )}
+                        <img
+                            src="/images/flashcard/12303771.png"
+                            alt="title"
+                            className="w-16 absolute -top-3 left-0 animate-float-x"
+                        />
+                    </div>
 
                     <div className="flex justify-end items-center gap-2 mt-6">
                         <div
