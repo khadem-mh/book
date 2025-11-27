@@ -29,7 +29,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
                         <h3 className="text-gray-500 animated-text truncate">{data.title_en}</h3>
                     </div>
                     <div className="relative flex items-center justify-start">
-                        <div className="w-10 h-10 absolute top-0 -left-2 rounded-full bg-orange-200"></div>
+                        <div className="w-10 h-10 absolute top-0 -left-2 rounded-full bg-orange-100"></div>
                         <h2 className="text-sm font-bold truncate pt-3">{data.title}</h2>
                         <img src="/images/flashcard/12303690.png" alt="title" className="w-16 absolute top-0 left-0 animate-float-x" />
                     </div>
@@ -65,10 +65,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
                     {/* تصاویر */}
                     {data.images && data.images.length > 0 && (
                         <div className="relative flex items-center justify-between gap-2">
-                            <div className="w-10 h-10 absolute top-0 rounded-full -right-2 bg-red-200"></div>
-                            <div className="relative">
-                                <img src="/images/flashcard/images-gallery.png" alt="gallery" className="w-16 h-16 animate-float-x" />
-                            </div>
+                            <div className="w-10 h-10 absolute top-0 -left-2 rounded-full bg-red-100"></div>
                             {data.images.map((img) => (
                                 <img
                                     key={img.id}
@@ -77,6 +74,9 @@ const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
                                     className="w-14 h-14 object-cover rounded-xl"
                                 />
                             ))}
+                            <div className="relative">
+                                <img src="/images/flashcard/12303771.png" alt="gallery" className="w-16 h-16 animate-pulse" />
+                            </div>
                         </div>
                     )}
 
