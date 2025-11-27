@@ -222,8 +222,10 @@ export default function HomePage() {
         />
         <VisualBreak />
       </div>
-      <FlashcardFeatures title="ویژگی‌های فلش‌کارت‌ها" subTitle="همه‌چیز برای یادگیری کامل هر فصل—از صوت و پرامپت تا تست و مرور سریع." items={features} />
-      <FlashCard data={sampleFlashCard} />
+      <div className="flex items-center justify-around">
+        <FlashcardFeatures title="ویژگی‌های فلش‌کارت‌ها" subTitle="همه‌چیز برای یادگیری کامل هر فصل—از صوت و پرامپت تا تست و مرور سریع." items={features} />
+        <FlashCard data={sampleFlashCard} />
+      </div>
       <FAQ items={faqs} />
       <Testimonials items={testimonialItems} />
       <CTA
