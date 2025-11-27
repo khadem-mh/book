@@ -34,7 +34,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
                                 <AudioButton src={data.audioUrl} />
                                 <CopyButtonFlashCard textToCopy={data.prompt} Icon={TbBrandAmongUs} />
                             </div>
-                            <h3 className="text-gray-500 animated-text truncate">{data.title_en}</h3>
+                            <h3 className="text-gray-500 animated-text text-left truncate text-sm">{data.title_en}</h3>
                         </div>
                     </div>
 
