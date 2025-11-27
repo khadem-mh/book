@@ -94,7 +94,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
                     </div>
 
                 </div>
-                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-1.5 rounded-xl flex items-center gap-2">
+                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 group-hover:shadow-lg transition-all bg-white shadow-md p-1.5 rounded-xl flex items-center gap-2">
                     <div
                         onClick={() => { }}
                         className="flex items-center justify-center w-8 h-8 cursor-pointer rounded-lg bg-slate-100 hover:bg-slate-200 transition-all"
