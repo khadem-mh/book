@@ -95,7 +95,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
                         <img
                             src="/images/flashcard/12303771.png"
                             alt="title"
-                            className="w-16 absolute -top-3 left-0 animate-float-x"
+                            className="w-16 absolute animate-swing -top-3 left-0 animate-float-x"
                         />
                     </div>
 
