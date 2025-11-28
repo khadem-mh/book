@@ -5,6 +5,7 @@ import { MdOutlineLibraryBooks } from "react-icons/md";
 import CopyButtonFlashCard from "./CopyButtonFlashCard";
 import { IoMdMore } from "react-icons/io";
 import { LuScrollText } from "react-icons/lu";
+import FlashCardMenu from "./FlashCardMenu";
 
 export type FlashCardData = {
     id: number;
@@ -75,11 +76,11 @@ const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
                                         key={img.id}
                                         src={img.path}
                                         alt={`image-${img.id}`}
-                                        className="w-13 h-13 object-cover hover:scale-105 transition-all rounded-xl border-2 border-white"
+                                        className="w-12 h-12 object-cover hover:scale-105 transition-all rounded-xl border-2 border-white"
                                     />
                                 ))}
                                 {data.images.length > 1 && (
-                                    <div className="w-13 h-13 flex items-center hover:scale-105 transition-all justify-center rounded-xl text-sm font-medium border-2 border-slate-200 bg-slate-50/80">
+                                    <div className="w-12 h-12 flex items-center hover:scale-105 transition-all justify-center rounded-xl text-sm font-medium border-2 border-slate-200 bg-slate-50/80">
                                         {data.images.length - 1} +
                                     </div>
                                 )}
@@ -96,12 +97,12 @@ const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
                 <div className="absolute -bottom-9 left-1/2 transform -translate-x-1/2">
                     {/* absolute -bottom-8 left-1/2 transform -translate-x-1/2 */}
                     <div className="group-hover:shadow-lg transition-all bg-white shadow-md p-1.5 rounded-xl flex items-center gap-2">
-                        <div
-                            onClick={() => { }}
-                            className="flex items-center justify-center w-8 h-8 cursor-pointer rounded-lg bg-slate-100 hover:bg-slate-200 transition-all"
-                        >
-                            <IoMdMore className="text-[19px] text-gray-600" />
-                        </div>
+                        <FlashCardMenu
+                            onNew={() => console.log("new...")}
+                            onCopy={() => console.log("copy...")}
+                            onEdit={() => console.log("edit...")}
+                            onDelete={() => console.log("delete...")}
+                        />
                         <AudioButton src={data.audioUrl} />
                         <CopyButtonFlashCard textToCopy={data.prompt} successfullyCopyMessage="پرامپت کپی شد" Icon={LuScrollText} />
                         <CopyButtonFlashCard textToCopy={data.prompt} successfullyCopyMessage="محتوای کارت کپی شد" Icon={MdOutlineLibraryBooks} />
