@@ -95,19 +95,12 @@ const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
 
                 </div>
                 <div className="absolute -bottom-9 left-1/2 transform -translate-x-1/2">
-                    {/* absolute -bottom-8 left-1/2 transform -translate-x-1/2 */}
                     <div className="group-hover:shadow-lg transition-all bg-white shadow-md p-1.5 rounded-xl flex items-center gap-2">
-                        <FlashCardMenu
-                            onNew={() => console.log("new...")}
-                            onCopy={() => console.log("copy...")}
-                            onEdit={() => console.log("edit...")}
-                            onDelete={() => console.log("delete...")}
-                        />
+                        <FlashCardMenu/>
                         <AudioButton src={data.audioUrl} />
                         <CopyButtonFlashCard textToCopy={data.prompt} successfullyCopyMessage="پرامپت کپی شد" Icon={LuScrollText} />
                         <CopyButtonFlashCard textToCopy={data.prompt} successfullyCopyMessage="محتوای کارت کپی شد" Icon={MdOutlineLibraryBooks} />
                     </div>
-
                 </div>
             </div>
         </div>

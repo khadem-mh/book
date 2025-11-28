@@ -21,7 +21,7 @@ interface BaseModalProps {
 
 export default function BaseModal({
     title = "Modal Title",
-    trigger = "Open Modal",
+    trigger,
     children,
     isOpen: controlledIsOpen,
     onOpenChange,
@@ -29,27 +29,23 @@ export default function BaseModal({
 }: BaseModalProps) {
     const [internalIsOpen, setInternalIsOpen] = useState(false);
 
-    // اگر prop isOpen داده شده بود، همواره از اون استفاده می‌کنیم
     const isOpen = controlledIsOpen ?? internalIsOpen;
 
     const handleOpen = () => {
-        if (controlledIsOpen === undefined) {
-            setInternalIsOpen(true);
-        }
+        if (controlledIsOpen === undefined) setInternalIsOpen(true);
         onOpenChange?.(true);
     };
 
     const handleClose = () => {
-        if (controlledIsOpen === undefined) {
-            setInternalIsOpen(false);
-        }
+        if (controlledIsOpen === undefined) setInternalIsOpen(false);
         onOpenChange?.(false);
     };
 
     return (
         <>
-            {!controlledIsOpen && (
-                <Button onPress={handleOpen}>{trigger}</Button>
+            {/* فقط اگر trigger داده شده و مودال کنترل نشده است */}
+            {!controlledIsOpen && trigger && (
+                <div onClick={handleOpen}>{trigger}</div>
             )}
             <Modal isOpen={isOpen} onOpenChange={handleClose}>
                 <ModalContent>
@@ -61,10 +57,10 @@ export default function BaseModal({
                                 {footerButtons || (
                                     <>
                                         <Button color="danger" variant="light" onPress={handleClose}>
-                                            Close
+                                            لغو
                                         </Button>
                                         <Button color="primary" onPress={handleClose}>
-                                            Action
+                                            ثبت
                                         </Button>
                                     </>
                                 )}
