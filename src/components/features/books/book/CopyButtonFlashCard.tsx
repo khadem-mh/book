@@ -5,15 +5,18 @@ import { IconType } from "react-icons"; // اضافه می‌کنیم تا نو�
 
 type CopyButtonProps = {
     textToCopy: string;
+    successfullyCopyMessage: string;
     Icon: IconType; // کامپوننت آیکون از react-icons
 };
 
-const CopyButtonFlashCard: React.FC<CopyButtonProps> = ({ textToCopy, Icon }) => {
+const CopyButtonFlashCard: React.FC<CopyButtonProps> = ({ textToCopy, successfullyCopyMessage, Icon }) => {
     const { copy } = useCopyToClipboard();
 
     return (
         <div
-            onClick={() => copy(textToCopy)}
+            onClick={() => copy(textToCopy, {
+                successMessage: successfullyCopyMessage
+            })}
             className="flex items-center justify-center w-8 h-8 cursor-pointer rounded-lg bg-slate-100 hover:bg-slate-200 transition-all"
         >
             <Icon className="text-[19px] text-gray-600" />

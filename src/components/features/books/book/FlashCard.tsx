@@ -2,12 +2,9 @@
 
 import AudioButton from "./AudioButton";
 import { MdOutlineLibraryBooks } from "react-icons/md";
-import { TbBrandAmongUs, TbHandClick, TbPrompt } from "react-icons/tb";
 import CopyButtonFlashCard from "./CopyButtonFlashCard";
 import { IoMdMore } from "react-icons/io";
-import { LuGalleryHorizontalEnd } from "react-icons/lu";
-import { PiChatTeardropTextBold } from "react-icons/pi";
-import { RiChatVoiceAiLine } from "react-icons/ri";
+import { LuScrollText } from "react-icons/lu";
 
 export type FlashCardData = {
     id: number;
@@ -106,8 +103,8 @@ const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
                             <IoMdMore className="text-[19px] text-gray-600" />
                         </div>
                         <AudioButton src={data.audioUrl} />
-                        <CopyButtonFlashCard textToCopy={data.prompt} Icon={RiChatVoiceAiLine} />
-                        <CopyButtonFlashCard textToCopy={data.prompt} Icon={MdOutlineLibraryBooks} />
+                        <CopyButtonFlashCard textToCopy={data.prompt} successfullyCopyMessage="پرامپت کپی شد" Icon={LuScrollText} />
+                        <CopyButtonFlashCard textToCopy={data.prompt} successfullyCopyMessage="محتوای کارت کپی شد" Icon={MdOutlineLibraryBooks} />
                     </div>
 
                 </div>
