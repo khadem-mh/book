@@ -45,23 +45,26 @@ const AudioButton: React.FC<AudioButtonProps> = ({ src }) => {
         title={isPlaying ? "Pause audio" : "Play audio"}
       >
         {isPlaying ? (
-          <CgPlayStopO className="text-md text-gray-600" />
+          <CgPlayStopO className="text-[19px] text-gray-600" />
         ) : (
-          <RiVoiceAiLine className="text-md text-gray-600" />
+          <RiVoiceAiLine className="text-[19px] text-gray-600" />
         )}
         <audio ref={audioRef} src={src} />
       </div>
 
       {/* Loop / Replay Button */}
-      <div
-        onClick={toggleLoop}
-        className={`flex items-center justify-center w-8 h-8 cursor-pointer rounded-lg bg-slate-100 hover:bg-slate-200 transition-all ${
-          isLoop ? "bg-slate-300" : ""
-        }`}
-        title={isLoop ? "Loop is ON" : "Loop is OFF"}
-      >
-        <RiRepeatLine className="text-md text-gray-600" />
-      </div>
+      {
+        isPlaying ?
+          <div
+            onClick={toggleLoop}
+            className={`flex items-center justify-center w-8 h-8 cursor-pointer rounded-lg bg-slate-100 hover:bg-slate-200 transition-all ${isLoop ? "bg-slate-300" : ""
+              }`}
+            title={isLoop ? "Loop is ON" : "Loop is OFF"}
+          >
+            <RiRepeatLine className="text-[19px] text-gray-600" />
+          </div>
+          : ""
+      }
     </div>
   );
 };

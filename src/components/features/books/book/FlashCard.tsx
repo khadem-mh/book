@@ -6,6 +6,8 @@ import { TbBrandAmongUs, TbHandClick, TbPrompt } from "react-icons/tb";
 import CopyButtonFlashCard from "./CopyButtonFlashCard";
 import { IoMdMore } from "react-icons/io";
 import { LuGalleryHorizontalEnd } from "react-icons/lu";
+import { PiChatTeardropTextBold } from "react-icons/pi";
+import { RiChatVoiceAiLine } from "react-icons/ri";
 
 export type FlashCardData = {
     id: number;
@@ -101,13 +103,11 @@ const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
                             onClick={() => { }}
                             className="flex items-center justify-center w-8 h-8 cursor-pointer rounded-lg bg-slate-100 hover:bg-slate-200 transition-all"
                         >
-                            <IoMdMore className="text-md text-gray-600" />
+                            <IoMdMore className="text-[19px] text-gray-600" />
                         </div>
-                        <div className="border border-slate-300 p-1 rounded-xl flex items-center gap-2">
-                            <AudioButton src={data.audioUrl} />
-                        </div>
-                        <CopyButtonFlashCard textToCopy={data.prompt} Icon={TbPrompt} />
-                       {/*  <CopyButtonFlashCard textToCopy={data.prompt} Icon={MdOutlineLibraryBooks} /> */}
+                        <AudioButton src={data.audioUrl} />
+                        <CopyButtonFlashCard textToCopy={data.prompt} Icon={RiChatVoiceAiLine} />
+                        <CopyButtonFlashCard textToCopy={data.prompt} Icon={MdOutlineLibraryBooks} />
                     </div>
 
                 </div>
