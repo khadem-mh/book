@@ -2,7 +2,7 @@
 
 import AudioButton from "./AudioButton";
 import { MdOutlineLibraryBooks } from "react-icons/md";
-import { TbBrandAmongUs, TbHandClick } from "react-icons/tb";
+import { TbBrandAmongUs, TbHandClick, TbPrompt } from "react-icons/tb";
 import CopyButtonFlashCard from "./CopyButtonFlashCard";
 import { IoMdMore } from "react-icons/io";
 import { LuGalleryHorizontalEnd } from "react-icons/lu";
@@ -94,16 +94,22 @@ const FlashCard: React.FC<FlashCardProps> = ({ data }) => {
                     </div>
 
                 </div>
-                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 group-hover:shadow-lg transition-all bg-white shadow-md p-1.5 rounded-xl flex items-center gap-2">
-                    <div
-                        onClick={() => { }}
-                        className="flex items-center justify-center w-8 h-8 cursor-pointer rounded-lg bg-slate-100 hover:bg-slate-200 transition-all"
-                    >
-                        <IoMdMore className="text-[20px] text-gray-600" />
+                <div className="absolute -bottom-9 left-1/2 transform -translate-x-1/2">
+                    {/* absolute -bottom-8 left-1/2 transform -translate-x-1/2 */}
+                    <div className="group-hover:shadow-lg transition-all bg-white shadow-md p-1.5 rounded-xl flex items-center gap-2">
+                        <div
+                            onClick={() => { }}
+                            className="flex items-center justify-center w-8 h-8 cursor-pointer rounded-lg bg-slate-100 hover:bg-slate-200 transition-all"
+                        >
+                            <IoMdMore className="text-md text-gray-600" />
+                        </div>
+                        <div className="border border-slate-300 p-1 rounded-xl flex items-center gap-2">
+                            <AudioButton src={data.audioUrl} />
+                        </div>
+                        <CopyButtonFlashCard textToCopy={data.prompt} Icon={TbPrompt} />
+                       {/*  <CopyButtonFlashCard textToCopy={data.prompt} Icon={MdOutlineLibraryBooks} /> */}
                     </div>
-                    <AudioButton src={data.audioUrl} />
-                    <CopyButtonFlashCard textToCopy={data.prompt} Icon={TbBrandAmongUs} />
-                    <CopyButtonFlashCard textToCopy={data.prompt} Icon={MdOutlineLibraryBooks} />
+
                 </div>
             </div>
         </div>

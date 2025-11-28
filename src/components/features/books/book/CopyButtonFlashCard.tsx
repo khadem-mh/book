@@ -16,7 +16,7 @@ const CopyButtonFlashCard: React.FC<CopyButtonProps> = ({ textToCopy, Icon }) =>
             onClick={() => copy(textToCopy)}
             className="flex items-center justify-center w-8 h-8 cursor-pointer rounded-lg bg-slate-100 hover:bg-slate-200 transition-all"
         >
-            <Icon className="text-[20px] text-gray-600" />
+            <Icon className="text-md text-gray-600" />
         </div>
     );
 };
