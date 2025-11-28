@@ -2,7 +2,11 @@
 
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@heroui/react";
 import { IoMdMore } from "react-icons/io";
+import { LuScrollText } from "react-icons/lu";
 import { MdOutlineContentCopy, MdEdit, MdDelete, MdNoteAdd } from "react-icons/md";
+import { PiFilePdfDuotone } from "react-icons/pi";
+import { RiVoiceAiLine } from "react-icons/ri";
+import { TbMessageReport } from "react-icons/tb";
 
 type FlashCardMenuProps = {
     onNew?: () => void;
@@ -17,7 +21,7 @@ const FlashCardMenu: React.FC<FlashCardMenuProps> = ({
     onEdit = () => { },
     onDelete = () => { },
 }) => {
-    const iconClass = "text-[18px]";
+    const iconClass = "text-[19px]";
 
     return (
         <Dropdown backdrop="opaque" placement="top">
@@ -30,36 +34,17 @@ const FlashCardMenu: React.FC<FlashCardMenuProps> = ({
             <DropdownMenu aria-label="Flashcard menu" variant="faded">
                 <DropdownItem
                     key="new"
-                    startContent={<MdNoteAdd className={iconClass} />}
+                    startContent={<TbMessageReport className={iconClass} />}
                     onClick={onNew}
                 >
-                    ایجاد مورد جدید
+                    گزارش مشکل
                 </DropdownItem>
-
                 <DropdownItem
-                    key="copy"
-                    startContent={<MdOutlineContentCopy className={iconClass} />}
-                    onClick={onCopy}
+                    key="new"
+                    startContent={<PiFilePdfDuotone className={iconClass} />}
+                    onClick={onNew}
                 >
-                    کپی
-                </DropdownItem>
-
-                <DropdownItem
-                    key="edit"
-                    startContent={<MdEdit className={iconClass} />}
-                    onClick={onEdit}
-                >
-                    ویرایش
-                </DropdownItem>
-
-                <DropdownItem
-                    key="delete"
-                    className="text-danger"
-                    color="danger"
-                    startContent={<MdDelete className={`${iconClass} text-danger`} />}
-                    onClick={onDelete}
-                >
-                    حذف
+                    خروجی PDF
                 </DropdownItem>
             </DropdownMenu>
         </Dropdown>
