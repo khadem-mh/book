@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import { CgPlayStopO, CgPlayStopR } from "react-icons/cg";
-import { RiVoiceAiLine, RiPauseLine, RiRepeatLine } from "react-icons/ri";
+import { CgPlayStopO } from "react-icons/cg";
+import { RiVoiceAiLine, RiRepeatLine } from "react-icons/ri";
 
 type AudioButtonProps = {
   src: string;
