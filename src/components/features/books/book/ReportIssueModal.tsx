@@ -2,39 +2,36 @@
 
 import { useState } from "react";
 import BaseModal from "@/components/ui/BaseModal";
-import { Input, Textarea, Button } from "@heroui/react";
+import BaseSelect, { BaseOption } from "@/components/ui/inputs/BaseSelect";
+import BaseInput from "@/components/ui/inputs/BaseInput";
+import BaseTextarea from "@/components/ui/inputs/BaseTextarea";
+import { Button } from "@heroui/react";
 
 interface ReportIssueModalProps {
     isOpen?: boolean;
     onOpenChange?: (open: boolean) => void;
-    onSubmit?: (data: { title: string; description: string }) => void;
 }
 
 export default function ReportIssueModal({
     isOpen: controlledIsOpen,
     onOpenChange,
-    onSubmit,
 }: ReportIssueModalProps) {
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [form, setForm] = useState({
+        title: "",
+        description: "",
+        category: "" as string | undefined,
+    });
 
-    const handleSubmit = async () => {
-        if (!title || !description) return; // ساده‌ترین اعتبارسنجی
-        setIsSubmitting(true);
-        try {
-            await onSubmit?.({ title, description });
-            setTitle("");
-            setDescription("");
-            onOpenChange?.(false); // بعد از submit مودال بسته شود
-        } finally {
-            setIsSubmitting(false);
-        }
-    };
+    const options: BaseOption[] = [
+        { key: "flashcard", label: "مشکل از محتوای فلش کارت" },
+        { key: "prompt", label: "مشکل از پرامپت AI" },
+        { key: "ai_audio", label: "مشکل از صوت AI" },
+        { key: "ai_image", label: "مشکل از تصاویر تولید شده AI" },
+    ];
 
     return (
         <BaseModal
-            title="Report an Issue"
+            title="گزارش یک مشکل"
             isOpen={controlledIsOpen}
             onOpenChange={onOpenChange}
             footerButtons={
@@ -42,25 +39,33 @@ export default function ReportIssueModal({
                     <Button color="danger" variant="light" onPress={() => onOpenChange?.(false)}>
                         لغو
                     </Button>
-                    <Button color="primary" onPress={handleSubmit} disabled={isSubmitting}>
-                        {isSubmitting ? "در حال ارسال..." : "ثبت"}
+                    <Button
+                        color="primary"
+                        onPress={() => {
+                            console.log("submit", form);
+                            onOpenChange?.(false);
+                        }}
+                    >
+                        ثبت
                     </Button>
                 </>
             }
         >
             <div className="flex flex-col gap-4">
-                <Input
-                    label="عنوان مشکل"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    placeholder="عنوان مشکل را وارد کنید"
+                <BaseSelect
+                    label="دسته"
+                    placeholder="یک دسته انتخاب کنید"
+                    options={options}
+                    selectedKey={form.category}
+                    onChange={(key) => setForm((s) => ({ ...s, category: key }))}
                 />
-                <Textarea
+
+                <BaseTextarea
                     label="توضیحات"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    placeholder="توضیح دهید"
+                    value={form.description}
+                    placeholder="مشکل از چه قراره؟"
                     rows={5}
+                    onChange={(v) => setForm((s) => ({ ...s, description: v }))}
                 />
             </div>
         </BaseModal>
